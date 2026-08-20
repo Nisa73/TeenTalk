@@ -8,9 +8,9 @@
 
 <style>
 
-/* ==============================
+/* =========================
    GENERAL
-============================== */
+========================= */
 
 * {
     box-sizing: border-box;
@@ -41,10 +41,8 @@ header {
 .badge {
     background: #eaf0ff;
     color: #2457e6;
-
     padding: 7px 12px;
     border-radius: 20px;
-
     font-size: 13px;
 }
 
@@ -58,11 +56,8 @@ main {
     background: white;
     border: 1px solid #dce3ed;
     border-radius: 18px;
-
     padding: 25px;
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,.05);
+    box-shadow: 0 5px 25px rgba(0,0,0,.05);
 }
 
 .auth-card {
@@ -83,26 +78,16 @@ h3 {
 
 label {
     display: block;
-
     font-weight: bold;
-
-    margin:
-        16px 0
-        6px;
+    margin: 16px 0 6px;
 }
 
 input,
 textarea {
     width: 100%;
-
-    border:
-        1px solid
-        #cbd5e1;
-
+    border: 1px solid #cbd5e1;
     border-radius: 10px;
-
     padding: 12px;
-
     font: inherit;
 }
 
@@ -112,21 +97,15 @@ textarea {
 }
 
 
-/* ==============================
+/* =========================
    BUTTONS
-============================== */
+========================= */
 
 button {
     border: 0;
-
     border-radius: 10px;
-
-    padding:
-        11px
-        15px;
-
+    padding: 11px 15px;
     font-weight: bold;
-
     cursor: pointer;
 }
 
@@ -156,35 +135,59 @@ button:disabled {
 }
 
 
-/* ==============================
+/* =========================
    LOGIN TABS
-============================== */
+========================= */
+
+/*
+   ALL THREE OPTIONS ARE BLUE.
+*/
 
 .tabs {
     display: flex;
-
-    gap: 7px;
-
-    margin:
-        25px 0;
+    gap: 8px;
+    margin: 25px 0;
 }
 
 .tab {
     flex: 1;
 
-    background: #edf1f7;
-    color: #26334a;
-}
-
-.tab.active {
     background: #2457e6;
     color: white;
+
+    border: 2px solid #2457e6;
+
+    transition:
+        background .15s,
+        transform .15s;
 }
 
 
-/* ==============================
+/*
+   The currently selected option
+   is still blue, but slightly darker
+   so you can tell which screen is open.
+*/
+
+.tab.active {
+    background: #1743b8;
+    border-color: #1743b8;
+}
+
+
+/*
+   Make the blue buttons respond
+   when hovered.
+*/
+
+.tab:hover {
+    background: #1743b8;
+}
+
+
+/* =========================
    PASSWORD
-============================== */
+========================= */
 
 .password-row {
     display: flex;
@@ -201,9 +204,9 @@ button:disabled {
 }
 
 
-/* ==============================
+/* =========================
    MESSAGES
-============================== */
+========================= */
 
 .hidden {
     display: none !important;
@@ -211,49 +214,28 @@ button:disabled {
 
 .notice {
     background: #fff8df;
-
-    border:
-        1px solid
-        #ecd68a;
-
+    border: 1px solid #ecd68a;
     border-radius: 11px;
-
     padding: 14px;
-
     line-height: 1.5;
-
     margin: 15px 0;
 }
 
 .error {
     background: #feecec;
-
     color: #b42318;
-
-    border:
-        1px solid
-        #efb6b2;
-
+    border: 1px solid #efb6b2;
     padding: 12px;
-
     border-radius: 10px;
-
     margin-top: 12px;
 }
 
 .success {
     background: #e9f8ef;
-
     color: #176b36;
-
-    border:
-        1px solid
-        #b9dfc8;
-
+    border: 1px solid #b9dfc8;
     padding: 12px;
-
     border-radius: 10px;
-
     margin-top: 12px;
 }
 
@@ -263,119 +245,79 @@ button:disabled {
 }
 
 
-/* ==============================
+/* =========================
    TEEN OPTIONS
-============================== */
+========================= */
 
 .option-grid {
     display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
-
     margin: 25px 0;
 }
 
 .big-button {
     padding: 35px 15px;
-
     font-size: 20px;
 }
 
 
-/* ==============================
+/* =========================
    CHAT
-============================== */
+========================= */
 
 .panel {
-    border:
-        1px solid
-        #dce3ed;
-
+    border: 1px solid #dce3ed;
     border-radius: 14px;
-
     overflow: hidden;
-
     margin-top: 20px;
 }
 
 .chat-header {
     padding: 14px;
-
     background: #f7f9fc;
-
-    border-bottom:
-        1px solid
-        #dce3ed;
+    border-bottom: 1px solid #dce3ed;
 
     display: flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .messages {
     height: 330px;
-
     overflow-y: auto;
-
     padding: 15px;
 }
 
 .message {
     width: fit-content;
-
     max-width: 75%;
-
-    padding:
-        10px
-        13px;
-
-    margin:
-        7px 0;
-
+    padding: 10px 13px;
+    margin: 7px 0;
     border-radius: 14px;
-
     background: #e9edf4;
-
     white-space: pre-wrap;
 }
 
 .message.me {
     margin-left: auto;
-
     background: #2457e6;
-
     color: white;
 }
 
 .message.system {
     margin-left: auto;
     margin-right: auto;
-
     background: #f1f3f6;
-
     color: #667085;
-
     font-size: 12px;
 }
 
 .message-row {
     display: flex;
-
     gap: 8px;
-
     padding: 12px;
-
-    border-top:
-        1px solid
-        #dce3ed;
+    border-top: 1px solid #dce3ed;
 }
 
 .message-row input {
@@ -383,32 +325,22 @@ button:disabled {
 }
 
 
-/* ==============================
+/* =========================
    OPERATOR
-============================== */
+========================= */
 
 .operator-layout {
     display: grid;
-
-    grid-template-columns:
-        330px
-        1fr;
-
+    grid-template-columns: 330px 1fr;
     gap: 20px;
 }
 
 .account,
 .conversation {
     background: #f5f7fa;
-
-    border:
-        1px solid
-        #dce3ed;
-
+    border: 1px solid #dce3ed;
     border-radius: 10px;
-
     padding: 12px;
-
     margin-bottom: 8px;
 }
 
@@ -419,88 +351,67 @@ button:disabled {
 .conversation:hover,
 .conversation.active {
     background: #eaf0ff;
-
-    border-color:
-        #2457e6;
+    border-color: #2457e6;
 }
 
 .section {
-    border-top:
-        1px solid
-        #dce3ed;
-
+    border-top: 1px solid #dce3ed;
     margin-top: 25px;
-
     padding-top: 20px;
 }
 
 .status {
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     font-weight: bold;
 }
 
 .dot {
     width: 10px;
     height: 10px;
-
     background: #22a653;
-
     border-radius: 50%;
 }
 
 
-/* ==============================
+/* =========================
    CALL
-============================== */
+========================= */
 
 .call-panel {
     text-align: center;
-
     padding: 35px;
 }
 
 .call-icon {
     font-size: 55px;
-
     margin-bottom: 15px;
 }
 
 
-/* ==============================
+/* =========================
    REPORTS
-============================== */
+========================= */
 
 .report-item {
     background: #fff7f7;
-
-    border:
-        1px solid
-        #f0c4c4;
-
+    border: 1px solid #f0c4c4;
     padding: 12px;
-
     border-radius: 10px;
-
     margin-top: 8px;
 }
 
 .note-saved {
     color: #176b36;
-
     font-size: 13px;
-
     margin-top: 8px;
 }
 
 
-/* ==============================
+/* =========================
    MOBILE
-============================== */
+========================= */
 
 @media (max-width: 800px) {
 
@@ -525,10 +436,6 @@ button:disabled {
 <body>
 
 
-<!-- ==============================
-     HEADER
-============================== -->
-
 <header>
 
     <div class="logo">
@@ -543,13 +450,12 @@ button:disabled {
 </header>
 
 
-
 <main>
 
 
-<!-- =====================================================
+<!-- ==================================================
      AUTHENTICATION
-===================================================== -->
+================================================== -->
 
 <section
     id="authScreen"
@@ -569,7 +475,9 @@ button:disabled {
     </p>
 
 
-    <!-- LOGIN TABS -->
+    <!-- =========================
+         LOGIN OPTIONS
+    ========================== -->
 
     <div class="tabs">
 
@@ -607,10 +515,9 @@ button:disabled {
     </div>
 
 
-
-    <!-- =================================================
+    <!-- ==================================================
          TEEN LOGIN
-    ================================================= -->
+    ================================================== -->
 
     <div id="loginForm">
 
@@ -684,10 +591,9 @@ button:disabled {
     </div>
 
 
-
-    <!-- =================================================
-         TEEN SIGNUP
-    ================================================= -->
+    <!-- ==================================================
+         SIGN UP
+    ================================================== -->
 
     <div
         id="signupForm"
@@ -812,10 +718,9 @@ button:disabled {
     </div>
 
 
-
-    <!-- =================================================
+    <!-- ==================================================
          OPERATOR LOGIN
-    ================================================= -->
+    ================================================== -->
 
     <div
         id="operatorLoginForm"
@@ -877,7 +782,7 @@ button:disabled {
             class="primary full"
             onclick="loginOperator()">
 
-            Operator Login
+            Operator Sign In
 
         </button>
 
@@ -894,10 +799,9 @@ button:disabled {
 </section>
 
 
-
-<!-- =====================================================
+<!-- ==================================================
      TEEN DASHBOARD
-===================================================== -->
+================================================== -->
 
 <section
     id="teenDashboard"
@@ -950,8 +854,7 @@ button:disabled {
         </div>
 
 
-
-        <!-- TEXT CHAT -->
+        <!-- TEXT -->
 
         <div
             id="teenTextPanel"
@@ -959,7 +862,6 @@ button:disabled {
 
 
             <div class="chat-header">
-
 
                 <strong>
                     TeenTalk Operator
@@ -973,7 +875,6 @@ button:disabled {
                     Block
 
                 </button>
-
 
             </div>
 
@@ -1009,7 +910,6 @@ button:disabled {
         </div>
 
 
-
         <!-- CALL -->
 
         <div
@@ -1042,7 +942,6 @@ button:disabled {
         </div>
 
 
-
         <button
             class="secondary full"
             onclick="logout()">
@@ -1058,10 +957,9 @@ button:disabled {
 </section>
 
 
-
-<!-- =====================================================
+<!-- ==================================================
      OPERATOR DASHBOARD
-===================================================== -->
+================================================== -->
 
 <section
     id="operatorDashboard"
@@ -1071,7 +969,7 @@ button:disabled {
     <div class="operator-layout">
 
 
-        <!-- SIDEBAR -->
+        <!-- LEFT -->
 
         <div class="card">
 
@@ -1119,8 +1017,7 @@ button:disabled {
         </div>
 
 
-
-        <!-- OPERATOR MAIN -->
+        <!-- RIGHT -->
 
         <div class="card">
 
@@ -1143,8 +1040,7 @@ button:disabled {
             </div>
 
 
-
-            <!-- CHAT -->
+            <!-- OPERATOR CHAT -->
 
             <div
                 id="operatorChatPanel"
@@ -1199,8 +1095,7 @@ button:disabled {
                 </div>
 
 
-
-                <!-- PRIVATE NOTES -->
+                <!-- NOTES -->
 
                 <div class="section">
 
@@ -1213,15 +1108,14 @@ button:disabled {
                     <p class="small">
 
                         These notes are saved
-                        separately in this
-                        teen's individual record.
+                        separately for this teen.
 
                     </p>
 
 
                     <textarea
                         id="privateNotes"
-                        placeholder="Private notes about this teen..."
+                        placeholder="Private notes..."
                     ></textarea>
 
 
@@ -1243,7 +1137,6 @@ button:disabled {
                 </div>
 
 
-
                 <!-- REPORTS -->
 
                 <div class="section">
@@ -1256,8 +1149,8 @@ button:disabled {
 
                     <p class="small">
 
-                        Reports are manually
-                        created. Nothing is
+                        Reports are created
+                        manually. Nothing is
                         automatically reported.
 
                     </p>
@@ -1265,7 +1158,7 @@ button:disabled {
 
                     <textarea
                         id="reportInput"
-                        placeholder="Write a report for this teen..."
+                        placeholder="Write a report..."
                     ></textarea>
 
 
@@ -1287,7 +1180,6 @@ button:disabled {
 
 
             </div>
-
 
 
             <!-- INCOMING CALL -->
@@ -1354,7 +1246,6 @@ button:disabled {
 </main>
 
 
-
 <script>
 
 /* =========================================================
@@ -1393,7 +1284,6 @@ function saveDB() {
 }
 
 
-
 /* =========================================================
    SESSION
 ========================================================= */
@@ -1401,7 +1291,6 @@ function saveDB() {
 let currentUser = null;
 
 let currentTeenId = null;
-
 
 
 /* =========================================================
@@ -1428,12 +1317,6 @@ function setupPasswordReveal(
         "input",
         function() {
 
-            /*
-             * The reveal button only becomes
-             * available after the user actually
-             * types something into the field.
-             */
-
             if (
                 this.value.length > 0
             ) {
@@ -1459,18 +1342,15 @@ setupPasswordReveal(
     "loginReveal"
 );
 
-
 setupPasswordReveal(
     "signupPassword",
     "signupReveal"
 );
 
-
 setupPasswordReveal(
     "operatorPassword",
     "operatorReveal"
 );
-
 
 
 function togglePassword(
@@ -1488,11 +1368,6 @@ function togglePassword(
             buttonId
         );
 
-
-    /*
-     * Don't allow reveal if nothing
-     * has been typed.
-     */
 
     if (
         input.value.length === 0
@@ -1527,7 +1402,6 @@ function togglePassword(
     }
 
 }
-
 
 
 /* =========================================================
@@ -1638,7 +1512,6 @@ function showOperatorLogin() {
         .classList.remove("hidden");
 
 }
-
 
 
 /* =========================================================
@@ -1792,7 +1665,6 @@ function signupTeen() {
 }
 
 
-
 /* =========================================================
    TEEN LOGIN
 ========================================================= */
@@ -1875,7 +1747,6 @@ function loginTeen() {
 }
 
 
-
 /* =========================================================
    OPERATOR LOGIN
 ========================================================= */
@@ -1911,14 +1782,6 @@ function loginOperator() {
     );
 
 
-    /*
-     * PROTOTYPE CREDENTIALS
-     *
-     * These are NOT secure for a public
-     * production website because JavaScript
-     * is visible to visitors.
-     */
-
     const OPERATOR_USERNAME =
         "NisaAdmin";
 
@@ -1927,27 +1790,19 @@ function loginOperator() {
         "C@p!t@l!zed";
 
 
-    /*
-     * BOTH username AND password must match.
-     */
-
     if (
-        username ===
-            OPERATOR_USERNAME &&
-        password ===
-            OPERATOR_PASSWORD
+        username === OPERATOR_USERNAME &&
+        password === OPERATOR_PASSWORD
     ) {
 
         currentUser = {
 
-            id:
-                "operator",
+            id: "operator",
 
             username:
                 OPERATOR_USERNAME,
 
-            role:
-                "operator"
+            role: "operator"
 
         };
 
@@ -1967,7 +1822,6 @@ function loginOperator() {
     );
 
 }
-
 
 
 /* =========================================================
@@ -2003,7 +1857,6 @@ function showTeenDashboard() {
         currentUser.username;
 
 }
-
 
 
 /* =========================================================
@@ -2046,7 +1899,6 @@ function showOperatorDashboard() {
 }
 
 
-
 /* =========================================================
    PENDING ACCOUNTS
 ========================================================= */
@@ -2071,7 +1923,9 @@ function renderPendingAccounts() {
             if (
                 user.approved
             ) {
+
                 return;
+
             }
 
 
@@ -2133,7 +1987,6 @@ function renderPendingAccounts() {
 }
 
 
-
 function approveUser(id) {
 
     const user =
@@ -2146,7 +1999,9 @@ function approveUser(id) {
 
 
     if (!user) {
+
         return;
+
     }
 
 
@@ -2170,7 +2025,6 @@ function approveUser(id) {
     );
 
 }
-
 
 
 /* =========================================================
@@ -2220,13 +2074,6 @@ function openText() {
         .remove("hidden");
 
 
-    /*
-     * AUTOMATED GREETING
-     *
-     * This can only happen once for
-     * this conversation.
-     */
-
     if (
         !conversation.greetingSent
     ) {
@@ -2257,7 +2104,6 @@ function openText() {
     renderTeenMessages();
 
 }
-
 
 
 function renderTeenMessages() {
@@ -2333,11 +2179,12 @@ function renderTeenMessages() {
 }
 
 
-
 function sendTeenMessage() {
 
     if (!currentUser) {
+
         return;
+
     }
 
 
@@ -2353,7 +2200,9 @@ function sendTeenMessage() {
 
 
     if (!text) {
+
         return;
+
     }
 
 
@@ -2390,12 +2239,10 @@ function sendTeenMessage() {
 }
 
 
-
 function teenEnter(event) {
 
     if (
-        event.key ===
-        "Enter"
+        event.key === "Enter"
     ) {
 
         sendTeenMessage();
@@ -2403,7 +2250,6 @@ function teenEnter(event) {
     }
 
 }
-
 
 
 /* =========================================================
@@ -2430,7 +2276,9 @@ function renderConversations() {
             if (
                 conversation.blocked
             ) {
+
                 return;
+
             }
 
 
@@ -2496,11 +2344,6 @@ function renderConversations() {
 }
 
 
-
-/* =========================================================
-   OPERATOR CHAT
-========================================================= */
-
 function openOperatorConversation(
     teenId
 ) {
@@ -2516,7 +2359,9 @@ function openOperatorConversation(
 
 
     if (!conversation) {
+
         return;
+
     }
 
 
@@ -2553,11 +2398,12 @@ function openOperatorConversation(
 }
 
 
-
 function renderOperatorMessages() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2632,11 +2478,12 @@ function renderOperatorMessages() {
 }
 
 
-
 function sendOperatorMessage() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2652,7 +2499,9 @@ function sendOperatorMessage() {
 
 
     if (!text) {
+
         return;
+
     }
 
 
@@ -2685,12 +2534,10 @@ function sendOperatorMessage() {
 }
 
 
-
 function operatorEnter(event) {
 
     if (
-        event.key ===
-        "Enter"
+        event.key === "Enter"
     ) {
 
         sendOperatorMessage();
@@ -2700,7 +2547,6 @@ function operatorEnter(event) {
 }
 
 
-
 /* =========================================================
    PRIVATE NOTES
 ========================================================= */
@@ -2708,7 +2554,9 @@ function operatorEnter(event) {
 function loadNotes() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2732,11 +2580,12 @@ function loadNotes() {
 }
 
 
-
 function saveNotes() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2763,7 +2612,6 @@ function saveNotes() {
 }
 
 
-
 /* =========================================================
    REPORTS
 ========================================================= */
@@ -2771,7 +2619,9 @@ function saveNotes() {
 function loadReports() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2818,11 +2668,12 @@ function loadReports() {
 }
 
 
-
 function saveReport() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2838,7 +2689,9 @@ function saveReport() {
 
 
     if (!text) {
+
         return;
+
     }
 
 
@@ -2879,15 +2732,16 @@ function saveReport() {
 }
 
 
-
 /* =========================================================
-   BLOCK
+   BLOCKING
 ========================================================= */
 
 function blockOperator() {
 
     if (!currentUser) {
+
         return;
+
     }
 
 
@@ -2915,11 +2769,12 @@ function blockOperator() {
 }
 
 
-
 function operatorBlockTeen() {
 
     if (!currentTeenId) {
+
         return;
+
     }
 
 
@@ -2949,9 +2804,8 @@ function operatorBlockTeen() {
 }
 
 
-
 /* =========================================================
-   CALL SYSTEM
+   CALL
 ========================================================= */
 
 function startCall() {
@@ -2969,10 +2823,6 @@ function startCall() {
 
     }
 
-
-    /*
-     * Only ONE call can exist at a time.
-     */
 
     if (
         db.currentCall
@@ -3025,17 +2875,11 @@ function startCall() {
 }
 
 
-
 function monitorTeenCall() {
 
     const interval =
         setInterval(
             function() {
-
-                /*
-                 * If the call disappeared,
-                 * stop monitoring.
-                 */
 
                 if (
                     !db.currentCall
@@ -3104,19 +2948,16 @@ function monitorTeenCall() {
 }
 
 
-
 function answerCall() {
 
     if (
         !db.currentCall
     ) {
+
         return;
+
     }
 
-
-    /*
-     * Only the ringing call can be answered.
-     */
 
     if (
         db.currentCall.status !==
@@ -3150,13 +2991,14 @@ function answerCall() {
 }
 
 
-
 function declineCall() {
 
     if (
         !db.currentCall
     ) {
+
         return;
+
     }
 
 
@@ -3177,7 +3019,6 @@ function declineCall() {
 }
 
 
-
 function endCall() {
 
     db.currentCall =
@@ -3195,7 +3036,6 @@ function endCall() {
         .add("hidden");
 
 }
-
 
 
 /* =========================================================
@@ -3242,7 +3082,6 @@ setInterval(
 );
 
 
-
 /* =========================================================
    LOGOUT
 ========================================================= */
@@ -3281,9 +3120,8 @@ function logout() {
 }
 
 
-
 /* =========================================================
-   HTML ESCAPING
+   HTML SECURITY
 ========================================================= */
 
 function escapeHTML(value) {
@@ -3318,9 +3156,8 @@ function escapeHTML(value) {
 }
 
 
-
 /* =========================================================
-   START ON TEEN LOGIN
+   START
 ========================================================= */
 
 showLogin();

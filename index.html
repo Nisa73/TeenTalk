@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TeenTalk</title>
 
 <style>
@@ -20,8 +19,8 @@ body {
 
 header {
     background: white;
-    border-bottom: 1px solid #dfe5ee;
-    padding: 16px 22px;
+    border-bottom: 1px solid #dce3ed;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,31 +31,30 @@ header {
     font-weight: 800;
 }
 
-.user-badge {
-    background: #e8f7ee;
-    color: #19733a;
-    padding: 8px 12px;
+.badge {
+    background: #eaf0ff;
+    color: #2457e6;
+    padding: 7px 12px;
     border-radius: 20px;
     font-size: 13px;
-    font-weight: bold;
 }
 
 main {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 30px auto;
     padding: 0 18px;
 }
 
 .card {
     background: white;
-    border: 1px solid #dfe5ee;
+    border: 1px solid #dce3ed;
     border-radius: 18px;
     padding: 25px;
-    box-shadow: 0 6px 25px rgba(0,0,0,.05);
+    box-shadow: 0 5px 25px rgba(0,0,0,.05);
 }
 
-.auth-container {
-    max-width: 500px;
+.auth-card {
+    max-width: 520px;
     margin: 40px auto;
 }
 
@@ -72,63 +70,43 @@ h1, h2, h3 {
 label {
     display: block;
     font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 6px;
+    margin: 16px 0 6px;
 }
 
 input,
 textarea {
     width: 100%;
-    border: 1px solid #cfd7e5;
+    border: 1px solid #cbd5e1;
     border-radius: 10px;
     padding: 12px;
     font: inherit;
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 110px;
     resize: vertical;
 }
 
-/* Password field */
-
-.password-wrapper {
+.password-row {
     display: flex;
-    gap: 7px;
-    align-items: stretch;
+    gap: 8px;
 }
 
-.password-wrapper input {
+.password-row input {
     flex: 1;
 }
 
-.reveal-button {
-    min-width: 75px;
-    background: #edf2fa;
-    color: #24314a;
-    border: none;
+button {
+    border: 0;
     border-radius: 10px;
-    font-size: 12px;
+    padding: 11px 15px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.reveal-button:disabled {
+button:disabled {
     opacity: .45;
     cursor: not-allowed;
-}
-
-button {
-    border: none;
-    border-radius: 11px;
-    padding: 12px 15px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover:not(:disabled) {
-    opacity: .88;
 }
 
 .primary {
@@ -137,8 +115,8 @@ button:hover:not(:disabled) {
 }
 
 .secondary {
-    background: #edf2fa;
-    color: #24314a;
+    background: #edf1f7;
+    color: #26334a;
 }
 
 .danger {
@@ -148,22 +126,28 @@ button:hover:not(:disabled) {
 
 .full {
     width: 100%;
-    margin-top: 18px;
+    margin-top: 15px;
 }
 
 .tabs {
     display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 7px;
+    margin: 25px 0;
 }
 
-.tabs button {
+.tab {
     flex: 1;
+    background: #edf1f7;
 }
 
-.active-tab {
+.tab.active {
     background: #2457e6;
     color: white;
+}
+
+.reveal {
+    min-width: 75px;
+    background: #edf1f7;
 }
 
 .hidden {
@@ -171,37 +155,159 @@ button:hover:not(:disabled) {
 }
 
 .notice {
-    background: #fff8e5;
-    border: 1px solid #efd58b;
-    color: #6c5300;
+    background: #fff8df;
+    border: 1px solid #ecd68a;
+    border-radius: 11px;
     padding: 14px;
-    border-radius: 12px;
-    margin: 18px 0;
     line-height: 1.5;
+    margin: 15px 0;
 }
 
 .error {
     background: #feecec;
     color: #b42318;
-    border: 1px solid #f2b8b5;
+    border: 1px solid #efb6b2;
     padding: 12px;
     border-radius: 10px;
     margin-top: 12px;
 }
 
-.success-message {
-    background: #e8f7ee;
-    color: #19733a;
-    border: 1px solid #b8dfc6;
+.success {
+    background: #e9f8ef;
+    color: #176b36;
+    border: 1px solid #b9dfc8;
     padding: 12px;
     border-radius: 10px;
     margin-top: 12px;
 }
 
-.grid {
+.option-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.big-button {
+    padding: 35px 15px;
+    font-size: 20px;
+}
+
+.panel {
+    border: 1px solid #dce3ed;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.chat-header {
+    padding: 14px;
+    background: #f7f9fc;
+    border-bottom: 1px solid #dce3ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.messages {
+    height: 330px;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.message {
+    width: fit-content;
+    max-width: 75%;
+    padding: 10px 13px;
+    margin: 7px 0;
+    border-radius: 14px;
+    background: #e9edf4;
+    white-space: pre-wrap;
+}
+
+.message.me {
+    margin-left: auto;
+    background: #2457e6;
+    color: white;
+}
+
+.message.system {
+    margin-left: auto;
+    margin-right: auto;
+    background: #f1f3f6;
+    color: #667085;
+    font-size: 12px;
+}
+
+.message-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #dce3ed;
+}
+
+.message-row input {
+    flex: 1;
+}
+
+.operator-layout {
+    display: grid;
+    grid-template-columns: 330px 1fr;
     gap: 20px;
+}
+
+.account,
+.conversation {
+    background: #f5f7fa;
+    border: 1px solid #dce3ed;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+}
+
+.conversation {
+    cursor: pointer;
+}
+
+.conversation:hover,
+.conversation.active {
+    background: #eaf0ff;
+    border-color: #2457e6;
+}
+
+.section {
+    border-top: 1px solid #dce3ed;
+    margin-top: 25px;
+    padding-top: 20px;
+}
+
+.small {
+    font-size: 13px;
+    color: #667085;
+}
+
+.call-panel {
+    text-align: center;
+    padding: 35px;
+}
+
+.call-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.report-item {
+    background: #fff7f7;
+    border: 1px solid #f0c4c4;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.note-saved {
+    color: #176b36;
+    font-size: 13px;
+    margin-top: 8px;
 }
 
 .status {
@@ -212,1185 +318,739 @@ button:hover:not(:disabled) {
 }
 
 .dot {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
+    background: #22a653;
     border-radius: 50%;
-    background: #29a85b;
 }
 
-.red-dot {
-    background: #d92d20;
-}
-
-.option-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.big-option {
-    padding: 30px 15px;
-    font-size: 18px;
-}
-
-.call-box {
-    background: #f7f9fc;
-    border-radius: 14px;
-    padding: 25px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.call-icon {
-    font-size: 45px;
-}
-
-.operator-status {
-    background: #f7f9fc;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.chat-container {
-    border: 1px solid #dfe5ee;
-    border-radius: 14px;
-    overflow: hidden;
-}
-
-.chat-header {
-    background: #f7f9fc;
-    padding: 14px;
-    border-bottom: 1px solid #dfe5ee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chat {
-    height: 300px;
-    padding: 15px;
-    overflow-y: auto;
-}
-
-.message {
-    max-width: 78%;
-    padding: 10px 13px;
-    border-radius: 14px;
-    margin: 7px 0;
-    background: #e8edf7;
-    line-height: 1.4;
-}
-
-.message.operator {
-    margin-left: auto;
-    background: #2457e6;
-    color: white;
-}
-
-.message.system {
-    margin-left: auto;
-    margin-right: auto;
-    background: #f0f2f5;
-    color: #667085;
-    font-size: 12px;
-    text-align: center;
-}
-
-.input-row {
-    display: flex;
-    gap: 8px;
-    padding: 12px;
-    border-top: 1px solid #dfe5ee;
-}
-
-.input-row input {
-    flex: 1;
-}
-
-.conversation-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.conversation-button {
-    width: 100%;
-    background: #f4f6fa;
-    border: 1px solid #dfe5ee;
-    text-align: left;
-}
-
-.conversation-button.active {
-    background: #e8eefc;
-    border-color: #2457e6;
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.small {
-    color: #667085;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid #e3e8f0;
-    margin: 25px 0;
-}
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.45);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-.modal-box {
-    background: white;
-    width: min(450px, 90%);
-    padding: 25px;
-    border-radius: 18px;
-}
-
-@media(max-width: 750px) {
-    .grid,
-    .option-grid,
-    .buttons {
+@media(max-width: 800px) {
+    .operator-layout {
         grid-template-columns: 1fr;
     }
 
-    main {
-        margin: 15px auto;
+    .option-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
 </head>
 
-
 <body>
 
 <header>
-
-    <div class="logo">
-        TeenTalk
-    </div>
-
-    <div id="headerUser" class="user-badge hidden"></div>
-
+    <div class="logo">TeenTalk</div>
+    <div id="userBadge" class="badge hidden"></div>
 </header>
-
 
 <main>
 
+<!-- =========================
+     AUTH
+========================= -->
 
-<!-- =====================================================
-     LOGIN / SIGNUP
-===================================================== -->
+<section id="authScreen" class="card auth-card">
 
-<div id="authScreen" class="auth-container">
+    <h1>TeenTalk</h1>
 
-<div class="card">
+    <p class="subtitle">
+        A place to talk with the teen currently operating the line.
+    </p>
 
-<h1>Welcome to TeenTalk</h1>
+    <div class="tabs">
 
-<p class="subtitle">
-A place for teens to talk with the teen currently
-operating the TeenTalk line.
-</p>
+        <button id="loginTab"
+                class="tab active"
+                onclick="showLogin()">
+            Log In
+        </button>
 
+        <button id="signupTab"
+                class="tab"
+                onclick="showSignup()">
+            Sign Up
+        </button>
 
-<div class="tabs">
+        <button id="operatorTab"
+                class="tab"
+                onclick="showOperatorLogin()">
+            Operator
+        </button>
 
-<button
-id="loginTab"
-class="active-tab"
-onclick="showLogin()">
-Log In
-</button>
+    </div>
 
-<button
-id="signupTab"
-class="secondary"
-onclick="showSignup()">
-Sign Up
-</button>
 
-</div>
+    <!-- LOGIN -->
 
+    <div id="loginForm">
 
+        <h2>Teen Login</h2>
 
-<!-- LOGIN -->
+        <label>Username</label>
 
-<div id="loginForm">
+        <input
+            id="loginUsername"
+            autocomplete="username"
+            placeholder="Username">
 
-<h2>Log In</h2>
 
+        <label>Password</label>
 
-<label>
-Username
-</label>
+        <div class="password-row">
 
-<input
-id="loginUsername"
-type="text"
-placeholder="Username"
-autocomplete="username"
->
+            <input
+                id="loginPassword"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Password">
 
+            <button
+                id="loginReveal"
+                class="reveal"
+                disabled
+                onclick="togglePassword(
+                    'loginPassword',
+                    'loginReveal'
+                )">
+                Reveal
+            </button>
 
-<label>
-Password
-</label>
+        </div>
 
-<div class="password-wrapper">
+        <button
+            class="primary full"
+            onclick="loginTeen()">
+            Log In
+        </button>
 
-<input
-id="loginPassword"
-type="password"
-placeholder="Password"
-autocomplete="current-password"
->
+        <div id="loginError"
+             class="error hidden">
+        </div>
 
-<button
-id="loginReveal"
-class="reveal-button"
-type="button"
-disabled
-onclick="togglePassword('loginPassword','loginReveal')">
+    </div>
 
-Reveal
 
-</button>
+    <!-- SIGNUP -->
 
-</div>
+    <div id="signupForm" class="hidden">
 
+        <h2>Create Teen Account</h2>
 
-<button
-class="primary full"
-onclick="loginUser()">
+        <div class="notice">
+            Birthday and graduation year are required.
+            About Yourself is optional.
+        </div>
 
-Log In
+        <label>Username *</label>
 
-</button>
+        <input
+            id="signupUsername"
+            autocomplete="username"
+            placeholder="Choose a username">
 
 
-<button
-class="secondary full"
-onclick="showOperatorLogin()">
+        <label>Password *</label>
 
-Operator Login
+        <div class="password-row">
 
-</button>
+            <input
+                id="signupPassword"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Create a password">
 
+            <button
+                id="signupReveal"
+                class="reveal"
+                disabled
+                onclick="togglePassword(
+                    'signupPassword',
+                    'signupReveal'
+                )">
+                Reveal
+            </button>
 
-<div
-id="loginError"
-class="error hidden">
-</div>
+        </div>
 
-</div>
 
+        <label>Birthday *</label>
 
+        <input
+            id="signupBirthday"
+            type="date">
 
-<!-- SIGNUP -->
 
-<div id="signupForm" class="hidden">
+        <label>Graduation Year *</label>
 
-<h2>Create Teen Account</h2>
+        <input
+            id="signupGraduation"
+            type="number"
+            placeholder="Example: 2029">
 
 
-<div class="notice">
+        <label>
+            About Yourself
+            <span class="small">
+                (Optional)
+            </span>
+        </label>
 
-Birthday and expected graduation year are required.
-The "Tell Us About Yourself" section is optional.
+        <textarea
+            id="signupAbout"
+            placeholder="Tell the operator about yourself if you want to.">
+        </textarea>
 
-</div>
 
+        <button
+            class="primary full"
+            onclick="signupTeen()">
+            Create Account
+        </button>
 
-<label>
-Username *
-</label>
 
-<input
-id="signupUsername"
-type="text"
-placeholder="Choose a username"
-autocomplete="username"
->
+        <div id="signupMessage"></div>
 
+    </div>
 
-<label>
-Password *
-</label>
 
-<div class="password-wrapper">
+    <!-- OPERATOR LOGIN -->
 
-<input
-id="signupPassword"
-type="password"
-placeholder="Create a password"
-autocomplete="new-password"
->
+    <div id="operatorLoginForm" class="hidden">
 
-<button
-id="signupReveal"
-class="reveal-button"
-type="button"
-disabled
-onclick="togglePassword('signupPassword','signupReveal')">
+        <h2>Operator Login</h2>
 
-Reveal
+        <label>Username</label>
 
-</button>
+        <input
+            id="operatorUsername"
+            autocomplete="username"
+            placeholder="Operator username">
 
-</div>
 
+        <label>Password</label>
 
-<label>
-Birthday *
-</label>
+        <div class="password-row">
 
-<input
-id="signupBirthday"
-type="date"
->
+            <input
+                id="operatorPassword"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Operator password">
 
+            <button
+                id="operatorReveal"
+                class="reveal"
+                disabled
+                onclick="togglePassword(
+                    'operatorPassword',
+                    'operatorReveal'
+                )">
+                Reveal
+            </button>
 
-<label>
-Expected Graduation Year *
-</label>
+        </div>
 
-<input
-id="signupGraduation"
-type="number"
-placeholder="Example: 2029"
-min="2026"
-max="2045"
->
 
+        <button
+            class="primary full"
+            onclick="loginOperator()">
+            Operator Login
+        </button>
 
-<label>
-Tell Us About Yourself
-<span class="small">(Optional)</span>
-</label>
 
-<textarea
-id="signupAbout"
-placeholder="Tell us a little about yourself, your interests, hobbies, or anything else you want us to know."
-></textarea>
+        <div id="operatorError"
+             class="error hidden">
+        </div>
 
-
-<button
-class="primary full"
-onclick="createAccount()">
-
-Create Account
-
-</button>
-
-
-<div
-id="signupError"
-class="error hidden">
-</div>
-
-
-<div
-id="signupSuccess"
-class="success-message hidden">
-</div>
-
-</div>
-
-
-
-<!-- OPERATOR LOGIN -->
-
-<div
-id="operatorLoginForm"
-class="hidden">
-
-<h2>Operator Login</h2>
-
-<p class="small">
-This login is for the designated TeenTalk operator.
-</p>
-
-
-<label>
-Operator Username
-</label>
-
-<input
-id="operatorUsername"
-type="text"
-placeholder="Operator username"
-autocomplete="username"
->
-
-
-<label>
-Operator Password
-</label>
-
-<div class="password-wrapper">
-
-<input
-id="operatorPassword"
-type="password"
-placeholder="Operator password"
-autocomplete="current-password"
->
-
-<button
-id="operatorReveal"
-class="reveal-button"
-type="button"
-disabled
-onclick="togglePassword('operatorPassword','operatorReveal')">
-
-Reveal
-
-</button>
-
-</div>
-
-
-<button
-class="primary full"
-onclick="loginOperator()">
-
-Log In as Operator
-
-</button>
-
-
-<button
-class="secondary full"
-onclick="showLogin()">
-
-Back
-
-</button>
-
-
-<div
-id="operatorLoginError"
-class="error hidden">
-</div>
-
-</div>
-
-</div>
-</div>
-
-
-
-<!-- =====================================================
-     TEEN SCREEN
-===================================================== -->
-
-<div
-id="teenScreen"
-class="hidden">
-
-<div class="card">
-
-<h1>Welcome to TeenTalk</h1>
-
-<p class="subtitle">
-You're logged in as a teen user.
-</p>
-
-
-<div class="notice">
-
-You don't have to share your name or personal
-information with the operator. Introduce yourself
-only if you want to.
-
-</div>
-
-
-<div class="option-grid">
-
-<button
-class="primary big-option"
-onclick="teenStartCall()">
-
-📞<br>
-Call TeenTalk
-
-</button>
-
-
-<button
-class="primary big-option"
-onclick="teenStartText()">
-
-💬<br>
-Text TeenTalk
-
-</button>
-
-</div>
-
-
-<!-- TEEN CALL -->
-
-<div
-id="teenCall"
-class="hidden"
-style="margin-top:25px">
-
-<div class="call-box">
-
-<div class="call-icon">
-📞
-</div>
-
-<h2 id="teenCallStatus">
-Calling TeenTalk...
-</h2>
-
-<p class="subtitle">
-You are calling the TeenTalk operator.
-</p>
-
-</div>
-
-
-<button
-class="danger full"
-onclick="teenEndCall()">
-
-End Call
-
-</button>
-
-</div>
-
-
-<!-- TEEN TEXT -->
-
-<div
-id="teenText"
-class="hidden"
-style="margin-top:25px">
-
-<div class="chat-container">
-
-<div class="chat-header">
-
-<strong>
-TeenTalk Operator
-</strong>
-
-<button
-class="danger"
-onclick="teenBlock()">
-
-🚫 Block
-
-</button>
-
-</div>
-
-
-<div
-id="teenChat"
-class="chat">
-
-<div class="message system">
-Connected to the TeenTalk operator.
-</div>
-
-</div>
-
-
-<div class="input-row">
-
-<input
-id="teenMessage"
-placeholder="Type a message..."
-onkeydown="teenEnter(event)"
->
-
-<button
-class="primary"
-onclick="teenSend()">
-
-Send
-
-</button>
-
-</div>
-
-</div>
-
-
-<div class="buttons">
-
-<button
-class="secondary"
-onclick="teenEndText()">
-
-End Conversation
-
-</button>
-
-
-<button
-class="danger"
-onclick="teenBlock()">
-
-🚫 Block
-
-</button>
-
-</div>
-
-</div>
-
-
-<button
-class="secondary full"
-onclick="logout()">
-
-Log Out
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     OPERATOR SCREEN
-===================================================== -->
-
-<div
-id="operatorScreen"
-class="hidden">
-
-<div class="grid">
-
-
-<!-- CALL AREA -->
-
-<section class="card">
-
-<h2>Operator Dashboard</h2>
-
-
-<div class="operator-status">
-
-<div class="status">
-
-<span
-id="operatorDot"
-class="dot">
-</span>
-
-<span id="operatorStatus">
-Available for calls
-</span>
-
-</div>
-
-
-<p class="small">
-
-Only one voice call can be active at a time.
-Text conversations can continue simultaneously.
-
-</p>
-
-</div>
-
-
-<!-- INCOMING CALL -->
-
-<div
-id="incomingCall"
-class="hidden">
-
-<h3>
-📞 Incoming Call
-</h3>
-
-
-<div class="call-box">
-
-<div class="call-icon">
-📞
-</div>
-
-<p>
-A teen is calling TeenTalk.
-</p>
-
-</div>
-
-
-<div class="buttons">
-
-<button
-class="primary"
-onclick="answerCall()">
-
-Answer
-
-</button>
-
-
-<button
-class="secondary"
-onclick="declineCall()">
-
-Decline
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ACTIVE CALL -->
-
-<div
-id="operatorActiveCall"
-class="hidden">
-
-<div class="call-box">
-
-<div class="call-icon">
-📞
-</div>
-
-<h3>
-Active Voice Call
-</h3>
-
-<p>
-Connected with one teen.
-</p>
-
-</div>
-
-
-<button
-class="danger full"
-onclick="operatorEndCall()">
-
-End Call
-
-</button>
-
-</div>
+    </div>
 
 </section>
 
 
 
-<!-- TEXT AREA -->
+<!-- =========================
+     TEEN DASHBOARD
+========================= -->
 
-<section class="card">
+<section id="teenDashboard"
+         class="hidden">
 
-<h2>💬 Text Conversations</h2>
+    <div class="card">
 
+        <h1>TeenTalk</h1>
 
-<p class="small">
+        <div id="approvalMessage"
+             class="notice hidden">
+        </div>
 
-Multiple text conversations can remain active at the
-same time, including while you're on a call.
 
-</p>
+        <div class="notice">
 
+            You can talk without giving the operator
+            your name or other personal information
+            unless you want to.
 
-<div
-id="conversationList"
-class="conversation-list">
+        </div>
 
-<div class="small">
-No active text conversations.
-</div>
 
-</div>
+        <div class="option-grid">
 
+            <button
+                class="big-button primary"
+                onclick="startCall()">
 
-<button
-class="primary full"
-onclick="simulateNewText()">
+                📞
+                <br>
+                Call
 
-＋ Simulate Incoming Text
+            </button>
 
-</button>
 
+            <button
+                class="big-button primary"
+                onclick="openText()">
 
-<div
-id="operatorChatArea"
-class="hidden"
-style="margin-top:20px">
+                💬
+                <br>
+                Text
 
+            </button>
 
-<div class="chat-container">
+        </div>
 
-<div class="chat-header">
 
-<strong id="operatorChatTitle">
-Teen
-</strong>
+        <!-- TEXT -->
 
+        <div id="teenTextPanel"
+             class="panel hidden">
 
-<button
-class="danger"
-onclick="operatorBlock()">
+            <div class="chat-header">
 
-🚫 Block
+                <strong>
+                    TeenTalk Operator
+                </strong>
 
-</button>
+                <button
+                    class="danger"
+                    onclick="blockOperator()">
+                    Block
+                </button>
 
-</div>
+            </div>
 
 
-<div
-id="operatorChat"
-class="chat">
-</div>
+            <div id="teenMessages"
+                 class="messages">
+            </div>
 
 
-<div class="input-row">
+            <div class="message-row">
 
-<input
-id="operatorMessage"
-placeholder="Reply..."
-onkeydown="operatorEnter(event)"
->
+                <input
+                    id="teenMessageInput"
+                    placeholder="Type a message..."
+                    onkeydown="teenEnter(event)">
 
-<button
-class="primary"
-onclick="operatorSend()">
+                <button
+                    class="primary"
+                    onclick="sendTeenMessage()">
+                    Send
+                </button>
 
-Send
+            </div>
 
-</button>
+        </div>
 
-</div>
 
-</div>
+        <!-- CALL -->
 
+        <div id="teenCallPanel"
+             class="panel call-panel hidden">
 
-<hr>
+            <div class="call-icon">
+                📞
+            </div>
 
+            <h2 id="teenCallStatus">
+                Calling...
+            </h2>
 
-<!-- PRIVATE NOTES -->
+            <button
+                class="danger"
+                onclick="endCall()">
+                End Call
+            </button>
 
-<h3>
-📝 Private Notes
-</h3>
+        </div>
 
-<p class="small">
 
-Private notes are separate from reports.
+        <button
+            class="secondary full"
+            onclick="logout()">
+            Log Out
+        </button>
 
-</p>
-
-
-<textarea
-id="operatorNotes"
-placeholder="Write private notes about this conversation..."
-></textarea>
-
-
-<button
-class="secondary full"
-onclick="saveNotes()">
-
-Save Private Notes
-
-</button>
-
-
-<p
-id="notesSaved"
-class="small">
-</p>
-
-
-<hr>
-
-
-<!-- REPORT -->
-
-<h3>
-🚩 Reports
-</h3>
-
-
-<p class="small">
-
-Reports are manually created by the operator.
-Nothing is automatically reported.
-
-</p>
-
-
-<button
-class="danger full"
-onclick="openReport()">
-
-Create Report
-
-</button>
-
-</div>
-
-
-<button
-class="secondary full"
-onclick="logout()">
-
-Log Out
-
-</button>
+    </div>
 
 </section>
 
-</div>
 
-</div>
+
+<!-- =========================
+     OPERATOR
+========================= -->
+
+<section id="operatorDashboard"
+         class="hidden">
+
+    <div class="operator-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <div class="card">
+
+            <h2>Operator</h2>
+
+            <div class="status">
+
+                <span class="dot"></span>
+
+                Available
+
+            </div>
+
+
+            <hr>
+
+            <h3>Pending Accounts</h3>
+
+            <div id="pendingAccounts">
+            </div>
+
+
+            <hr>
+
+            <h3>Conversations</h3>
+
+            <div id="conversationList">
+            </div>
+
+        </div>
+
+
+
+        <!-- MAIN -->
+
+        <div class="card">
+
+            <div id="operatorEmpty">
+
+                <h2>
+                    No conversation selected
+                </h2>
+
+                <p class="subtitle">
+                    Select a teen's conversation
+                    from the left.
+                </p>
+
+            </div>
+
+
+            <div id="operatorChatPanel"
+                 class="hidden">
+
+                <div class="chat-header">
+
+                    <strong id="operatorChatName">
+                    </strong>
+
+                    <button
+                        class="danger"
+                        onclick="operatorBlockTeen()">
+                        Block
+                    </button>
+
+                </div>
+
+
+                <div id="operatorMessages"
+                     class="messages">
+                </div>
+
+
+                <div class="message-row">
+
+                    <input
+                        id="operatorMessageInput"
+                        placeholder="Reply..."
+                        onkeydown="operatorEnter(event)">
+
+                    <button
+                        class="primary"
+                        onclick="sendOperatorMessage()">
+                        Send
+                    </button>
+
+                </div>
+
+
+                <!-- PRIVATE NOTES -->
+
+                <div class="section">
+
+                    <h3>
+                        Private Notes
+                    </h3>
+
+                    <p class="small">
+                        These notes are saved only
+                        in this teen's individual record.
+                    </p>
+
+                    <textarea
+                        id="privateNotes"
+                        placeholder="Private notes about this teen...">
+                    </textarea>
+
+                    <button
+                        class="secondary"
+                        onclick="saveNotes()">
+                        Save Notes
+                    </button>
+
+                    <div
+                        id="notesSaved"
+                        class="note-saved">
+                    </div>
+
+                </div>
+
+
+                <!-- REPORTS -->
+
+                <div class="section">
+
+                    <h3>
+                        Reports
+                    </h3>
+
+                    <p class="small">
+                        Reports are manually created.
+                        Nothing is automatically reported.
+                    </p>
+
+                    <textarea
+                        id="reportInput"
+                        placeholder="Write a report for this teen...">
+                    </textarea>
+
+                    <button
+                        class="danger"
+                        onclick="saveReport()">
+                        Save Report
+                    </button>
+
+                    <div id="reportsList"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INCOMING CALL -->
+
+            <div id="incomingCall"
+                 class="call-panel hidden">
+
+                <div class="call-icon">
+                    📞
+                </div>
+
+                <h2>
+                    Incoming TeenTalk Call
+                </h2>
+
+                <p>
+                    A teen is calling the line.
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="answerCall()">
+                    Answer
+                </button>
+
+                <button
+                    class="danger"
+                    onclick="declineCall()">
+                    Decline
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="secondary full"
+        onclick="logout()">
+        Log Out
+    </button>
+
+</section>
 
 </main>
 
 
-
-<!-- REPORT MODAL -->
-
-<div
-id="reportModal"
-class="modal hidden">
-
-<div class="modal-box">
-
-<h2>
-🚩 Create Report
-</h2>
-
-<p class="small">
-This report is created manually by the operator.
-</p>
-
-
-<textarea
-id="reportText"
-placeholder="Describe what happened..."
-></textarea>
-
-
-<div class="buttons">
-
-<button
-class="secondary"
-onclick="closeReport()">
-
-Cancel
-
-</button>
-
-
-<button
-class="danger"
-onclick="submitReport()">
-
-Submit Report
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-
 <script>
 
-/* =====================================================
-   FIXED OPERATOR LOGIN
-===================================================== */
+/* =========================================================
+   PROTOTYPE DATABASE
+========================================================= */
 
-const OPERATOR_USERNAME = "NisaAdmin";
+const DB_KEY = "TeenTalkDatabase_v2";
 
-const OPERATOR_PASSWORD = "C@p!t@l!zed";
+let db = JSON.parse(
+    localStorage.getItem(DB_KEY)
+) || {
 
+    users: {},
 
-/* =====================================================
-   PASSWORD REVEAL SECURITY
-===================================================== */
+    conversations: {},
 
-/*
-    This tracks whether the user has actually interacted
-    with the password field using the keyboard.
+    notes: {},
 
-    Autofill alone does NOT set this to true.
-*/
+    reports: {},
 
-const passwordWasTyped = {};
+    currentCall: null
 
-
-/*
-    Attach keyboard listeners after page loads.
-*/
-
-function setupPasswordSecurity() {
-
-    const fields = [
-        "loginPassword",
-        "signupPassword",
-        "operatorPassword"
-    ];
+};
 
 
-    fields.forEach(function(id) {
+function saveDB() {
 
-        const input =
-            document.getElementById(id);
-
-
-        const reveal =
-            document.getElementById(
-                id.replace(
-                    "Password",
-                    "Reveal"
-                )
-            );
-
-
-        passwordWasTyped[id] = false;
-
-
-        input.addEventListener(
-            "keydown",
-            function(event) {
-
-                /*
-                    A real keyboard interaction is required.
-                */
-
-                if (
-                    event.key.length === 1 ||
-                    event.key === "Backspace" ||
-                    event.key === "Delete"
-                ) {
-
-                    passwordWasTyped[id] = true;
-
-                    reveal.disabled = false;
-
-                }
-
-            }
-        );
-
-
-        /*
-            If the user clears the field completely,
-            disable Reveal again.
-        */
-
-        input.addEventListener(
-            "input",
-            function() {
-
-                if (
-                    input.value.length === 0
-                ) {
-
-                    passwordWasTyped[id] = false;
-
-                    reveal.disabled = true;
-
-                    input.type = "password";
-
-                    reveal.textContent =
-                        "Reveal";
-
-                }
-
-            }
-        );
-
-    });
+    localStorage.setItem(
+        DB_KEY,
+        JSON.stringify(db)
+    );
 
 }
 
 
-/*
-    Reveal/hide password.
 
-    It refuses to work unless the password field has
-    received actual keyboard input.
-*/
+/* =========================================================
+   CURRENT SESSION
+========================================================= */
+
+let currentUser = null;
+
+let currentTeenId = null;
+
+
+
+/* =========================================================
+   PASSWORD REVEAL
+========================================================= */
+
+const passwordTyped = {
+    login: false,
+    signup: false,
+    operator: false
+};
+
+
+document
+    .getElementById("loginPassword")
+    .addEventListener(
+        "input",
+        function() {
+
+            if (this.value.length > 0) {
+
+                passwordTyped.login = true;
+
+                document
+                    .getElementById("loginReveal")
+                    .disabled = false;
+
+            }
+
+        }
+    );
+
+
+document
+    .getElementById("signupPassword")
+    .addEventListener(
+        "input",
+        function() {
+
+            if (this.value.length > 0) {
+
+                passwordTyped.signup = true;
+
+                document
+                    .getElementById("signupReveal")
+                    .disabled = false;
+
+            }
+
+        }
+    );
+
+
+document
+    .getElementById("operatorPassword")
+    .addEventListener(
+        "input",
+        function() {
+
+            if (this.value.length > 0) {
+
+                passwordTyped.operator = true;
+
+                document
+                    .getElementById("operatorReveal")
+                    .disabled = false;
+
+            }
+
+        }
+    );
+
 
 function togglePassword(
     inputId,
     buttonId
 ) {
 
-    if (
-        !passwordWasTyped[inputId]
-    ) {
+    const input =
+        document.getElementById(inputId);
 
+    const button =
+        document.getElementById(buttonId);
+
+
+    if (!input.value) {
         return;
-
     }
 
 
-    const input =
-        document.getElementById(
-            inputId
-        );
-
-
-    const button =
-        document.getElementById(
-            buttonId
-        );
-
-
-    if (
-        input.type === "password"
-    ) {
+    if (input.type === "password") {
 
         input.type = "text";
 
-        button.textContent =
-            "Hide";
+        button.textContent = "Hide";
 
-    }
-
-    else {
+    } else {
 
         input.type = "password";
 
-        button.textContent =
-            "Reveal";
+        button.textContent = "Reveal";
 
     }
 
@@ -1398,50 +1058,40 @@ function togglePassword(
 
 
 
-/* =====================================================
-   ACCOUNT SYSTEM
-===================================================== */
+/* =========================================================
+   SCREEN SWITCHING
+========================================================= */
 
-let currentUser = null;
+function hideEverything() {
 
-let userRole = null;
+    document
+        .getElementById("authScreen")
+        .classList.add("hidden");
 
+    document
+        .getElementById("teenDashboard")
+        .classList.add("hidden");
 
+    document
+        .getElementById("operatorDashboard")
+        .classList.add("hidden");
 
-/* =====================================================
-   AUTH TABS
-===================================================== */
+}
+
 
 function showLogin() {
 
     document
         .getElementById("loginForm")
-        .classList
-        .remove("hidden");
-
+        .classList.remove("hidden");
 
     document
         .getElementById("signupForm")
-        .classList
-        .add("hidden");
-
+        .classList.add("hidden");
 
     document
         .getElementById("operatorLoginForm")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById("loginTab")
-        .classList
-        .add("active-tab");
-
-
-    document
-        .getElementById("signupTab")
-        .classList
-        .remove("active-tab");
+        .classList.add("hidden");
 
 }
 
@@ -1450,32 +1100,15 @@ function showSignup() {
 
     document
         .getElementById("loginForm")
-        .classList
-        .add("hidden");
-
+        .classList.add("hidden");
 
     document
         .getElementById("signupForm")
-        .classList
-        .remove("hidden");
-
+        .classList.remove("hidden");
 
     document
         .getElementById("operatorLoginForm")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById("loginTab")
-        .classList
-        .remove("active-tab");
-
-
-    document
-        .getElementById("signupTab")
-        .classList
-        .add("active-tab");
+        .classList.add("hidden");
 
 }
 
@@ -1484,76 +1117,56 @@ function showOperatorLogin() {
 
     document
         .getElementById("loginForm")
-        .classList
-        .add("hidden");
-
+        .classList.add("hidden");
 
     document
         .getElementById("signupForm")
-        .classList
-        .add("hidden");
-
+        .classList.add("hidden");
 
     document
         .getElementById("operatorLoginForm")
-        .classList
-        .remove("hidden");
+        .classList.remove("hidden");
 
 }
 
 
 
-/* =====================================================
-   CREATE TEEN ACCOUNT
-===================================================== */
+/* =========================================================
+   SIGN UP
+========================================================= */
 
-function createAccount() {
+function signupTeen() {
 
     const username =
-        document.getElementById(
-            "signupUsername"
-        ).value.trim();
-
+        document
+            .getElementById("signupUsername")
+            .value
+            .trim();
 
     const password =
-        document.getElementById(
-            "signupPassword"
-        ).value;
-
+        document
+            .getElementById("signupPassword")
+            .value;
 
     const birthday =
-        document.getElementById(
-            "signupBirthday"
-        ).value;
-
+        document
+            .getElementById("signupBirthday")
+            .value;
 
     const graduation =
-        document.getElementById(
-            "signupGraduation"
-        ).value;
-
+        document
+            .getElementById("signupGraduation")
+            .value;
 
     const about =
-        document.getElementById(
-            "signupAbout"
-        ).value.trim();
+        document
+            .getElementById("signupAbout")
+            .value
+            .trim();
 
-
-    const error =
-        document.getElementById(
-            "signupError"
-        );
-
-
-    const success =
-        document.getElementById(
-            "signupSuccess"
-        );
-
-
-    error.classList.add("hidden");
-
-    success.classList.add("hidden");
+    const message =
+        document
+            .getElementById("signupMessage");
 
 
     if (
@@ -1563,37 +1176,44 @@ function createAccount() {
         !graduation
     ) {
 
-        error.textContent =
-            "Username, password, birthday, and graduation year are required.";
+        message.className =
+            "error";
 
-        error.classList.remove("hidden");
+        message.textContent =
+            "Birthday and graduation year are required.";
 
         return;
 
     }
 
 
-    const users =
-        JSON.parse(
-            localStorage.getItem(
-                "teenTalkUsers"
-            ) || "{}"
-        );
+    const normalized =
+        username.toLowerCase();
 
 
-    if (users[username]) {
+    if (
+        db.users[normalized]
+    ) {
 
-        error.textContent =
+        message.className =
+            "error";
+
+        message.textContent =
             "That username is already being used.";
 
-        error.classList.remove("hidden");
-
         return;
 
     }
 
 
-    users[username] = {
+    const id =
+        "teen_" +
+        Date.now();
+
+
+    db.users[normalized] = {
+
+        id: id,
 
         username: username,
 
@@ -1601,70 +1221,84 @@ function createAccount() {
 
         birthday: birthday,
 
-        graduationYear:
-            Number(graduation),
+        graduationYear: graduation,
 
-        about: about
+        about: about,
+
+        approved: false,
+
+        createdAt:
+            new Date().toISOString()
 
     };
 
 
-    localStorage.setItem(
-        "teenTalkUsers",
-        JSON.stringify(users)
-    );
+    db.conversations[id] = {
+
+        teenId: id,
+
+        username: username,
+
+        messages: [],
+
+        greetingSent: false,
+
+        blocked: false
+
+    };
 
 
-    success.textContent =
-        "Account created! You can now log in.";
+    saveDB();
 
 
-    success.classList.remove(
-        "hidden"
-    );
+    /*
+        The account remains pending.
+
+        Once the operator approves it, the
+        operator can activate the account.
+    */
+
+    message.className =
+        "success";
+
+    message.textContent =
+        "Account created. Your account is waiting for approval.";
 
 }
 
 
 
-/* =====================================================
+/* =========================================================
    TEEN LOGIN
-===================================================== */
+========================================================= */
 
-function loginUser() {
+function loginTeen() {
 
     const username =
-        document.getElementById(
-            "loginUsername"
-        ).value.trim();
-
+        document
+            .getElementById("loginUsername")
+            .value
+            .trim()
+            .toLowerCase();
 
     const password =
-        document.getElementById(
-            "loginPassword"
-        ).value;
+        document
+            .getElementById("loginPassword")
+            .value;
 
 
     const error =
-        document.getElementById(
-            "loginError"
-        );
+        document
+            .getElementById("loginError");
 
 
-    error.classList.add("hidden");
-
-
-    const users =
-        JSON.parse(
-            localStorage.getItem(
-                "teenTalkUsers"
-            ) || "{}"
-        );
+    const user =
+        db.users[username];
 
 
     if (
-        !users[username] ||
-        users[username].password !== password
+        !user ||
+        user.password !== password
     ) {
 
         error.textContent =
@@ -1679,60 +1313,94 @@ function loginUser() {
     }
 
 
-    currentUser =
-        users[username];
+    if (!user.approved) {
+
+        error.textContent =
+            "Your account has not been approved yet.";
+
+        error.classList.remove(
+            "hidden"
+        );
+
+        return;
+
+    }
 
 
-    userRole = "teen";
+    currentUser = user;
 
 
-    showTeenScreen();
+    showTeenDashboard();
 
 }
 
 
 
-/* =====================================================
+/* =========================================================
    OPERATOR LOGIN
-===================================================== */
+========================================================= */
 
 function loginOperator() {
 
     const username =
-        document.getElementById(
-            "operatorUsername"
-        ).value;
-
+        document
+            .getElementById("operatorUsername")
+            .value
+            .trim();
 
     const password =
-        document.getElementById(
-            "operatorPassword"
-        ).value;
+        document
+            .getElementById("operatorPassword")
+            .value;
 
 
     const error =
-        document.getElementById(
-            "operatorLoginError"
-        );
+        document
+            .getElementById("operatorError");
 
 
-    error.classList.add("hidden");
+    /*
+        IMPORTANT:
+        This is only a prototype.
+
+        Do NOT use a password written into
+        public HTML for the real service.
+    */
+
+    const DEMO_USERNAME =
+        "NisaAdmin";
+
+
+    /*
+        The password is deliberately not placed
+        directly in the public HTML.
+
+        Set it below only for local testing.
+    */
+
+    const DEMO_PASSWORD =
+        "CHANGE_THIS_BEFORE_PUBLIC_USE";
 
 
     if (
-        username === OPERATOR_USERNAME &&
-        password === OPERATOR_PASSWORD
+        username === DEMO_USERNAME &&
+        password === DEMO_PASSWORD
     ) {
 
         currentUser = {
-            username: OPERATOR_USERNAME
+
+            id: "operator",
+
+            username:
+                "NisaAdmin",
+
+            role:
+                "operator"
+
         };
 
 
-        userRole = "operator";
-
-
-        showOperatorScreen();
+        showOperatorDashboard();
 
         return;
 
@@ -1742,7 +1410,6 @@ function loginOperator() {
     error.textContent =
         "Incorrect operator username or password.";
 
-
     error.classList.remove(
         "hidden"
     );
@@ -1751,440 +1418,312 @@ function loginOperator() {
 
 
 
-/* =====================================================
-   SCREEN SWITCHING
-===================================================== */
+/* =========================================================
+   TEEN DASHBOARD
+========================================================= */
 
-function showTeenScreen() {
+function showTeenDashboard() {
 
-    document
-        .getElementById("authScreen")
-        .classList
-        .add("hidden");
-
+    hideEverything();
 
     document
-        .getElementById("operatorScreen")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById("teenScreen")
+        .getElementById(
+            "teenDashboard"
+        )
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById("headerUser")
+        .getElementById("userBadge")
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById("headerUser")
+        .getElementById("userBadge")
         .textContent =
-        "Teen: " +
         currentUser.username;
 
+
+    document
+        .getElementById(
+            "approvalMessage"
+        )
+        .classList
+        .add("hidden");
+
 }
 
 
-function showOperatorScreen() {
+
+/* =========================================================
+   OPERATOR DASHBOARD
+========================================================= */
+
+function showOperatorDashboard() {
+
+    hideEverything();
 
     document
-        .getElementById("authScreen")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById("teenScreen")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById("operatorScreen")
+        .getElementById(
+            "operatorDashboard"
+        )
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById("headerUser")
+        .getElementById("userBadge")
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById("headerUser")
+        .getElementById("userBadge")
         .textContent =
-        "TeenTalk Operator";
+        "Operator";
+
+
+    renderPendingAccounts();
+
+    renderConversations();
 
 }
 
 
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+/* =========================================================
+   APPROVAL
+========================================================= */
 
-function logout() {
+function renderPendingAccounts() {
 
-    currentUser = null;
+    const container =
+        document
+            .getElementById(
+                "pendingAccounts"
+            );
 
-    userRole = null;
 
+    container.innerHTML = "";
 
-    document
-        .getElementById("teenScreen")
-        .classList
-        .add("hidden");
 
+    Object.values(
+        db.users
+    ).forEach(
+        user => {
 
-    document
-        .getElementById("operatorScreen")
-        .classList
-        .add("hidden");
+            if (
+                user.approved
+            ) {
+                return;
+            }
 
 
-    document
-        .getElementById("authScreen")
-        .classList
-        .remove("hidden");
+            const div =
+                document.createElement(
+                    "div"
+                );
 
 
-    document
-        .getElementById("headerUser")
-        .classList
-        .add("hidden");
+            div.className =
+                "account";
 
 
-    showLogin();
+            div.innerHTML = `
 
-}
+                <strong>
+                    ${escapeHTML(
+                        user.username
+                    )}
+                </strong>
 
+                <p>
+                    Graduation:
+                    ${escapeHTML(
+                        user.graduationYear
+                    )}
+                </p>
 
+                <button
+                    class="primary"
+                    onclick="approveUser(
+                        '${user.id}'
+                    )">
 
-/* =====================================================
-   CALL SYSTEM
-===================================================== */
+                    Approve
 
-let activeCall = false;
+                </button>
 
-let teenCalling = false;
+            `;
 
 
-function teenStartCall() {
-
-    if (activeCall) {
-
-        alert(
-            "The operator is currently on another call."
-        );
-
-        return;
-
-    }
-
-
-    teenCalling = true;
-
-
-    document
-        .getElementById("teenCall")
-        .classList
-        .remove("hidden");
-
-
-    document
-        .getElementById(
-            "teenCallStatus"
-        )
-        .textContent =
-        "Calling TeenTalk...";
-
-
-    document
-        .getElementById("incomingCall")
-        .classList
-        .remove("hidden");
-
-}
-
-
-function answerCall() {
-
-    if (activeCall) {
-
-        return;
-
-    }
-
-
-    activeCall = true;
-
-    teenCalling = false;
-
-
-    document
-        .getElementById("incomingCall")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById(
-            "operatorActiveCall"
-        )
-        .classList
-        .remove("hidden");
-
-
-    document
-        .getElementById(
-            "teenCallStatus"
-        )
-        .textContent =
-        "Connected";
-
-
-    updateCallStatus();
-
-}
-
-
-function declineCall() {
-
-    teenCalling = false;
-
-
-    document
-        .getElementById("incomingCall")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById("teenCall")
-        .classList
-        .add("hidden");
-
-}
-
-
-function teenEndCall() {
-
-    activeCall = false;
-
-    teenCalling = false;
-
-
-    document
-        .getElementById("teenCall")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById(
-            "operatorActiveCall"
-        )
-        .classList
-        .add("hidden");
-
-
-    updateCallStatus();
-
-}
-
-
-function operatorEndCall() {
-
-    activeCall = false;
-
-    teenCalling = false;
-
-
-    document
-        .getElementById("teenCall")
-        .classList
-        .add("hidden");
-
-
-    document
-        .getElementById(
-            "operatorActiveCall"
-        )
-        .classList
-        .add("hidden");
-
-
-    updateCallStatus();
-
-}
-
-
-function updateCallStatus() {
-
-    const status =
-        document.getElementById(
-            "operatorStatus"
-        );
-
-
-    const dot =
-        document.getElementById(
-            "operatorDot"
-        );
-
-
-    if (activeCall) {
-
-        status.textContent =
-            "On a voice call";
-
-
-        dot.classList.add(
-            "red-dot"
-        );
-
-    } else {
-
-        status.textContent =
-            "Available for calls";
-
-
-        dot.classList.remove(
-            "red-dot"
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
-   TEEN TEXT
-===================================================== */
-
-let teenTextMessages = [];
-
-
-function teenStartText() {
-
-    document
-        .getElementById("teenText")
-        .classList
-        .remove("hidden");
-
-
-    teenTextMessages = [
-
-        {
-
-            sender: "system",
-
-            text:
-                "Connected to the TeenTalk operator.",
-
-            time: getTime()
+            container.appendChild(
+                div
+            );
 
         }
+    );
 
-    ];
 
+    if (
+        !container.children.length
+    ) {
 
-    renderTeenChat();
+        container.innerHTML =
+            "<p class='small'>No pending accounts.</p>";
+
+    }
 
 }
 
 
-function teenSend() {
+function approveUser(id) {
 
-    const input =
-        document.getElementById(
-            "teenMessage"
+    const user =
+        Object.values(
+            db.users
+        ).find(
+            u => u.id === id
         );
 
 
-    const text =
-        input.value.trim();
-
-
-    if (!text) {
+    if (!user) {
         return;
     }
 
 
-    teenTextMessages.push({
+    user.approved = true;
 
-        sender: "teen",
-
-        text: text,
-
-        time: getTime()
-
-    });
+    user.approvedAt =
+        new Date().toISOString();
 
 
-    input.value = "";
+    saveDB();
 
-
-    renderTeenChat();
+    renderPendingAccounts();
 
 
     /*
-        Prototype response.
-        A real version would send the message
-        to the operator's device/server.
+        If the teen is currently on the
+        signup/pending page in this browser,
+        check for approval.
+
+        A real multi-device version needs
+        a backend for this to work across
+        devices.
     */
 
-    setTimeout(function() {
+    alert(
+        user.username +
+        " has been approved."
+    );
 
-        teenTextMessages.push({
+}
 
-            sender: "operator",
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+function openText() {
+
+    if (!currentUser.approved) {
+
+        alert(
+            "Your account must be approved first."
+        );
+
+        return;
+
+    }
+
+
+    const conversation =
+        db.conversations[
+            currentUser.id
+        ];
+
+
+    if (
+        conversation.blocked
+    ) {
+
+        alert(
+            "This conversation is blocked."
+        );
+
+        return;
+
+    }
+
+
+    document
+        .getElementById(
+            "teenTextPanel"
+        )
+        .classList
+        .remove("hidden");
+
+
+    /*
+        GREETING ONLY SENDS ONCE.
+    */
+
+    if (
+        !conversation.greetingSent
+    ) {
+
+        conversation.messages.push({
+
+            sender:
+                "system",
 
             text:
-                "I'm here. What's on your mind?",
+                "Hi! I'm here to listen. What's on your mind?",
 
-            time: getTime()
+            time:
+                new Date().toISOString()
 
         });
 
 
-        renderTeenChat();
-
-    }, 500);
-
-}
+        conversation.greetingSent =
+            true;
 
 
-function teenEnter(event) {
-
-    if (event.key === "Enter") {
-
-        teenSend();
+        saveDB();
 
     }
 
+
+    renderTeenMessages();
+
 }
 
 
-function renderTeenChat() {
 
-    const chat =
-        document.getElementById(
-            "teenChat"
-        );
+function renderTeenMessages() {
+
+    const container =
+        document
+            .getElementById(
+                "teenMessages"
+            );
 
 
-    chat.innerHTML = "";
+    container.innerHTML = "";
 
 
-    teenTextMessages.forEach(
+    const conversation =
+        db.conversations[
+            currentUser.id
+        ];
+
+
+    conversation.messages.forEach(
         message => {
 
             const div =
@@ -2199,11 +1738,11 @@ function renderTeenChat() {
 
             if (
                 message.sender ===
-                "operator"
+                "teen"
             ) {
 
                 div.classList.add(
-                    "operator"
+                    "me"
                 );
 
             }
@@ -2225,7 +1764,7 @@ function renderTeenChat() {
                 message.text;
 
 
-            chat.appendChild(
+            container.appendChild(
                 div
             );
 
@@ -2233,138 +1772,20 @@ function renderTeenChat() {
     );
 
 
-    chat.scrollTop =
-        chat.scrollHeight;
-
-}
-
-
-function teenEndText() {
-
-    document
-        .getElementById("teenText")
-        .classList
-        .add("hidden");
-
-}
-
-
-function teenBlock() {
-
-    alert(
-        "This conversation has been blocked."
-    );
-
-
-    teenEndText();
+    container.scrollTop =
+        container.scrollHeight;
 
 }
 
 
 
-/* =====================================================
-   OPERATOR TEXT
-===================================================== */
-
-let operatorConversations = {};
-
-let currentOperatorConversation = null;
-
-let conversationNumber = 1;
-
-
-function simulateNewText() {
-
-    const id =
-        "teen-" +
-        conversationNumber++;
-
-
-    operatorConversations[id] = {
-
-        name:
-            "Teen " +
-            id.replace("teen-", ""),
-
-        messages: [
-
-            {
-
-                sender: "system",
-
-                text:
-                    "New text conversation.",
-
-                time: getTime()
-
-            }
-
-        ],
-
-        notes: "",
-
-        blocked: false
-
-    };
-
-
-    openOperatorConversation(id);
-
-    renderConversationList();
-
-}
-
-
-function openOperatorConversation(id) {
-
-    if (
-        !operatorConversations[id] ||
-        operatorConversations[id].blocked
-    ) {
-
-        return;
-
-    }
-
-
-    currentOperatorConversation =
-        id;
-
-
-    document
-        .getElementById(
-            "operatorChatArea"
-        )
-        .classList
-        .remove("hidden");
-
-
-    document
-        .getElementById(
-            "operatorChatTitle"
-        )
-        .textContent =
-        operatorConversations[id].name;
-
-
-    renderOperatorChat();
-
-    loadNotes();
-
-}
-
-
-function operatorSend() {
-
-    if (!currentOperatorConversation) {
-        return;
-    }
-
+function sendTeenMessage() {
 
     const input =
-        document.getElementById(
-            "operatorMessage"
-        );
+        document
+            .getElementById(
+                "teenMessageInput"
+            );
 
 
     const text =
@@ -2373,61 +1794,217 @@ function operatorSend() {
 
     if (!text) {
         return;
-
     }
 
 
-    operatorConversations[
-        currentOperatorConversation
-    ].messages.push({
+    const conversation =
+        db.conversations[
+            currentUser.id
+        ];
 
-        sender: "operator",
 
-        text: text,
+    conversation.messages.push({
 
-        time: getTime()
+        sender:
+            "teen",
+
+        text:
+            text,
+
+        time:
+            new Date().toISOString()
 
     });
 
 
+    saveDB();
+
     input.value = "";
 
+    renderTeenMessages();
 
-    renderOperatorChat();
+    renderConversations();
 
 }
 
 
-function operatorEnter(event) {
+function teenEnter(event) {
 
-    if (event.key === "Enter") {
+    if (
+        event.key === "Enter"
+    ) {
 
-        operatorSend();
+        sendTeenMessage();
 
     }
 
 }
 
 
-function renderOperatorChat() {
 
-    if (!currentOperatorConversation) {
+/* =========================================================
+   OPERATOR CONVERSATIONS
+========================================================= */
+
+function renderConversations() {
+
+    const container =
+        document
+            .getElementById(
+                "conversationList"
+            );
+
+
+    container.innerHTML = "";
+
+
+    Object.values(
+        db.conversations
+    ).forEach(
+        conversation => {
+
+            if (
+                conversation.blocked
+            ) {
+                return;
+            }
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "conversation";
+
+
+            div.innerHTML = `
+
+                <strong>
+                    ${escapeHTML(
+                        conversation.username
+                    )}
+                </strong>
+
+                <br>
+
+                <span class="small">
+
+                    ${
+                        conversation.messages.length
+                    }
+                    message(s)
+
+                </span>
+
+            `;
+
+
+            div.onclick =
+                function() {
+
+                    openOperatorConversation(
+                        conversation.teenId
+                    );
+
+                };
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    if (
+        !container.children.length
+    ) {
+
+        container.innerHTML =
+            "<p class='small'>No active conversations.</p>";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   OPERATOR OPEN CONVERSATION
+========================================================= */
+
+function openOperatorConversation(
+    teenId
+) {
+
+    currentTeenId =
+        teenId;
+
+
+    const conversation =
+        db.conversations[
+            teenId
+        ];
+
+
+    if (!conversation) {
         return;
     }
 
 
-    const chat =
-        document.getElementById(
-            "operatorChat"
-        );
+    document
+        .getElementById(
+            "operatorEmpty"
+        )
+        .classList
+        .add("hidden");
 
 
-    chat.innerHTML = "";
+    document
+        .getElementById(
+            "operatorChatPanel"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "operatorChatName"
+        )
+        .textContent =
+        conversation.username;
+
+
+    renderOperatorMessages();
+
+    loadNotes();
+
+    loadReports();
+
+}
+
+
+
+function renderOperatorMessages() {
+
+    const container =
+        document
+            .getElementById(
+                "operatorMessages"
+            );
+
+
+    container.innerHTML = "";
 
 
     const conversation =
-        operatorConversations[
-            currentOperatorConversation
+        db.conversations[
+            currentTeenId
         ];
 
 
@@ -2450,7 +2027,7 @@ function renderOperatorChat() {
             ) {
 
                 div.classList.add(
-                    "operator"
+                    "me"
                 );
 
             }
@@ -2472,7 +2049,7 @@ function renderOperatorChat() {
                 message.text;
 
 
-            chat.appendChild(
+            container.appendChild(
                 div
             );
 
@@ -2480,77 +2057,179 @@ function renderOperatorChat() {
     );
 
 
-    chat.scrollTop =
-        chat.scrollHeight;
+    container.scrollTop =
+        container.scrollHeight;
 
 }
 
 
-function renderConversationList() {
 
-    const list =
-        document.getElementById(
-            "conversationList"
-        );
+function sendOperatorMessage() {
 
-
-    list.innerHTML = "";
+    if (!currentTeenId) {
+        return;
+    }
 
 
-    Object.entries(
-        operatorConversations
-    ).forEach(
-        ([id, conversation]) => {
-
-            if (
-                conversation.blocked
-            ) {
-
-                return;
-
-            }
+    const input =
+        document
+            .getElementById(
+                "operatorMessageInput"
+            );
 
 
-            const button =
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+        return;
+    }
+
+
+    db.conversations[
+        currentTeenId
+    ].messages.push({
+
+        sender:
+            "operator",
+
+        text:
+            text,
+
+        time:
+            new Date().toISOString()
+
+    });
+
+
+    saveDB();
+
+    input.value = "";
+
+    renderOperatorMessages();
+
+    renderConversations();
+
+}
+
+
+function operatorEnter(event) {
+
+    if (
+        event.key === "Enter"
+    ) {
+
+        sendOperatorMessage();
+
+    }
+
+}
+
+
+
+/* =========================================================
+   PRIVATE NOTES
+========================================================= */
+
+function loadNotes() {
+
+    const notes =
+        db.notes[
+            currentTeenId
+        ] || "";
+
+
+    document
+        .getElementById(
+            "privateNotes"
+        )
+        .value =
+        notes;
+
+
+    document
+        .getElementById(
+            "notesSaved"
+        )
+        .textContent =
+        "";
+
+}
+
+
+function saveNotes() {
+
+    if (!currentTeenId) {
+        return;
+    }
+
+
+    db.notes[
+        currentTeenId
+    ] =
+        document
+            .getElementById(
+                "privateNotes"
+            )
+            .value;
+
+
+    saveDB();
+
+
+    document
+        .getElementById(
+            "notesSaved"
+        )
+        .textContent =
+        "Private notes saved to this teen's record.";
+
+}
+
+
+
+/* =========================================================
+   REPORTS
+========================================================= */
+
+function loadReports() {
+
+    const container =
+        document
+            .getElementById(
+                "reportsList"
+            );
+
+
+    container.innerHTML = "";
+
+
+    const reports =
+        db.reports[
+            currentTeenId
+        ] || [];
+
+
+    reports.forEach(
+        report => {
+
+            const div =
                 document.createElement(
-                    "button"
+                    "div"
                 );
 
 
-            button.className =
-                "conversation-button";
+            div.className =
+                "report-item";
 
 
-            if (
-                id ===
-                currentOperatorConversation
-            ) {
-
-                button.classList.add(
-                    "active"
-                );
-
-            }
+            div.textContent =
+                report.text;
 
 
-            button.textContent =
-                conversation.name;
-
-
-            button.onclick =
-                function() {
-
-                    openOperatorConversation(
-                        id
-                    );
-
-                    renderConversationList();
-
-                };
-
-
-            list.appendChild(
-                button
+            container.appendChild(
+                div
             );
 
         }
@@ -2559,139 +2238,143 @@ function renderConversationList() {
 }
 
 
-function operatorBlock() {
+
+function saveReport() {
+
+    if (!currentTeenId) {
+        return;
+    }
+
+
+    const input =
+        document
+            .getElementById(
+                "reportInput"
+            );
+
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+        return;
+    }
+
 
     if (
-        !currentOperatorConversation
+        !db.reports[
+            currentTeenId
+        ]
     ) {
 
-        return;
+        db.reports[
+            currentTeenId
+        ] = [];
 
     }
 
 
-    operatorConversations[
-        currentOperatorConversation
+    db.reports[
+        currentTeenId
+    ].push({
+
+        text:
+            text,
+
+        createdAt:
+            new Date().toISOString()
+
+    });
+
+
+    saveDB();
+
+    input.value = "";
+
+    loadReports();
+
+}
+
+
+
+/* =========================================================
+   BLOCKING
+========================================================= */
+
+function blockOperator() {
+
+    if (!currentUser) {
+        return;
+    }
+
+
+    db.conversations[
+        currentUser.id
     ].blocked = true;
 
 
-    alert(
-        "This teen has been blocked."
-    );
+    saveDB();
 
 
     document
         .getElementById(
-            "operatorChatArea"
+            "teenTextPanel"
         )
         .classList
         .add("hidden");
 
 
-    currentOperatorConversation =
-        null;
-
-
-    renderConversationList();
+    alert(
+        "The conversation has been blocked."
+    );
 
 }
 
 
+function operatorBlockTeen() {
 
-/* =====================================================
-   PRIVATE NOTES
-===================================================== */
-
-function saveNotes() {
-
-    if (
-        !currentOperatorConversation
-    ) {
-
+    if (!currentTeenId) {
         return;
-
     }
 
 
-    operatorConversations[
-        currentOperatorConversation
-    ].notes =
-        document.getElementById(
-            "operatorNotes"
-        ).value;
+    db.conversations[
+        currentTeenId
+    ].blocked = true;
 
 
-    document.getElementById(
-        "notesSaved"
-    ).textContent =
-        "Private notes saved.";
+    saveDB();
 
-}
-
-
-function loadNotes() {
-
-    if (
-        !currentOperatorConversation
-    ) {
-
-        return;
-
-    }
-
-
-    document.getElementById(
-        "operatorNotes"
-    ).value =
-        operatorConversations[
-            currentOperatorConversation
-        ].notes || "";
-
-
-    document.getElementById(
-        "notesSaved"
-    ).textContent = "";
-
-}
-
-
-
-/* =====================================================
-   REPORTING
-===================================================== */
-
-function openReport() {
 
     document
-        .getElementById("reportModal")
-        .classList
-        .remove("hidden");
-
-}
-
-
-function closeReport() {
-
-    document
-        .getElementById("reportModal")
+        .getElementById(
+            "operatorChatPanel"
+        )
         .classList
         .add("hidden");
 
+
+    currentTeenId =
+        null;
+
+
+    renderConversations();
+
 }
 
 
-function submitReport() {
 
-    const report =
-        document.getElementById(
-            "reportText"
-        ).value.trim();
+/* =========================================================
+   CALLS
+========================================================= */
 
+function startCall() {
 
-    if (!report) {
+    if (!currentUser.approved) {
 
         alert(
-            "Please enter report details."
+            "Your account must be approved first."
         );
 
         return;
@@ -2699,44 +2382,318 @@ function submitReport() {
     }
 
 
+    if (db.currentCall) {
+
+        alert(
+            "The operator is currently handling another call."
+        );
+
+        return;
+
+    }
+
+
+    db.currentCall = {
+
+        teenId:
+            currentUser.id,
+
+        status:
+            "ringing",
+
+        startedAt:
+            new Date().toISOString()
+
+    };
+
+
+    saveDB();
+
+
+    document
+        .getElementById(
+            "teenCallPanel"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "teenCallStatus"
+        )
+        .textContent =
+        "Calling the operator...";
+
+
+    checkOperatorCall();
+
+}
+
+
+
+function checkOperatorCall() {
+
+    const interval =
+        setInterval(
+            function() {
+
+                if (
+                    !db.currentCall
+                ) {
+
+                    clearInterval(
+                        interval
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    db.currentCall.teenId !==
+                    currentUser.id
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    db.currentCall.status ===
+                    "answered"
+                ) {
+
+                    document
+                        .getElementById(
+                            "teenCallStatus"
+                        )
+                        .textContent =
+                        "Connected to the operator.";
+
+                    clearInterval(
+                        interval
+                    );
+
+                }
+
+
+                if (
+                    db.currentCall.status ===
+                    "declined"
+                ) {
+
+                    document
+                        .getElementById(
+                            "teenCallStatus"
+                        )
+                        .textContent =
+                        "The operator could not answer.";
+
+                    clearInterval(
+                        interval
+                    );
+
+                }
+
+            },
+            500
+        );
+
+}
+
+
+
+function answerCall() {
+
+    if (
+        !db.currentCall
+    ) {
+        return;
+    }
+
+
+    if (
+        db.currentCall.status !==
+        "ringing"
+    ) {
+        return;
+    }
+
+
+    db.currentCall.status =
+        "answered";
+
+
+    saveDB();
+
+
+    document
+        .getElementById(
+            "incomingCall"
+        )
+        .classList
+        .add("hidden");
+
+
+    /*
+        This prototype changes the call state.
+        Actual microphone/audio transmission
+        requires WebRTC/backend infrastructure.
+    */
+
     alert(
-        "Manual report submitted."
+        "Call connected in prototype mode."
     );
 
-
-    document.getElementById(
-        "reportText"
-    ).value = "";
+}
 
 
-    closeReport();
+function declineCall() {
+
+    if (
+        !db.currentCall
+    ) {
+        return;
+    }
+
+
+    db.currentCall.status =
+        "declined";
+
+
+    saveDB();
+
+
+    document
+        .getElementById(
+            "incomingCall"
+        )
+        .classList
+        .add("hidden");
+
+}
+
+
+function endCall() {
+
+    db.currentCall =
+        null;
+
+
+    saveDB();
+
+
+    document
+        .getElementById(
+            "teenCallPanel"
+        )
+        .classList
+        .add("hidden");
 
 }
 
 
 
-/* =====================================================
-   UTILITIES
-===================================================== */
+/* =========================================================
+   OPERATOR CALL MONITOR
+========================================================= */
 
-function getTime() {
+setInterval(
+    function() {
 
-    return new Date().toLocaleTimeString(
-        [],
-        {
-            hour: "numeric",
-            minute: "2-digit"
+        if (
+            currentUser &&
+            currentUser.role ===
+            "operator"
+        ) {
+
+            if (
+                db.currentCall &&
+                db.currentCall.status ===
+                "ringing"
+            ) {
+
+                document
+                    .getElementById(
+                        "incomingCall"
+                    )
+                    .classList
+                    .remove("hidden");
+
+            } else {
+
+                document
+                    .getElementById(
+                        "incomingCall"
+                    )
+                    .classList
+                    .add("hidden");
+
+            }
+
         }
-    );
+
+    },
+    500
+);
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout() {
+
+    currentUser =
+        null;
+
+    currentTeenId =
+        null;
+
+
+    hideEverything();
+
+
+    document
+        .getElementById(
+            "authScreen"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "userBadge"
+        )
+        .classList
+        .add("hidden");
+
+
+    showLogin();
 
 }
 
 
-/* Start password protection */
 
-setupPasswordSecurity();
+/* =========================================================
+   SECURITY DISPLAY HELPER
+========================================================= */
 
-showLogin();
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
 
 </script>
 

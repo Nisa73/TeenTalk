@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TeenTalk</title>
 
 <style>
+
+/* ==============================
+   GENERAL
+============================== */
+
 * {
     box-sizing: border-box;
 }
@@ -21,6 +27,7 @@ header {
     background: white;
     border-bottom: 1px solid #dce3ed;
     padding: 16px 24px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,8 +41,10 @@ header {
 .badge {
     background: #eaf0ff;
     color: #2457e6;
+
     padding: 7px 12px;
     border-radius: 20px;
+
     font-size: 13px;
 }
 
@@ -49,8 +58,11 @@ main {
     background: white;
     border: 1px solid #dce3ed;
     border-radius: 18px;
+
     padding: 25px;
-    box-shadow: 0 5px 25px rgba(0,0,0,.05);
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.05);
 }
 
 .auth-card {
@@ -58,7 +70,9 @@ main {
     margin: 40px auto;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin-top: 0;
 }
 
@@ -69,16 +83,26 @@ h1, h2, h3 {
 
 label {
     display: block;
+
     font-weight: bold;
-    margin: 16px 0 6px;
+
+    margin:
+        16px 0
+        6px;
 }
 
 input,
 textarea {
     width: 100%;
-    border: 1px solid #cbd5e1;
+
+    border:
+        1px solid
+        #cbd5e1;
+
     border-radius: 10px;
+
     padding: 12px;
+
     font: inherit;
 }
 
@@ -87,20 +111,22 @@ textarea {
     resize: vertical;
 }
 
-.password-row {
-    display: flex;
-    gap: 8px;
-}
 
-.password-row input {
-    flex: 1;
-}
+/* ==============================
+   BUTTONS
+============================== */
 
 button {
     border: 0;
+
     border-radius: 10px;
-    padding: 11px 15px;
+
+    padding:
+        11px
+        15px;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -129,15 +155,25 @@ button:disabled {
     margin-top: 15px;
 }
 
+
+/* ==============================
+   LOGIN TABS
+============================== */
+
 .tabs {
     display: flex;
+
     gap: 7px;
-    margin: 25px 0;
+
+    margin:
+        25px 0;
 }
 
 .tab {
     flex: 1;
+
     background: #edf1f7;
+    color: #26334a;
 }
 
 .tab.active {
@@ -145,10 +181,29 @@ button:disabled {
     color: white;
 }
 
+
+/* ==============================
+   PASSWORD
+============================== */
+
+.password-row {
+    display: flex;
+    gap: 8px;
+}
+
+.password-row input {
+    flex: 1;
+}
+
 .reveal {
     min-width: 75px;
     background: #edf1f7;
 }
+
+
+/* ==============================
+   MESSAGES
+============================== */
 
 .hidden {
     display: none !important;
@@ -156,112 +211,204 @@ button:disabled {
 
 .notice {
     background: #fff8df;
-    border: 1px solid #ecd68a;
+
+    border:
+        1px solid
+        #ecd68a;
+
     border-radius: 11px;
+
     padding: 14px;
+
     line-height: 1.5;
+
     margin: 15px 0;
 }
 
 .error {
     background: #feecec;
+
     color: #b42318;
-    border: 1px solid #efb6b2;
+
+    border:
+        1px solid
+        #efb6b2;
+
     padding: 12px;
+
     border-radius: 10px;
+
     margin-top: 12px;
 }
 
 .success {
     background: #e9f8ef;
+
     color: #176b36;
-    border: 1px solid #b9dfc8;
+
+    border:
+        1px solid
+        #b9dfc8;
+
     padding: 12px;
+
     border-radius: 10px;
+
     margin-top: 12px;
 }
 
+.small {
+    font-size: 13px;
+    color: #667085;
+}
+
+
+/* ==============================
+   TEEN OPTIONS
+============================== */
+
 .option-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
     gap: 15px;
+
     margin: 25px 0;
 }
 
 .big-button {
     padding: 35px 15px;
+
     font-size: 20px;
 }
 
+
+/* ==============================
+   CHAT
+============================== */
+
 .panel {
-    border: 1px solid #dce3ed;
+    border:
+        1px solid
+        #dce3ed;
+
     border-radius: 14px;
+
     overflow: hidden;
+
     margin-top: 20px;
 }
 
 .chat-header {
     padding: 14px;
+
     background: #f7f9fc;
-    border-bottom: 1px solid #dce3ed;
+
+    border-bottom:
+        1px solid
+        #dce3ed;
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
 }
 
 .messages {
     height: 330px;
+
     overflow-y: auto;
+
     padding: 15px;
 }
 
 .message {
     width: fit-content;
+
     max-width: 75%;
-    padding: 10px 13px;
-    margin: 7px 0;
+
+    padding:
+        10px
+        13px;
+
+    margin:
+        7px 0;
+
     border-radius: 14px;
+
     background: #e9edf4;
+
     white-space: pre-wrap;
 }
 
 .message.me {
     margin-left: auto;
+
     background: #2457e6;
+
     color: white;
 }
 
 .message.system {
     margin-left: auto;
     margin-right: auto;
+
     background: #f1f3f6;
+
     color: #667085;
+
     font-size: 12px;
 }
 
 .message-row {
     display: flex;
+
     gap: 8px;
+
     padding: 12px;
-    border-top: 1px solid #dce3ed;
+
+    border-top:
+        1px solid
+        #dce3ed;
 }
 
 .message-row input {
     flex: 1;
 }
 
+
+/* ==============================
+   OPERATOR
+============================== */
+
 .operator-layout {
     display: grid;
-    grid-template-columns: 330px 1fr;
+
+    grid-template-columns:
+        330px
+        1fr;
+
     gap: 20px;
 }
 
 .account,
 .conversation {
     background: #f5f7fa;
-    border: 1px solid #dce3ed;
+
+    border:
+        1px solid
+        #dce3ed;
+
     border-radius: 10px;
+
     padding: 12px;
+
     margin-bottom: 8px;
 }
 
@@ -272,59 +419,91 @@ button:disabled {
 .conversation:hover,
 .conversation.active {
     background: #eaf0ff;
-    border-color: #2457e6;
+
+    border-color:
+        #2457e6;
 }
 
 .section {
-    border-top: 1px solid #dce3ed;
+    border-top:
+        1px solid
+        #dce3ed;
+
     margin-top: 25px;
+
     padding-top: 20px;
-}
-
-.small {
-    font-size: 13px;
-    color: #667085;
-}
-
-.call-panel {
-    text-align: center;
-    padding: 35px;
-}
-
-.call-icon {
-    font-size: 55px;
-    margin-bottom: 15px;
-}
-
-.report-item {
-    background: #fff7f7;
-    border: 1px solid #f0c4c4;
-    padding: 12px;
-    border-radius: 10px;
-    margin-top: 8px;
-}
-
-.note-saved {
-    color: #176b36;
-    font-size: 13px;
-    margin-top: 8px;
 }
 
 .status {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
+
     font-weight: bold;
 }
 
 .dot {
     width: 10px;
     height: 10px;
+
     background: #22a653;
+
     border-radius: 50%;
 }
 
-@media(max-width: 800px) {
+
+/* ==============================
+   CALL
+============================== */
+
+.call-panel {
+    text-align: center;
+
+    padding: 35px;
+}
+
+.call-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   REPORTS
+============================== */
+
+.report-item {
+    background: #fff7f7;
+
+    border:
+        1px solid
+        #f0c4c4;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin-top: 8px;
+}
+
+.note-saved {
+    color: #176b36;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 800px) {
+
     .operator-layout {
         grid-template-columns: 1fr;
     }
@@ -332,221 +511,364 @@ button:disabled {
     .option-grid {
         grid-template-columns: 1fr;
     }
+
+    .tabs {
+        flex-direction: column;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- ==============================
+     HEADER
+============================== -->
+
 <header>
-    <div class="logo">TeenTalk</div>
-    <div id="userBadge" class="badge hidden"></div>
+
+    <div class="logo">
+        TeenTalk
+    </div>
+
+    <div
+        id="userBadge"
+        class="badge hidden">
+    </div>
+
 </header>
+
+
 
 <main>
 
-<!-- =========================
-     AUTH
-========================= -->
 
-<section id="authScreen" class="card auth-card">
+<!-- =====================================================
+     AUTHENTICATION
+===================================================== -->
 
-    <h1>TeenTalk</h1>
+<section
+    id="authScreen"
+    class="card auth-card">
+
+
+    <h1>
+        TeenTalk
+    </h1>
+
 
     <p class="subtitle">
-        A place to talk with the teen currently operating the line.
+
+        A place to talk with the teen
+        currently operating the line.
+
     </p>
+
+
+    <!-- LOGIN TABS -->
 
     <div class="tabs">
 
-        <button id="loginTab"
-                class="tab active"
-                onclick="showLogin()">
+
+        <button
+            id="loginTab"
+            class="tab active"
+            onclick="showLogin()">
+
             Log In
+
         </button>
 
-        <button id="signupTab"
-                class="tab"
-                onclick="showSignup()">
+
+        <button
+            id="signupTab"
+            class="tab"
+            onclick="showSignup()">
+
             Sign Up
+
         </button>
 
-        <button id="operatorTab"
-                class="tab"
-                onclick="showOperatorLogin()">
+
+        <button
+            id="operatorTab"
+            class="tab"
+            onclick="showOperatorLogin()">
+
             Operator
+
         </button>
+
 
     </div>
 
 
-    <!-- LOGIN -->
+
+    <!-- =================================================
+         TEEN LOGIN
+    ================================================= -->
 
     <div id="loginForm">
 
-        <h2>Teen Login</h2>
 
-        <label>Username</label>
+        <h2>
+            Teen Login
+        </h2>
+
+
+        <label>
+            Username
+        </label>
+
 
         <input
             id="loginUsername"
             autocomplete="username"
-            placeholder="Username">
+            placeholder="Username"
+        >
 
 
-        <label>Password</label>
+        <label>
+            Password
+        </label>
+
 
         <div class="password-row">
+
 
             <input
                 id="loginPassword"
                 type="password"
                 autocomplete="current-password"
-                placeholder="Password">
+                placeholder="Password"
+            >
+
 
             <button
                 id="loginReveal"
                 class="reveal"
+                type="button"
                 disabled
                 onclick="togglePassword(
                     'loginPassword',
                     'loginReveal'
                 )">
+
                 Reveal
+
             </button>
 
+
         </div>
+
 
         <button
             class="primary full"
             onclick="loginTeen()">
+
             Log In
+
         </button>
 
-        <div id="loginError"
-             class="error hidden">
+
+        <div
+            id="loginError"
+            class="error hidden">
         </div>
+
 
     </div>
 
 
-    <!-- SIGNUP -->
 
-    <div id="signupForm" class="hidden">
+    <!-- =================================================
+         TEEN SIGNUP
+    ================================================= -->
 
-        <h2>Create Teen Account</h2>
+    <div
+        id="signupForm"
+        class="hidden">
+
+
+        <h2>
+            Create Teen Account
+        </h2>
+
 
         <div class="notice">
-            Birthday and graduation year are required.
+
+            Birthday and graduation year
+            are required.
+
             About Yourself is optional.
+
         </div>
 
-        <label>Username *</label>
+
+        <label>
+            Username *
+        </label>
+
 
         <input
             id="signupUsername"
             autocomplete="username"
-            placeholder="Choose a username">
+            placeholder="Choose a username"
+        >
 
 
-        <label>Password *</label>
+        <label>
+            Password *
+        </label>
+
 
         <div class="password-row">
+
 
             <input
                 id="signupPassword"
                 type="password"
                 autocomplete="new-password"
-                placeholder="Create a password">
+                placeholder="Create a password"
+            >
+
 
             <button
                 id="signupReveal"
                 class="reveal"
+                type="button"
                 disabled
                 onclick="togglePassword(
                     'signupPassword',
                     'signupReveal'
                 )">
+
                 Reveal
+
             </button>
+
 
         </div>
 
 
-        <label>Birthday *</label>
+        <label>
+            Birthday *
+        </label>
+
 
         <input
             id="signupBirthday"
-            type="date">
+            type="date"
+        >
 
 
-        <label>Graduation Year *</label>
+        <label>
+            Graduation Year *
+        </label>
+
 
         <input
             id="signupGraduation"
             type="number"
-            placeholder="Example: 2029">
+            placeholder="Example: 2029"
+        >
 
 
         <label>
+
             About Yourself
+
             <span class="small">
                 (Optional)
             </span>
+
         </label>
+
 
         <textarea
             id="signupAbout"
-            placeholder="Tell the operator about yourself if you want to.">
-        </textarea>
+            placeholder="Tell the operator about yourself if you want to."
+        ></textarea>
 
 
         <button
             class="primary full"
             onclick="signupTeen()">
+
             Create Account
+
         </button>
 
 
-        <div id="signupMessage"></div>
+        <div
+            id="signupMessage">
+        </div>
+
 
     </div>
 
 
-    <!-- OPERATOR LOGIN -->
 
-    <div id="operatorLoginForm" class="hidden">
+    <!-- =================================================
+         OPERATOR LOGIN
+    ================================================= -->
 
-        <h2>Operator Login</h2>
+    <div
+        id="operatorLoginForm"
+        class="hidden">
 
-        <label>Username</label>
+
+        <h2>
+            Operator Login
+        </h2>
+
+
+        <label>
+            Username
+        </label>
+
 
         <input
             id="operatorUsername"
             autocomplete="username"
-            placeholder="Operator username">
+            placeholder="Operator username"
+        >
 
 
-        <label>Password</label>
+        <label>
+            Password
+        </label>
+
 
         <div class="password-row">
+
 
             <input
                 id="operatorPassword"
                 type="password"
                 autocomplete="current-password"
-                placeholder="Operator password">
+                placeholder="Operator password"
+            >
+
 
             <button
                 id="operatorReveal"
                 class="reveal"
+                type="button"
                 disabled
                 onclick="togglePassword(
                     'operatorPassword',
                     'operatorReveal'
                 )">
+
                 Reveal
+
             </button>
+
 
         </div>
 
@@ -554,46 +876,54 @@ button:disabled {
         <button
             class="primary full"
             onclick="loginOperator()">
+
             Operator Login
+
         </button>
 
 
-        <div id="operatorError"
-             class="error hidden">
+        <div
+            id="operatorError"
+            class="error hidden">
         </div>
 
+
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
+<!-- =====================================================
      TEEN DASHBOARD
-========================= -->
+===================================================== -->
 
-<section id="teenDashboard"
-         class="hidden">
+<section
+    id="teenDashboard"
+    class="hidden">
+
 
     <div class="card">
 
-        <h1>TeenTalk</h1>
 
-        <div id="approvalMessage"
-             class="notice hidden">
-        </div>
+        <h1>
+            TeenTalk
+        </h1>
 
 
         <div class="notice">
 
-            You can talk without giving the operator
-            your name or other personal information
-            unless you want to.
+            You can talk without giving the
+            operator your name or other
+            personal information unless
+            you want to.
 
         </div>
 
 
         <div class="option-grid">
+
 
             <button
                 class="big-button primary"
@@ -616,92 +946,127 @@ button:disabled {
 
             </button>
 
+
         </div>
 
 
-        <!-- TEXT -->
 
-        <div id="teenTextPanel"
-             class="panel hidden">
+        <!-- TEXT CHAT -->
+
+        <div
+            id="teenTextPanel"
+            class="panel hidden">
+
 
             <div class="chat-header">
+
 
                 <strong>
                     TeenTalk Operator
                 </strong>
 
+
                 <button
                     class="danger"
                     onclick="blockOperator()">
+
                     Block
+
                 </button>
+
 
             </div>
 
 
-            <div id="teenMessages"
-                 class="messages">
+            <div
+                id="teenMessages"
+                class="messages">
             </div>
 
 
             <div class="message-row">
 
+
                 <input
                     id="teenMessageInput"
                     placeholder="Type a message..."
-                    onkeydown="teenEnter(event)">
+                    onkeydown="teenEnter(event)"
+                >
+
 
                 <button
                     class="primary"
                     onclick="sendTeenMessage()">
+
                     Send
+
                 </button>
 
+
             </div>
+
 
         </div>
 
 
+
         <!-- CALL -->
 
-        <div id="teenCallPanel"
-             class="panel call-panel hidden">
+        <div
+            id="teenCallPanel"
+            class="panel call-panel hidden">
+
 
             <div class="call-icon">
                 📞
             </div>
 
-            <h2 id="teenCallStatus">
+
+            <h2
+                id="teenCallStatus">
+
                 Calling...
+
             </h2>
+
 
             <button
                 class="danger"
                 onclick="endCall()">
+
                 End Call
+
             </button>
 
+
         </div>
+
 
 
         <button
             class="secondary full"
             onclick="logout()">
+
             Log Out
+
         </button>
 
+
     </div>
+
 
 </section>
 
 
 
-<!-- =========================
-     OPERATOR
-========================= -->
+<!-- =====================================================
+     OPERATOR DASHBOARD
+===================================================== -->
 
-<section id="operatorDashboard"
-         class="hidden">
+<section
+    id="operatorDashboard"
+    class="hidden">
+
 
     <div class="operator-layout">
 
@@ -710,7 +1075,11 @@ button:disabled {
 
         <div class="card">
 
-            <h2>Operator</h2>
+
+            <h2>
+                Operator
+            </h2>
+
 
             <div class="status">
 
@@ -723,174 +1092,249 @@ button:disabled {
 
             <hr>
 
-            <h3>Pending Accounts</h3>
 
-            <div id="pendingAccounts">
+            <h3>
+                Pending Accounts
+            </h3>
+
+
+            <div
+                id="pendingAccounts">
             </div>
 
 
             <hr>
 
-            <h3>Conversations</h3>
 
-            <div id="conversationList">
+            <h3>
+                Conversations
+            </h3>
+
+
+            <div
+                id="conversationList">
             </div>
+
 
         </div>
 
 
 
-        <!-- MAIN -->
+        <!-- OPERATOR MAIN -->
 
         <div class="card">
 
-            <div id="operatorEmpty">
+
+            <div
+                id="operatorEmpty">
 
                 <h2>
                     No conversation selected
                 </h2>
 
+
                 <p class="subtitle">
+
                     Select a teen's conversation
                     from the left.
+
                 </p>
 
             </div>
 
 
-            <div id="operatorChatPanel"
-                 class="hidden">
+
+            <!-- CHAT -->
+
+            <div
+                id="operatorChatPanel"
+                class="hidden">
+
 
                 <div class="chat-header">
 
-                    <strong id="operatorChatName">
+
+                    <strong
+                        id="operatorChatName">
                     </strong>
+
 
                     <button
                         class="danger"
                         onclick="operatorBlockTeen()">
+
                         Block
+
                     </button>
+
 
                 </div>
 
 
-                <div id="operatorMessages"
-                     class="messages">
+                <div
+                    id="operatorMessages"
+                    class="messages">
                 </div>
 
 
                 <div class="message-row">
 
+
                     <input
                         id="operatorMessageInput"
                         placeholder="Reply..."
-                        onkeydown="operatorEnter(event)">
+                        onkeydown="operatorEnter(event)"
+                    >
+
 
                     <button
                         class="primary"
                         onclick="sendOperatorMessage()">
+
                         Send
+
                     </button>
 
+
                 </div>
+
 
 
                 <!-- PRIVATE NOTES -->
 
                 <div class="section">
 
+
                     <h3>
                         Private Notes
                     </h3>
 
+
                     <p class="small">
-                        These notes are saved only
-                        in this teen's individual record.
+
+                        These notes are saved
+                        separately in this
+                        teen's individual record.
+
                     </p>
+
 
                     <textarea
                         id="privateNotes"
-                        placeholder="Private notes about this teen...">
-                    </textarea>
+                        placeholder="Private notes about this teen..."
+                    ></textarea>
+
 
                     <button
                         class="secondary"
                         onclick="saveNotes()">
+
                         Save Notes
+
                     </button>
+
 
                     <div
                         id="notesSaved"
                         class="note-saved">
                     </div>
 
+
                 </div>
+
 
 
                 <!-- REPORTS -->
 
                 <div class="section">
 
+
                     <h3>
                         Reports
                     </h3>
 
+
                     <p class="small">
-                        Reports are manually created.
-                        Nothing is automatically reported.
+
+                        Reports are manually
+                        created. Nothing is
+                        automatically reported.
+
                     </p>
+
 
                     <textarea
                         id="reportInput"
-                        placeholder="Write a report for this teen...">
-                    </textarea>
+                        placeholder="Write a report for this teen..."
+                    ></textarea>
+
 
                     <button
                         class="danger"
                         onclick="saveReport()">
+
                         Save Report
+
                     </button>
 
-                    <div id="reportsList"></div>
+
+                    <div
+                        id="reportsList">
+                    </div>
+
 
                 </div>
+
 
             </div>
 
 
+
             <!-- INCOMING CALL -->
 
-            <div id="incomingCall"
-                 class="call-panel hidden">
+            <div
+                id="incomingCall"
+                class="call-panel hidden">
+
 
                 <div class="call-icon">
                     📞
                 </div>
 
+
                 <h2>
                     Incoming TeenTalk Call
                 </h2>
+
 
                 <p>
                     A teen is calling the line.
                 </p>
 
+
                 <button
                     class="primary"
                     onclick="answerCall()">
+
                     Answer
+
                 </button>
+
 
                 <button
                     class="danger"
                     onclick="declineCall()">
+
                     Decline
+
                 </button>
+
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -898,37 +1342,45 @@ button:disabled {
     <button
         class="secondary full"
         onclick="logout()">
+
         Log Out
+
     </button>
+
 
 </section>
 
+
 </main>
+
 
 
 <script>
 
 /* =========================================================
-   PROTOTYPE DATABASE
+   DATABASE
 ========================================================= */
 
-const DB_KEY = "TeenTalkDatabase_v2";
+const DB_KEY =
+    "TeenTalkDatabase_Final";
 
-let db = JSON.parse(
-    localStorage.getItem(DB_KEY)
-) || {
 
-    users: {},
+let db =
+    JSON.parse(
+        localStorage.getItem(DB_KEY)
+    ) || {
 
-    conversations: {},
+        users: {},
 
-    notes: {},
+        conversations: {},
 
-    reports: {},
+        notes: {},
 
-    currentCall: null
+        reports: {},
 
-};
+        currentCall: null
+
+    };
 
 
 function saveDB() {
@@ -943,7 +1395,7 @@ function saveDB() {
 
 
 /* =========================================================
-   CURRENT SESSION
+   SESSION
 ========================================================= */
 
 let currentUser = null;
@@ -956,71 +1408,69 @@ let currentTeenId = null;
    PASSWORD REVEAL
 ========================================================= */
 
-const passwordTyped = {
-    login: false,
-    signup: false,
-    operator: false
-};
+function setupPasswordReveal(
+    inputId,
+    buttonId
+) {
+
+    const input =
+        document.getElementById(
+            inputId
+        );
+
+    const button =
+        document.getElementById(
+            buttonId
+        );
 
 
-document
-    .getElementById("loginPassword")
-    .addEventListener(
+    input.addEventListener(
         "input",
         function() {
 
-            if (this.value.length > 0) {
+            /*
+             * The reveal button only becomes
+             * available after the user actually
+             * types something into the field.
+             */
 
-                passwordTyped.login = true;
+            if (
+                this.value.length > 0
+            ) {
 
-                document
-                    .getElementById("loginReveal")
-                    .disabled = false;
+                button.disabled =
+                    false;
+
+            } else {
+
+                button.disabled =
+                    true;
 
             }
 
         }
     );
 
-
-document
-    .getElementById("signupPassword")
-    .addEventListener(
-        "input",
-        function() {
-
-            if (this.value.length > 0) {
-
-                passwordTyped.signup = true;
-
-                document
-                    .getElementById("signupReveal")
-                    .disabled = false;
-
-            }
-
-        }
-    );
+}
 
 
-document
-    .getElementById("operatorPassword")
-    .addEventListener(
-        "input",
-        function() {
+setupPasswordReveal(
+    "loginPassword",
+    "loginReveal"
+);
 
-            if (this.value.length > 0) {
 
-                passwordTyped.operator = true;
+setupPasswordReveal(
+    "signupPassword",
+    "signupReveal"
+);
 
-                document
-                    .getElementById("operatorReveal")
-                    .disabled = false;
 
-            }
+setupPasswordReveal(
+    "operatorPassword",
+    "operatorReveal"
+);
 
-        }
-    );
 
 
 function togglePassword(
@@ -1029,28 +1479,50 @@ function togglePassword(
 ) {
 
     const input =
-        document.getElementById(inputId);
+        document.getElementById(
+            inputId
+        );
 
     const button =
-        document.getElementById(buttonId);
+        document.getElementById(
+            buttonId
+        );
 
 
-    if (!input.value) {
+    /*
+     * Don't allow reveal if nothing
+     * has been typed.
+     */
+
+    if (
+        input.value.length === 0
+    ) {
+
+        button.disabled =
+            true;
+
         return;
+
     }
 
 
-    if (input.type === "password") {
+    if (
+        input.type === "password"
+    ) {
 
-        input.type = "text";
+        input.type =
+            "text";
 
-        button.textContent = "Hide";
+        button.textContent =
+            "Hide";
 
     } else {
 
-        input.type = "password";
+        input.type =
+            "password";
 
-        button.textContent = "Reveal";
+        button.textContent =
+            "Reveal";
 
     }
 
@@ -1079,7 +1551,31 @@ function hideEverything() {
 }
 
 
+function clearActiveTabs() {
+
+    document
+        .getElementById("loginTab")
+        .classList.remove("active");
+
+    document
+        .getElementById("signupTab")
+        .classList.remove("active");
+
+    document
+        .getElementById("operatorTab")
+        .classList.remove("active");
+
+}
+
+
 function showLogin() {
+
+    clearActiveTabs();
+
+    document
+        .getElementById("loginTab")
+        .classList.add("active");
+
 
     document
         .getElementById("loginForm")
@@ -1098,6 +1594,13 @@ function showLogin() {
 
 function showSignup() {
 
+    clearActiveTabs();
+
+    document
+        .getElementById("signupTab")
+        .classList.add("active");
+
+
     document
         .getElementById("loginForm")
         .classList.add("hidden");
@@ -1114,6 +1617,13 @@ function showSignup() {
 
 
 function showOperatorLogin() {
+
+    clearActiveTabs();
+
+    document
+        .getElementById("operatorTab")
+        .classList.add("active");
+
 
     document
         .getElementById("loginForm")
@@ -1139,34 +1649,51 @@ function signupTeen() {
 
     const username =
         document
-            .getElementById("signupUsername")
+            .getElementById(
+                "signupUsername"
+            )
             .value
             .trim();
+
 
     const password =
         document
-            .getElementById("signupPassword")
+            .getElementById(
+                "signupPassword"
+            )
             .value;
+
 
     const birthday =
         document
-            .getElementById("signupBirthday")
+            .getElementById(
+                "signupBirthday"
+            )
             .value;
+
 
     const graduation =
         document
-            .getElementById("signupGraduation")
+            .getElementById(
+                "signupGraduation"
+            )
             .value;
+
 
     const about =
         document
-            .getElementById("signupAbout")
+            .getElementById(
+                "signupAbout"
+            )
             .value
             .trim();
 
+
     const message =
         document
-            .getElementById("signupMessage");
+            .getElementById(
+                "signupMessage"
+            );
 
 
     if (
@@ -1248,21 +1775,19 @@ function signupTeen() {
     };
 
 
+    db.notes[id] = "";
+
+    db.reports[id] = [];
+
+
     saveDB();
 
-
-    /*
-        The account remains pending.
-
-        Once the operator approves it, the
-        operator can activate the account.
-    */
 
     message.className =
         "success";
 
     message.textContent =
-        "Account created. Your account is waiting for approval.";
+        "Account created. It is waiting for operator approval.";
 
 }
 
@@ -1276,20 +1801,32 @@ function loginTeen() {
 
     const username =
         document
-            .getElementById("loginUsername")
+            .getElementById(
+                "loginUsername"
+            )
             .value
             .trim()
             .toLowerCase();
 
+
     const password =
         document
-            .getElementById("loginPassword")
+            .getElementById(
+                "loginPassword"
+            )
             .value;
 
 
     const error =
         document
-            .getElementById("loginError");
+            .getElementById(
+                "loginError"
+            );
+
+
+    error.classList.add(
+        "hidden"
+    );
 
 
     const user =
@@ -1313,7 +1850,9 @@ function loginTeen() {
     }
 
 
-    if (!user.approved) {
+    if (
+        !user.approved
+    ) {
 
         error.textContent =
             "Your account has not been approved yet.";
@@ -1327,7 +1866,8 @@ function loginTeen() {
     }
 
 
-    currentUser = user;
+    currentUser =
+        user;
 
 
     showTeenDashboard();
@@ -1344,55 +1884,67 @@ function loginOperator() {
 
     const username =
         document
-            .getElementById("operatorUsername")
+            .getElementById(
+                "operatorUsername"
+            )
             .value
             .trim();
 
+
     const password =
         document
-            .getElementById("operatorPassword")
+            .getElementById(
+                "operatorPassword"
+            )
             .value;
 
 
     const error =
         document
-            .getElementById("operatorError");
+            .getElementById(
+                "operatorError"
+            );
+
+
+    error.classList.add(
+        "hidden"
+    );
 
 
     /*
-        IMPORTANT:
-        This is only a prototype.
+     * PROTOTYPE CREDENTIALS
+     *
+     * These are NOT secure for a public
+     * production website because JavaScript
+     * is visible to visitors.
+     */
 
-        Do NOT use a password written into
-        public HTML for the real service.
-    */
-
-    const DEMO_USERNAME =
+    const OPERATOR_USERNAME =
         "NisaAdmin";
 
 
+    const OPERATOR_PASSWORD =
+        "C@p!t@l!zed";
+
+
     /*
-        The password is deliberately not placed
-        directly in the public HTML.
-
-        Set it below only for local testing.
-    */
-
-    const DEMO_PASSWORD =
-        "CHANGE_THIS_BEFORE_PUBLIC_USE";
-
+     * BOTH username AND password must match.
+     */
 
     if (
-        username === DEMO_USERNAME &&
-        password === DEMO_PASSWORD
+        username ===
+            OPERATOR_USERNAME &&
+        password ===
+            OPERATOR_PASSWORD
     ) {
 
         currentUser = {
 
-            id: "operator",
+            id:
+                "operator",
 
             username:
-                "NisaAdmin",
+                OPERATOR_USERNAME,
 
             role:
                 "operator"
@@ -1426,6 +1978,7 @@ function showTeenDashboard() {
 
     hideEverything();
 
+
     document
         .getElementById(
             "teenDashboard"
@@ -1435,23 +1988,19 @@ function showTeenDashboard() {
 
 
     document
-        .getElementById("userBadge")
+        .getElementById(
+            "userBadge"
+        )
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById("userBadge")
+        .getElementById(
+            "userBadge"
+        )
         .textContent =
         currentUser.username;
-
-
-    document
-        .getElementById(
-            "approvalMessage"
-        )
-        .classList
-        .add("hidden");
 
 }
 
@@ -1465,6 +2014,7 @@ function showOperatorDashboard() {
 
     hideEverything();
 
+
     document
         .getElementById(
             "operatorDashboard"
@@ -1474,13 +2024,17 @@ function showOperatorDashboard() {
 
 
     document
-        .getElementById("userBadge")
+        .getElementById(
+            "userBadge"
+        )
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById("userBadge")
+        .getElementById(
+            "userBadge"
+        )
         .textContent =
         "Operator";
 
@@ -1494,7 +2048,7 @@ function showOperatorDashboard() {
 
 
 /* =========================================================
-   APPROVAL
+   PENDING ACCOUNTS
 ========================================================= */
 
 function renderPendingAccounts() {
@@ -1539,7 +2093,7 @@ function renderPendingAccounts() {
                     )}
                 </strong>
 
-                <p>
+                <p class="small">
                     Graduation:
                     ${escapeHTML(
                         user.graduationYear
@@ -1579,13 +2133,15 @@ function renderPendingAccounts() {
 }
 
 
+
 function approveUser(id) {
 
     const user =
         Object.values(
             db.users
         ).find(
-            u => u.id === id
+            item =>
+                item.id === id
         );
 
 
@@ -1594,7 +2150,9 @@ function approveUser(id) {
     }
 
 
-    user.approved = true;
+    user.approved =
+        true;
+
 
     user.approvedAt =
         new Date().toISOString();
@@ -1602,18 +2160,9 @@ function approveUser(id) {
 
     saveDB();
 
+
     renderPendingAccounts();
 
-
-    /*
-        If the teen is currently on the
-        signup/pending page in this browser,
-        check for approval.
-
-        A real multi-device version needs
-        a backend for this to work across
-        devices.
-    */
 
     alert(
         user.username +
@@ -1625,12 +2174,15 @@ function approveUser(id) {
 
 
 /* =========================================================
-   TEXT
+   TEXT CHAT
 ========================================================= */
 
 function openText() {
 
-    if (!currentUser.approved) {
+    if (
+        !currentUser ||
+        !currentUser.approved
+    ) {
 
         alert(
             "Your account must be approved first."
@@ -1652,7 +2204,7 @@ function openText() {
     ) {
 
         alert(
-            "This conversation is blocked."
+            "This conversation has been blocked."
         );
 
         return;
@@ -1669,8 +2221,11 @@ function openText() {
 
 
     /*
-        GREETING ONLY SENDS ONCE.
-    */
+     * AUTOMATED GREETING
+     *
+     * This can only happen once for
+     * this conversation.
+     */
 
     if (
         !conversation.greetingSent
@@ -1781,6 +2336,11 @@ function renderTeenMessages() {
 
 function sendTeenMessage() {
 
+    if (!currentUser) {
+        return;
+    }
+
+
     const input =
         document
             .getElementById(
@@ -1819,7 +2379,9 @@ function sendTeenMessage() {
 
     saveDB();
 
+
     input.value = "";
+
 
     renderTeenMessages();
 
@@ -1828,10 +2390,12 @@ function sendTeenMessage() {
 }
 
 
+
 function teenEnter(event) {
 
     if (
-        event.key === "Enter"
+        event.key ===
+        "Enter"
     ) {
 
         sendTeenMessage();
@@ -1934,7 +2498,7 @@ function renderConversations() {
 
 
 /* =========================================================
-   OPERATOR OPEN CONVERSATION
+   OPERATOR CHAT
 ========================================================= */
 
 function openOperatorConversation(
@@ -1991,6 +2555,11 @@ function openOperatorConversation(
 
 
 function renderOperatorMessages() {
+
+    if (!currentTeenId) {
+        return;
+    }
+
 
     const container =
         document
@@ -2105,7 +2674,9 @@ function sendOperatorMessage() {
 
     saveDB();
 
+
     input.value = "";
+
 
     renderOperatorMessages();
 
@@ -2114,10 +2685,12 @@ function sendOperatorMessage() {
 }
 
 
+
 function operatorEnter(event) {
 
     if (
-        event.key === "Enter"
+        event.key ===
+        "Enter"
     ) {
 
         sendOperatorMessage();
@@ -2134,10 +2707,9 @@ function operatorEnter(event) {
 
 function loadNotes() {
 
-    const notes =
-        db.notes[
-            currentTeenId
-        ] || "";
+    if (!currentTeenId) {
+        return;
+    }
 
 
     document
@@ -2145,7 +2717,9 @@ function loadNotes() {
             "privateNotes"
         )
         .value =
-        notes;
+        db.notes[
+            currentTeenId
+        ] || "";
 
 
     document
@@ -2156,6 +2730,7 @@ function loadNotes() {
         "";
 
 }
+
 
 
 function saveNotes() {
@@ -2183,7 +2758,7 @@ function saveNotes() {
             "notesSaved"
         )
         .textContent =
-        "Private notes saved to this teen's record.";
+        "Private notes saved to this teen's individual record.";
 
 }
 
@@ -2194,6 +2769,11 @@ function saveNotes() {
 ========================================================= */
 
 function loadReports() {
+
+    if (!currentTeenId) {
+        return;
+    }
+
 
     const container =
         document
@@ -2290,7 +2870,9 @@ function saveReport() {
 
     saveDB();
 
+
     input.value = "";
+
 
     loadReports();
 
@@ -2299,7 +2881,7 @@ function saveReport() {
 
 
 /* =========================================================
-   BLOCKING
+   BLOCK
 ========================================================= */
 
 function blockOperator() {
@@ -2311,7 +2893,8 @@ function blockOperator() {
 
     db.conversations[
         currentUser.id
-    ].blocked = true;
+    ].blocked =
+        true;
 
 
     saveDB();
@@ -2332,6 +2915,7 @@ function blockOperator() {
 }
 
 
+
 function operatorBlockTeen() {
 
     if (!currentTeenId) {
@@ -2341,7 +2925,8 @@ function operatorBlockTeen() {
 
     db.conversations[
         currentTeenId
-    ].blocked = true;
+    ].blocked =
+        true;
 
 
     saveDB();
@@ -2366,12 +2951,15 @@ function operatorBlockTeen() {
 
 
 /* =========================================================
-   CALLS
+   CALL SYSTEM
 ========================================================= */
 
 function startCall() {
 
-    if (!currentUser.approved) {
+    if (
+        !currentUser ||
+        !currentUser.approved
+    ) {
 
         alert(
             "Your account must be approved first."
@@ -2382,7 +2970,13 @@ function startCall() {
     }
 
 
-    if (db.currentCall) {
+    /*
+     * Only ONE call can exist at a time.
+     */
+
+    if (
+        db.currentCall
+    ) {
 
         alert(
             "The operator is currently handling another call."
@@ -2426,17 +3020,22 @@ function startCall() {
         "Calling the operator...";
 
 
-    checkOperatorCall();
+    monitorTeenCall();
 
 }
 
 
 
-function checkOperatorCall() {
+function monitorTeenCall() {
 
     const interval =
         setInterval(
             function() {
+
+                /*
+                 * If the call disappeared,
+                 * stop monitoring.
+                 */
 
                 if (
                     !db.currentCall
@@ -2515,11 +3114,17 @@ function answerCall() {
     }
 
 
+    /*
+     * Only the ringing call can be answered.
+     */
+
     if (
         db.currentCall.status !==
         "ringing"
     ) {
+
         return;
+
     }
 
 
@@ -2538,17 +3143,12 @@ function answerCall() {
         .add("hidden");
 
 
-    /*
-        This prototype changes the call state.
-        Actual microphone/audio transmission
-        requires WebRTC/backend infrastructure.
-    */
-
     alert(
         "Call connected in prototype mode."
     );
 
 }
+
 
 
 function declineCall() {
@@ -2575,6 +3175,7 @@ function declineCall() {
         .add("hidden");
 
 }
+
 
 
 function endCall() {
@@ -2651,6 +3252,7 @@ function logout() {
     currentUser =
         null;
 
+
     currentTeenId =
         null;
 
@@ -2681,19 +3283,47 @@ function logout() {
 
 
 /* =========================================================
-   SECURITY DISPLAY HELPER
+   HTML ESCAPING
 ========================================================= */
 
 function escapeHTML(value) {
 
     return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
+
+
+
+/* =========================================================
+   START ON TEEN LOGIN
+========================================================= */
+
+showLogin();
 
 </script>
 

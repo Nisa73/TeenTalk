@@ -1,0 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TeenTalk</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+header {
+    background: white;
+    border-bottom: 1px solid #dfe5ee;
+    padding: 16px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.user-badge {
+    background: #e8f7ee;
+    color: #19733a;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+main {
+    max-width: 1150px;
+    margin: 30px auto;
+    padding: 0 18px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #dfe5ee;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 25px rgba(0,0,0,.05);
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+.subtitle {
+    color: #667085;
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1px solid #cfd7e5;
+    border-radius: 10px;
+    padding: 12px;
+    font: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Password field */
+
+.password-wrapper {
+    display: flex;
+    gap: 7px;
+    align-items: stretch;
+}
+
+.password-wrapper input {
+    flex: 1;
+}
+
+.reveal-button {
+    min-width: 75px;
+    background: #edf2fa;
+    color: #24314a;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.reveal-button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+button {
+    border: none;
+    border-radius: 11px;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    opacity: .88;
+}
+
+.primary {
+    background: #2457e6;
+    color: white;
+}
+
+.secondary {
+    background: #edf2fa;
+    color: #24314a;
+}
+
+.danger {
+    background: #feecec;
+    color: #b42318;
+}
+
+.full {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+}
+
+.active-tab {
+    background: #2457e6;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.notice {
+    background: #fff8e5;
+    border: 1px solid #efd58b;
+    color: #6c5300;
+    padding: 14px;
+    border-radius: 12px;
+    margin: 18px 0;
+    line-height: 1.5;
+}
+
+.error {
+    background: #feecec;
+    color: #b42318;
+    border: 1px solid #f2b8b5;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+.success-message {
+    background: #e8f7ee;
+    color: #19733a;
+    border: 1px solid #b8dfc6;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #29a85b;
+}
+
+.red-dot {
+    background: #d92d20;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.big-option {
+    padding: 30px 15px;
+    font-size: 18px;
+}
+
+.call-box {
+    background: #f7f9fc;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.call-icon {
+    font-size: 45px;
+}
+
+.operator-status {
+    background: #f7f9fc;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.chat-container {
+    border: 1px solid #dfe5ee;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #f7f9fc;
+    padding: 14px;
+    border-bottom: 1px solid #dfe5ee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat {
+    height: 300px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 78%;
+    padding: 10px 13px;
+    border-radius: 14px;
+    margin: 7px 0;
+    background: #e8edf7;
+    line-height: 1.4;
+}
+
+.message.operator {
+    margin-left: auto;
+    background: #2457e6;
+    color: white;
+}
+
+.message.system {
+    margin-left: auto;
+    margin-right: auto;
+    background: #f0f2f5;
+    color: #667085;
+    font-size: 12px;
+    text-align: center;
+}
+
+.input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #dfe5ee;
+}
+
+.input-row input {
+    flex: 1;
+}
+
+.conversation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.conversation-button {
+    width: 100%;
+    background: #f4f6fa;
+    border: 1px solid #dfe5ee;
+    text-align: left;
+}
+
+.conversation-button.active {
+    background: #e8eefc;
+    border-color: #2457e6;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.small {
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e3e8f0;
+    margin: 25px 0;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-box {
+    background: white;
+    width: min(450px, 90%);
+    padding: 25px;
+    border-radius: 18px;
+}
+
+@media(max-width: 750px) {
+    .grid,
+    .option-grid,
+    .buttons {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        margin: 15px auto;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">
+        TeenTalk
+    </div>
+
+    <div id="headerUser" class="user-badge hidden"></div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     LOGIN / SIGNUP
+===================================================== -->
+
+<div id="authScreen" class="auth-container">
+
+<div class="card">
+
+<h1>Welcome to TeenTalk</h1>
+
+<p class="subtitle">
+A place for teens to talk with the teen currently
+operating the TeenTalk line.
+</p>
+
+
+<div class="tabs">
+
+<button
+id="loginTab"
+class="active-tab"
+onclick="showLogin()">
+Log In
+</button>
+
+<button
+id="signupTab"
+class="secondary"
+onclick="showSignup()">
+Sign Up
+</button>
+
+</div>
+
+
+
+<!-- LOGIN -->
+
+<div id="loginForm">
+
+<h2>Log In</h2>
+
+
+<label>
+Username
+</label>
+
+<input
+id="loginUsername"
+type="text"
+placeholder="Username"
+autocomplete="username"
+>
+
+
+<label>
+Password
+</label>
+
+<div class="password-wrapper">
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Password"
+autocomplete="current-password"
+>
+
+<button
+id="loginReveal"
+class="reveal-button"
+type="button"
+disabled
+onclick="togglePassword('loginPassword','loginReveal')">
+
+Reveal
+
+</button>
+
+</div>
+
+
+<button
+class="primary full"
+onclick="loginUser()">
+
+Log In
+
+</button>
+
+
+<button
+class="secondary full"
+onclick="showOperatorLogin()">
+
+Operator Login
+
+</button>
+
+
+<div
+id="loginError"
+class="error hidden">
+</div>
+
+</div>
+
+
+
+<!-- SIGNUP -->
+
+<div id="signupForm" class="hidden">
+
+<h2>Create Teen Account</h2>
+
+
+<div class="notice">
+
+Birthday and expected graduation year are required.
+The "Tell Us About Yourself" section is optional.
+
+</div>
+
+
+<label>
+Username *
+</label>
+
+<input
+id="signupUsername"
+type="text"
+placeholder="Choose a username"
+autocomplete="username"
+>
+
+
+<label>
+Password *
+</label>
+
+<div class="password-wrapper">
+
+<input
+id="signupPassword"
+type="password"
+placeholder="Create a password"
+autocomplete="new-password"
+>
+
+<button
+id="signupReveal"
+class="reveal-button"
+type="button"
+disabled
+onclick="togglePassword('signupPassword','signupReveal')">
+
+Reveal
+
+</button>
+
+</div>
+
+
+<label>
+Birthday *
+</label>
+
+<input
+id="signupBirthday"
+type="date"
+>
+
+
+<label>
+Expected Graduation Year *
+</label>
+
+<input
+id="signupGraduation"
+type="number"
+placeholder="Example: 2029"
+min="2026"
+max="2045"
+>
+
+
+<label>
+Tell Us About Yourself
+<span class="small">(Optional)</span>
+</label>
+
+<textarea
+id="signupAbout"
+placeholder="Tell us a little about yourself, your interests, hobbies, or anything else you want us to know."
+></textarea>
+
+
+<button
+class="primary full"
+onclick="createAccount()">
+
+Create Account
+
+</button>
+
+
+<div
+id="signupError"
+class="error hidden">
+</div>
+
+
+<div
+id="signupSuccess"
+class="success-message hidden">
+</div>
+
+</div>
+
+
+
+<!-- OPERATOR LOGIN -->
+
+<div
+id="operatorLoginForm"
+class="hidden">
+
+<h2>Operator Login</h2>
+
+<p class="small">
+This login is for the designated TeenTalk operator.
+</p>
+
+
+<label>
+Operator Username
+</label>
+
+<input
+id="operatorUsername"
+type="text"
+placeholder="Operator username"
+autocomplete="username"
+>
+
+
+<label>
+Operator Password
+</label>
+
+<div class="password-wrapper">
+
+<input
+id="operatorPassword"
+type="password"
+placeholder="Operator password"
+autocomplete="current-password"
+>
+
+<button
+id="operatorReveal"
+class="reveal-button"
+type="button"
+disabled
+onclick="togglePassword('operatorPassword','operatorReveal')">
+
+Reveal
+
+</button>
+
+</div>
+
+
+<button
+class="primary full"
+onclick="loginOperator()">
+
+Log In as Operator
+
+</button>
+
+
+<button
+class="secondary full"
+onclick="showLogin()">
+
+Back
+
+</button>
+
+
+<div
+id="operatorLoginError"
+class="error hidden">
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+<!-- =====================================================
+     TEEN SCREEN
+===================================================== -->
+
+<div
+id="teenScreen"
+class="hidden">
+
+<div class="card">
+
+<h1>Welcome to TeenTalk</h1>
+
+<p class="subtitle">
+You're logged in as a teen user.
+</p>
+
+
+<div class="notice">
+
+You don't have to share your name or personal
+information with the operator. Introduce yourself
+only if you want to.
+
+</div>
+
+
+<div class="option-grid">
+
+<button
+class="primary big-option"
+onclick="teenStartCall()">
+
+📞<br>
+Call TeenTalk
+
+</button>
+
+
+<button
+class="primary big-option"
+onclick="teenStartText()">
+
+💬<br>
+Text TeenTalk
+
+</button>
+
+</div>
+
+
+<!-- TEEN CALL -->
+
+<div
+id="teenCall"
+class="hidden"
+style="margin-top:25px">
+
+<div class="call-box">
+
+<div class="call-icon">
+📞
+</div>
+
+<h2 id="teenCallStatus">
+Calling TeenTalk...
+</h2>
+
+<p class="subtitle">
+You are calling the TeenTalk operator.
+</p>
+
+</div>
+
+
+<button
+class="danger full"
+onclick="teenEndCall()">
+
+End Call
+
+</button>
+
+</div>
+
+
+<!-- TEEN TEXT -->
+
+<div
+id="teenText"
+class="hidden"
+style="margin-top:25px">
+
+<div class="chat-container">
+
+<div class="chat-header">
+
+<strong>
+TeenTalk Operator
+</strong>
+
+<button
+class="danger"
+onclick="teenBlock()">
+
+🚫 Block
+
+</button>
+
+</div>
+
+
+<div
+id="teenChat"
+class="chat">
+
+<div class="message system">
+Connected to the TeenTalk operator.
+</div>
+
+</div>
+
+
+<div class="input-row">
+
+<input
+id="teenMessage"
+placeholder="Type a message..."
+onkeydown="teenEnter(event)"
+>
+
+<button
+class="primary"
+onclick="teenSend()">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="buttons">
+
+<button
+class="secondary"
+onclick="teenEndText()">
+
+End Conversation
+
+</button>
+
+
+<button
+class="danger"
+onclick="teenBlock()">
+
+🚫 Block
+
+</button>
+
+</div>
+
+</div>
+
+
+<button
+class="secondary full"
+onclick="logout()">
+
+Log Out
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     OPERATOR SCREEN
+===================================================== -->
+
+<div
+id="operatorScreen"
+class="hidden">
+
+<div class="grid">
+
+
+<!-- CALL AREA -->
+
+<section class="card">
+
+<h2>Operator Dashboard</h2>
+
+
+<div class="operator-status">
+
+<div class="status">
+
+<span
+id="operatorDot"
+class="dot">
+</span>
+
+<span id="operatorStatus">
+Available for calls
+</span>
+
+</div>
+
+
+<p class="small">
+
+Only one voice call can be active at a time.
+Text conversations can continue simultaneously.
+
+</p>
+
+</div>
+
+
+<!-- INCOMING CALL -->
+
+<div
+id="incomingCall"
+class="hidden">
+
+<h3>
+📞 Incoming Call
+</h3>
+
+
+<div class="call-box">
+
+<div class="call-icon">
+📞
+</div>
+
+<p>
+A teen is calling TeenTalk.
+</p>
+
+</div>
+
+
+<div class="buttons">
+
+<button
+class="primary"
+onclick="answerCall()">
+
+Answer
+
+</button>
+
+
+<button
+class="secondary"
+onclick="declineCall()">
+
+Decline
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ACTIVE CALL -->
+
+<div
+id="operatorActiveCall"
+class="hidden">
+
+<div class="call-box">
+
+<div class="call-icon">
+📞
+</div>
+
+<h3>
+Active Voice Call
+</h3>
+
+<p>
+Connected with one teen.
+</p>
+
+</div>
+
+
+<button
+class="danger full"
+onclick="operatorEndCall()">
+
+End Call
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- TEXT AREA -->
+
+<section class="card">
+
+<h2>💬 Text Conversations</h2>
+
+
+<p class="small">
+
+Multiple text conversations can remain active at the
+same time, including while you're on a call.
+
+</p>
+
+
+<div
+id="conversationList"
+class="conversation-list">
+
+<div class="small">
+No active text conversations.
+</div>
+
+</div>
+
+
+<button
+class="primary full"
+onclick="simulateNewText()">
+
+＋ Simulate Incoming Text
+
+</button>
+
+
+<div
+id="operatorChatArea"
+class="hidden"
+style="margin-top:20px">
+
+
+<div class="chat-container">
+
+<div class="chat-header">
+
+<strong id="operatorChatTitle">
+Teen
+</strong>
+
+
+<button
+class="danger"
+onclick="operatorBlock()">
+
+🚫 Block
+
+</button>
+
+</div>
+
+
+<div
+id="operatorChat"
+class="chat">
+</div>
+
+
+<div class="input-row">
+
+<input
+id="operatorMessage"
+placeholder="Reply..."
+onkeydown="operatorEnter(event)"
+>
+
+<button
+class="primary"
+onclick="operatorSend()">
+
+Send
+
+</button>
+
+</div>
+
+</div>
+
+
+<hr>
+
+
+<!-- PRIVATE NOTES -->
+
+<h3>
+📝 Private Notes
+</h3>
+
+<p class="small">
+
+Private notes are separate from reports.
+
+</p>
+
+
+<textarea
+id="operatorNotes"
+placeholder="Write private notes about this conversation..."
+></textarea>
+
+
+<button
+class="secondary full"
+onclick="saveNotes()">
+
+Save Private Notes
+
+</button>
+
+
+<p
+id="notesSaved"
+class="small">
+</p>
+
+
+<hr>
+
+
+<!-- REPORT -->
+
+<h3>
+🚩 Reports
+</h3>
+
+
+<p class="small">
+
+Reports are manually created by the operator.
+Nothing is automatically reported.
+
+</p>
+
+
+<button
+class="danger full"
+onclick="openReport()">
+
+Create Report
+
+</button>
+
+</div>
+
+
+<button
+class="secondary full"
+onclick="logout()">
+
+Log Out
+
+</button>
+
+</section>
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<!-- REPORT MODAL -->
+
+<div
+id="reportModal"
+class="modal hidden">
+
+<div class="modal-box">
+
+<h2>
+🚩 Create Report
+</h2>
+
+<p class="small">
+This report is created manually by the operator.
+</p>
+
+
+<textarea
+id="reportText"
+placeholder="Describe what happened..."
+></textarea>
+
+
+<div class="buttons">
+
+<button
+class="secondary"
+onclick="closeReport()">
+
+Cancel
+
+</button>
+
+
+<button
+class="danger"
+onclick="submitReport()">
+
+Submit Report
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   FIXED OPERATOR LOGIN
+===================================================== */
+
+const OPERATOR_USERNAME = "NisaAdmin";
+
+const OPERATOR_PASSWORD = "C@p!t@l!zed";
+
+
+/* =====================================================
+   PASSWORD REVEAL SECURITY
+===================================================== */
+
+/*
+    This tracks whether the user has actually interacted
+    with the password field using the keyboard.
+
+    Autofill alone does NOT set this to true.
+*/
+
+const passwordWasTyped = {};
+
+
+/*
+    Attach keyboard listeners after page loads.
+*/
+
+function setupPasswordSecurity() {
+
+    const fields = [
+        "loginPassword",
+        "signupPassword",
+        "operatorPassword"
+    ];
+
+
+    fields.forEach(function(id) {
+
+        const input =
+            document.getElementById(id);
+
+
+        const reveal =
+            document.getElementById(
+                id.replace(
+                    "Password",
+                    "Reveal"
+                )
+            );
+
+
+        passwordWasTyped[id] = false;
+
+
+        input.addEventListener(
+            "keydown",
+            function(event) {
+
+                /*
+                    A real keyboard interaction is required.
+                */
+
+                if (
+                    event.key.length === 1 ||
+                    event.key === "Backspace" ||
+                    event.key === "Delete"
+                ) {
+
+                    passwordWasTyped[id] = true;
+
+                    reveal.disabled = false;
+
+                }
+
+            }
+        );
+
+
+        /*
+            If the user clears the field completely,
+            disable Reveal again.
+        */
+
+        input.addEventListener(
+            "input",
+            function() {
+
+                if (
+                    input.value.length === 0
+                ) {
+
+                    passwordWasTyped[id] = false;
+
+                    reveal.disabled = true;
+
+                    input.type = "password";
+
+                    reveal.textContent =
+                        "Reveal";
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+/*
+    Reveal/hide password.
+
+    It refuses to work unless the password field has
+    received actual keyboard input.
+*/
+
+function togglePassword(
+    inputId,
+    buttonId
+) {
+
+    if (
+        !passwordWasTyped[inputId]
+    ) {
+
+        return;
+
+    }
+
+
+    const input =
+        document.getElementById(
+            inputId
+        );
+
+
+    const button =
+        document.getElementById(
+            buttonId
+        );
+
+
+    if (
+        input.type === "password"
+    ) {
+
+        input.type = "text";
+
+        button.textContent =
+            "Hide";
+
+    }
+
+    else {
+
+        input.type = "password";
+
+        button.textContent =
+            "Reveal";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ACCOUNT SYSTEM
+===================================================== */
+
+let currentUser = null;
+
+let userRole = null;
+
+
+
+/* =====================================================
+   AUTH TABS
+===================================================== */
+
+function showLogin() {
+
+    document
+        .getElementById("loginForm")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("signupForm")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("operatorLoginForm")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("loginTab")
+        .classList
+        .add("active-tab");
+
+
+    document
+        .getElementById("signupTab")
+        .classList
+        .remove("active-tab");
+
+}
+
+
+function showSignup() {
+
+    document
+        .getElementById("loginForm")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("signupForm")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("operatorLoginForm")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("loginTab")
+        .classList
+        .remove("active-tab");
+
+
+    document
+        .getElementById("signupTab")
+        .classList
+        .add("active-tab");
+
+}
+
+
+function showOperatorLogin() {
+
+    document
+        .getElementById("loginForm")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("signupForm")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("operatorLoginForm")
+        .classList
+        .remove("hidden");
+
+}
+
+
+
+/* =====================================================
+   CREATE TEEN ACCOUNT
+===================================================== */
+
+function createAccount() {
+
+    const username =
+        document.getElementById(
+            "signupUsername"
+        ).value.trim();
+
+
+    const password =
+        document.getElementById(
+            "signupPassword"
+        ).value;
+
+
+    const birthday =
+        document.getElementById(
+            "signupBirthday"
+        ).value;
+
+
+    const graduation =
+        document.getElementById(
+            "signupGraduation"
+        ).value;
+
+
+    const about =
+        document.getElementById(
+            "signupAbout"
+        ).value.trim();
+
+
+    const error =
+        document.getElementById(
+            "signupError"
+        );
+
+
+    const success =
+        document.getElementById(
+            "signupSuccess"
+        );
+
+
+    error.classList.add("hidden");
+
+    success.classList.add("hidden");
+
+
+    if (
+        !username ||
+        !password ||
+        !birthday ||
+        !graduation
+    ) {
+
+        error.textContent =
+            "Username, password, birthday, and graduation year are required.";
+
+        error.classList.remove("hidden");
+
+        return;
+
+    }
+
+
+    const users =
+        JSON.parse(
+            localStorage.getItem(
+                "teenTalkUsers"
+            ) || "{}"
+        );
+
+
+    if (users[username]) {
+
+        error.textContent =
+            "That username is already being used.";
+
+        error.classList.remove("hidden");
+
+        return;
+
+    }
+
+
+    users[username] = {
+
+        username: username,
+
+        password: password,
+
+        birthday: birthday,
+
+        graduationYear:
+            Number(graduation),
+
+        about: about
+
+    };
+
+
+    localStorage.setItem(
+        "teenTalkUsers",
+        JSON.stringify(users)
+    );
+
+
+    success.textContent =
+        "Account created! You can now log in.";
+
+
+    success.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+
+/* =====================================================
+   TEEN LOGIN
+===================================================== */
+
+function loginUser() {
+
+    const username =
+        document.getElementById(
+            "loginUsername"
+        ).value.trim();
+
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+
+    const error =
+        document.getElementById(
+            "loginError"
+        );
+
+
+    error.classList.add("hidden");
+
+
+    const users =
+        JSON.parse(
+            localStorage.getItem(
+                "teenTalkUsers"
+            ) || "{}"
+        );
+
+
+    if (
+        !users[username] ||
+        users[username].password !== password
+    ) {
+
+        error.textContent =
+            "Incorrect username or password.";
+
+        error.classList.remove(
+            "hidden"
+        );
+
+        return;
+
+    }
+
+
+    currentUser =
+        users[username];
+
+
+    userRole = "teen";
+
+
+    showTeenScreen();
+
+}
+
+
+
+/* =====================================================
+   OPERATOR LOGIN
+===================================================== */
+
+function loginOperator() {
+
+    const username =
+        document.getElementById(
+            "operatorUsername"
+        ).value;
+
+
+    const password =
+        document.getElementById(
+            "operatorPassword"
+        ).value;
+
+
+    const error =
+        document.getElementById(
+            "operatorLoginError"
+        );
+
+
+    error.classList.add("hidden");
+
+
+    if (
+        username === OPERATOR_USERNAME &&
+        password === OPERATOR_PASSWORD
+    ) {
+
+        currentUser = {
+            username: OPERATOR_USERNAME
+        };
+
+
+        userRole = "operator";
+
+
+        showOperatorScreen();
+
+        return;
+
+    }
+
+
+    error.textContent =
+        "Incorrect operator username or password.";
+
+
+    error.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+
+/* =====================================================
+   SCREEN SWITCHING
+===================================================== */
+
+function showTeenScreen() {
+
+    document
+        .getElementById("authScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("operatorScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("teenScreen")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("headerUser")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("headerUser")
+        .textContent =
+        "Teen: " +
+        currentUser.username;
+
+}
+
+
+function showOperatorScreen() {
+
+    document
+        .getElementById("authScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("teenScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("operatorScreen")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("headerUser")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("headerUser")
+        .textContent =
+        "TeenTalk Operator";
+
+}
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+    currentUser = null;
+
+    userRole = null;
+
+
+    document
+        .getElementById("teenScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("operatorScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("authScreen")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("headerUser")
+        .classList
+        .add("hidden");
+
+
+    showLogin();
+
+}
+
+
+
+/* =====================================================
+   CALL SYSTEM
+===================================================== */
+
+let activeCall = false;
+
+let teenCalling = false;
+
+
+function teenStartCall() {
+
+    if (activeCall) {
+
+        alert(
+            "The operator is currently on another call."
+        );
+
+        return;
+
+    }
+
+
+    teenCalling = true;
+
+
+    document
+        .getElementById("teenCall")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "teenCallStatus"
+        )
+        .textContent =
+        "Calling TeenTalk...";
+
+
+    document
+        .getElementById("incomingCall")
+        .classList
+        .remove("hidden");
+
+}
+
+
+function answerCall() {
+
+    if (activeCall) {
+
+        return;
+
+    }
+
+
+    activeCall = true;
+
+    teenCalling = false;
+
+
+    document
+        .getElementById("incomingCall")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "operatorActiveCall"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "teenCallStatus"
+        )
+        .textContent =
+        "Connected";
+
+
+    updateCallStatus();
+
+}
+
+
+function declineCall() {
+
+    teenCalling = false;
+
+
+    document
+        .getElementById("incomingCall")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("teenCall")
+        .classList
+        .add("hidden");
+
+}
+
+
+function teenEndCall() {
+
+    activeCall = false;
+
+    teenCalling = false;
+
+
+    document
+        .getElementById("teenCall")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "operatorActiveCall"
+        )
+        .classList
+        .add("hidden");
+
+
+    updateCallStatus();
+
+}
+
+
+function operatorEndCall() {
+
+    activeCall = false;
+
+    teenCalling = false;
+
+
+    document
+        .getElementById("teenCall")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById(
+            "operatorActiveCall"
+        )
+        .classList
+        .add("hidden");
+
+
+    updateCallStatus();
+
+}
+
+
+function updateCallStatus() {
+
+    const status =
+        document.getElementById(
+            "operatorStatus"
+        );
+
+
+    const dot =
+        document.getElementById(
+            "operatorDot"
+        );
+
+
+    if (activeCall) {
+
+        status.textContent =
+            "On a voice call";
+
+
+        dot.classList.add(
+            "red-dot"
+        );
+
+    } else {
+
+        status.textContent =
+            "Available for calls";
+
+
+        dot.classList.remove(
+            "red-dot"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   TEEN TEXT
+===================================================== */
+
+let teenTextMessages = [];
+
+
+function teenStartText() {
+
+    document
+        .getElementById("teenText")
+        .classList
+        .remove("hidden");
+
+
+    teenTextMessages = [
+
+        {
+
+            sender: "system",
+
+            text:
+                "Connected to the TeenTalk operator.",
+
+            time: getTime()
+
+        }
+
+    ];
+
+
+    renderTeenChat();
+
+}
+
+
+function teenSend() {
+
+    const input =
+        document.getElementById(
+            "teenMessage"
+        );
+
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+        return;
+    }
+
+
+    teenTextMessages.push({
+
+        sender: "teen",
+
+        text: text,
+
+        time: getTime()
+
+    });
+
+
+    input.value = "";
+
+
+    renderTeenChat();
+
+
+    /*
+        Prototype response.
+        A real version would send the message
+        to the operator's device/server.
+    */
+
+    setTimeout(function() {
+
+        teenTextMessages.push({
+
+            sender: "operator",
+
+            text:
+                "I'm here. What's on your mind?",
+
+            time: getTime()
+
+        });
+
+
+        renderTeenChat();
+
+    }, 500);
+
+}
+
+
+function teenEnter(event) {
+
+    if (event.key === "Enter") {
+
+        teenSend();
+
+    }
+
+}
+
+
+function renderTeenChat() {
+
+    const chat =
+        document.getElementById(
+            "teenChat"
+        );
+
+
+    chat.innerHTML = "";
+
+
+    teenTextMessages.forEach(
+        message => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "message";
+
+
+            if (
+                message.sender ===
+                "operator"
+            ) {
+
+                div.classList.add(
+                    "operator"
+                );
+
+            }
+
+
+            if (
+                message.sender ===
+                "system"
+            ) {
+
+                div.classList.add(
+                    "system"
+                );
+
+            }
+
+
+            div.textContent =
+                message.text;
+
+
+            chat.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+function teenEndText() {
+
+    document
+        .getElementById("teenText")
+        .classList
+        .add("hidden");
+
+}
+
+
+function teenBlock() {
+
+    alert(
+        "This conversation has been blocked."
+    );
+
+
+    teenEndText();
+
+}
+
+
+
+/* =====================================================
+   OPERATOR TEXT
+===================================================== */
+
+let operatorConversations = {};
+
+let currentOperatorConversation = null;
+
+let conversationNumber = 1;
+
+
+function simulateNewText() {
+
+    const id =
+        "teen-" +
+        conversationNumber++;
+
+
+    operatorConversations[id] = {
+
+        name:
+            "Teen " +
+            id.replace("teen-", ""),
+
+        messages: [
+
+            {
+
+                sender: "system",
+
+                text:
+                    "New text conversation.",
+
+                time: getTime()
+
+            }
+
+        ],
+
+        notes: "",
+
+        blocked: false
+
+    };
+
+
+    openOperatorConversation(id);
+
+    renderConversationList();
+
+}
+
+
+function openOperatorConversation(id) {
+
+    if (
+        !operatorConversations[id] ||
+        operatorConversations[id].blocked
+    ) {
+
+        return;
+
+    }
+
+
+    currentOperatorConversation =
+        id;
+
+
+    document
+        .getElementById(
+            "operatorChatArea"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "operatorChatTitle"
+        )
+        .textContent =
+        operatorConversations[id].name;
+
+
+    renderOperatorChat();
+
+    loadNotes();
+
+}
+
+
+function operatorSend() {
+
+    if (!currentOperatorConversation) {
+        return;
+    }
+
+
+    const input =
+        document.getElementById(
+            "operatorMessage"
+        );
+
+
+    const text =
+        input.value.trim();
+
+
+    if (!text) {
+        return;
+
+    }
+
+
+    operatorConversations[
+        currentOperatorConversation
+    ].messages.push({
+
+        sender: "operator",
+
+        text: text,
+
+        time: getTime()
+
+    });
+
+
+    input.value = "";
+
+
+    renderOperatorChat();
+
+}
+
+
+function operatorEnter(event) {
+
+    if (event.key === "Enter") {
+
+        operatorSend();
+
+    }
+
+}
+
+
+function renderOperatorChat() {
+
+    if (!currentOperatorConversation) {
+        return;
+    }
+
+
+    const chat =
+        document.getElementById(
+            "operatorChat"
+        );
+
+
+    chat.innerHTML = "";
+
+
+    const conversation =
+        operatorConversations[
+            currentOperatorConversation
+        ];
+
+
+    conversation.messages.forEach(
+        message => {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "message";
+
+
+            if (
+                message.sender ===
+                "operator"
+            ) {
+
+                div.classList.add(
+                    "operator"
+                );
+
+            }
+
+
+            if (
+                message.sender ===
+                "system"
+            ) {
+
+                div.classList.add(
+                    "system"
+                );
+
+            }
+
+
+            div.textContent =
+                message.text;
+
+
+            chat.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+}
+
+
+function renderConversationList() {
+
+    const list =
+        document.getElementById(
+            "conversationList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    Object.entries(
+        operatorConversations
+    ).forEach(
+        ([id, conversation]) => {
+
+            if (
+                conversation.blocked
+            ) {
+
+                return;
+
+            }
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "conversation-button";
+
+
+            if (
+                id ===
+                currentOperatorConversation
+            ) {
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            button.textContent =
+                conversation.name;
+
+
+            button.onclick =
+                function() {
+
+                    openOperatorConversation(
+                        id
+                    );
+
+                    renderConversationList();
+
+                };
+
+
+            list.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+function operatorBlock() {
+
+    if (
+        !currentOperatorConversation
+    ) {
+
+        return;
+
+    }
+
+
+    operatorConversations[
+        currentOperatorConversation
+    ].blocked = true;
+
+
+    alert(
+        "This teen has been blocked."
+    );
+
+
+    document
+        .getElementById(
+            "operatorChatArea"
+        )
+        .classList
+        .add("hidden");
+
+
+    currentOperatorConversation =
+        null;
+
+
+    renderConversationList();
+
+}
+
+
+
+/* =====================================================
+   PRIVATE NOTES
+===================================================== */
+
+function saveNotes() {
+
+    if (
+        !currentOperatorConversation
+    ) {
+
+        return;
+
+    }
+
+
+    operatorConversations[
+        currentOperatorConversation
+    ].notes =
+        document.getElementById(
+            "operatorNotes"
+        ).value;
+
+
+    document.getElementById(
+        "notesSaved"
+    ).textContent =
+        "Private notes saved.";
+
+}
+
+
+function loadNotes() {
+
+    if (
+        !currentOperatorConversation
+    ) {
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "operatorNotes"
+    ).value =
+        operatorConversations[
+            currentOperatorConversation
+        ].notes || "";
+
+
+    document.getElementById(
+        "notesSaved"
+    ).textContent = "";
+
+}
+
+
+
+/* =====================================================
+   REPORTING
+===================================================== */
+
+function openReport() {
+
+    document
+        .getElementById("reportModal")
+        .classList
+        .remove("hidden");
+
+}
+
+
+function closeReport() {
+
+    document
+        .getElementById("reportModal")
+        .classList
+        .add("hidden");
+
+}
+
+
+function submitReport() {
+
+    const report =
+        document.getElementById(
+            "reportText"
+        ).value.trim();
+
+
+    if (!report) {
+
+        alert(
+            "Please enter report details."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Manual report submitted."
+    );
+
+
+    document.getElementById(
+        "reportText"
+    ).value = "";
+
+
+    closeReport();
+
+}
+
+
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+
+function getTime() {
+
+    return new Date().toLocaleTimeString(
+        [],
+        {
+            hour: "numeric",
+            minute: "2-digit"
+        }
+    );
+
+}
+
+
+/* Start password protection */
+
+setupPasswordSecurity();
+
+showLogin();
+
+</script>
+
+</body>
+</html>

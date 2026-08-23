@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>TeenTalk</title>
 
 <style>
 
-/* =========================
+/* =========================================
    GENERAL
-========================= */
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -61,7 +65,7 @@ main {
 }
 
 .auth-card {
-    max-width: 520px;
+    max-width: 540px;
     margin: 40px auto;
 }
 
@@ -75,6 +79,20 @@ h3 {
     color: #667085;
     line-height: 1.5;
 }
+
+.small {
+    font-size: 13px;
+    color: #667085;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
 
 label {
     display: block;
@@ -97,9 +115,9 @@ textarea {
 }
 
 
-/* =========================
+/* =========================================
    BUTTONS
-========================= */
+========================================= */
 
 button {
     border: 0;
@@ -135,13 +153,9 @@ button:disabled {
 }
 
 
-/* =========================
+/* =========================================
    LOGIN TABS
-========================= */
-
-/*
-   ALL THREE OPTIONS ARE BLUE.
-*/
+========================================= */
 
 .tabs {
     display: flex;
@@ -149,24 +163,26 @@ button:disabled {
     margin: 25px 0;
 }
 
+
+/*
+   ALL THREE LOGIN OPTIONS ARE BLUE.
+*/
+
 .tab {
     flex: 1;
-
     background: #2457e6;
     color: white;
-
     border: 2px solid #2457e6;
+}
 
-    transition:
-        background .15s,
-        transform .15s;
+.tab:hover {
+    background: #1743b8;
+    border-color: #1743b8;
 }
 
 
 /*
-   The currently selected option
-   is still blue, but slightly darker
-   so you can tell which screen is open.
+   Selected option is darker blue.
 */
 
 .tab.active {
@@ -175,19 +191,9 @@ button:disabled {
 }
 
 
-/*
-   Make the blue buttons respond
-   when hovered.
-*/
-
-.tab:hover {
-    background: #1743b8;
-}
-
-
-/* =========================
+/* =========================================
    PASSWORD
-========================= */
+========================================= */
 
 .password-row {
     display: flex;
@@ -204,13 +210,9 @@ button:disabled {
 }
 
 
-/* =========================
-   MESSAGES
-========================= */
-
-.hidden {
-    display: none !important;
-}
+/* =========================================
+   NOTICES
+========================================= */
 
 .notice {
     background: #fff8df;
@@ -239,15 +241,10 @@ button:disabled {
     margin-top: 12px;
 }
 
-.small {
-    font-size: 13px;
-    color: #667085;
-}
 
-
-/* =========================
-   TEEN OPTIONS
-========================= */
+/* =========================================
+   TEEN DASHBOARD
+========================================= */
 
 .option-grid {
     display: grid;
@@ -262,9 +259,9 @@ button:disabled {
 }
 
 
-/* =========================
+/* =========================================
    CHAT
-========================= */
+========================================= */
 
 .panel {
     border: 1px solid #dce3ed;
@@ -325,9 +322,9 @@ button:disabled {
 }
 
 
-/* =========================
+/* =========================================
    OPERATOR
-========================= */
+========================================= */
 
 .operator-layout {
     display: grid;
@@ -348,8 +345,7 @@ button:disabled {
     cursor: pointer;
 }
 
-.conversation:hover,
-.conversation.active {
+.conversation:hover {
     background: #eaf0ff;
     border-color: #2457e6;
 }
@@ -375,9 +371,9 @@ button:disabled {
 }
 
 
-/* =========================
+/* =========================================
    CALL
-========================= */
+========================================= */
 
 .call-panel {
     text-align: center;
@@ -390,9 +386,15 @@ button:disabled {
 }
 
 
-/* =========================
-   REPORTS
-========================= */
+/* =========================================
+   NOTES / REPORTS
+========================================= */
+
+.note-saved {
+    color: #176b36;
+    font-size: 13px;
+    margin-top: 8px;
+}
 
 .report-item {
     background: #fff7f7;
@@ -402,16 +404,10 @@ button:disabled {
     margin-top: 8px;
 }
 
-.note-saved {
-    color: #176b36;
-    font-size: 13px;
-    margin-top: 8px;
-}
 
-
-/* =========================
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media (max-width: 800px) {
 
@@ -430,6 +426,7 @@ button:disabled {
 }
 
 </style>
+
 </head>
 
 
@@ -453,38 +450,30 @@ button:disabled {
 <main>
 
 
-<!-- ==================================================
-     AUTHENTICATION
-================================================== -->
+<!-- =====================================================
+     AUTH SCREEN
+===================================================== -->
 
 <section
     id="authScreen"
     class="card auth-card">
 
-
     <h1>
         TeenTalk
     </h1>
 
-
     <p class="subtitle">
-
-        A place to talk with the teen
-        currently operating the line.
-
+        A place where teens can talk with the
+        teen currently operating the line.
     </p>
 
 
-    <!-- =========================
-         LOGIN OPTIONS
-    ========================== -->
-
     <div class="tabs">
-
 
         <button
             id="loginTab"
             class="tab active"
+            type="button"
             onclick="showLogin()">
 
             Log In
@@ -495,6 +484,7 @@ button:disabled {
         <button
             id="signupTab"
             class="tab"
+            type="button"
             onclick="showSignup()">
 
             Sign Up
@@ -505,55 +495,48 @@ button:disabled {
         <button
             id="operatorTab"
             class="tab"
+            type="button"
             onclick="showOperatorLogin()">
 
             Operator
 
         </button>
 
-
     </div>
 
 
-    <!-- ==================================================
+    <!-- =================================================
          TEEN LOGIN
     ================================================== -->
 
     <div id="loginForm">
 
-
         <h2>
             Teen Login
         </h2>
 
-
-        <label>
+        <label for="loginUsername">
             Username
         </label>
 
-
         <input
             id="loginUsername"
+            type="text"
             autocomplete="username"
-            placeholder="Username"
-        >
+            placeholder="Username">
 
 
-        <label>
+        <label for="loginPassword">
             Password
         </label>
 
-
         <div class="password-row">
-
 
             <input
                 id="loginPassword"
                 type="password"
                 autocomplete="current-password"
-                placeholder="Password"
-            >
-
+                placeholder="Password">
 
             <button
                 id="loginReveal"
@@ -569,12 +552,12 @@ button:disabled {
 
             </button>
 
-
         </div>
 
 
         <button
             class="primary full"
+            type="button"
             onclick="loginTeen()">
 
             Log In
@@ -587,11 +570,10 @@ button:disabled {
             class="error hidden">
         </div>
 
-
     </div>
 
 
-    <!-- ==================================================
+    <!-- =================================================
          SIGN UP
     ================================================== -->
 
@@ -599,49 +581,40 @@ button:disabled {
         id="signupForm"
         class="hidden">
 
-
         <h2>
             Create Teen Account
         </h2>
 
-
         <div class="notice">
 
-            Birthday and graduation year
-            are required.
-
-            About Yourself is optional.
+            Birthday and graduation year are required.
+            The About Yourself section is optional.
 
         </div>
 
 
-        <label>
+        <label for="signupUsername">
             Username *
         </label>
 
-
         <input
             id="signupUsername"
+            type="text"
             autocomplete="username"
-            placeholder="Choose a username"
-        >
+            placeholder="Choose a username">
 
 
-        <label>
+        <label for="signupPassword">
             Password *
         </label>
 
-
         <div class="password-row">
-
 
             <input
                 id="signupPassword"
                 type="password"
                 autocomplete="new-password"
-                placeholder="Create a password"
-            >
-
+                placeholder="Create a password">
 
             <button
                 id="signupReveal"
@@ -657,34 +630,29 @@ button:disabled {
 
             </button>
 
-
         </div>
 
 
-        <label>
+        <label for="signupBirthday">
             Birthday *
         </label>
 
-
         <input
             id="signupBirthday"
-            type="date"
-        >
+            type="date">
 
 
-        <label>
+        <label for="signupGraduation">
             Graduation Year *
         </label>
-
 
         <input
             id="signupGraduation"
             type="number"
-            placeholder="Example: 2029"
-        >
+            placeholder="Example: 2029">
 
 
-        <label>
+        <label for="signupAbout">
 
             About Yourself
 
@@ -694,15 +662,15 @@ button:disabled {
 
         </label>
 
-
         <textarea
             id="signupAbout"
-            placeholder="Tell the operator about yourself if you want to."
-        ></textarea>
+            placeholder="Tell the operator about yourself if you want to.">
+        </textarea>
 
 
         <button
             class="primary full"
+            type="button"
             onclick="signupTeen()">
 
             Create Account
@@ -710,15 +678,13 @@ button:disabled {
         </button>
 
 
-        <div
-            id="signupMessage">
+        <div id="signupMessage">
         </div>
-
 
     </div>
 
 
-    <!-- ==================================================
+    <!-- =================================================
          OPERATOR LOGIN
     ================================================== -->
 
@@ -726,60 +692,51 @@ button:disabled {
         id="operatorLoginForm"
         class="hidden">
 
-
         <h2>
-            Operator Login
+            Operator Sign In
         </h2>
 
 
-        <label>
-            Username
+        <label for="operatorUsername">
+            Operator Username
         </label>
-
 
         <input
             id="operatorUsername"
+            type="text"
             autocomplete="username"
-            placeholder="Operator username"
-        >
+            placeholder="Enter operator username">
 
 
-        <label>
-            Password
+        <label for="operatorPassword">
+            Operator Password
         </label>
 
-
         <div class="password-row">
-
 
             <input
                 id="operatorPassword"
                 type="password"
-                autocomplete="current-password"
-                placeholder="Operator password"
-            >
-
+                autocomplete="off"
+                placeholder="Enter operator password">
 
             <button
                 id="operatorReveal"
                 class="reveal"
                 type="button"
                 disabled
-                onclick="togglePassword(
-                    'operatorPassword',
-                    'operatorReveal'
-                )">
+                onclick="toggleOperatorPassword()">
 
                 Reveal
 
             </button>
-
 
         </div>
 
 
         <button
             class="primary full"
+            type="button"
             onclick="loginOperator()">
 
             Operator Sign In
@@ -792,45 +749,39 @@ button:disabled {
             class="error hidden">
         </div>
 
-
     </div>
-
 
 </section>
 
 
-<!-- ==================================================
+<!-- =====================================================
      TEEN DASHBOARD
-================================================== -->
+===================================================== -->
 
 <section
     id="teenDashboard"
     class="hidden">
 
-
     <div class="card">
 
-
         <h1>
-            TeenTalk
+            Welcome to TeenTalk
         </h1>
-
 
         <div class="notice">
 
-            You can talk without giving the
-            operator your name or other
-            personal information unless
-            you want to.
+            You can talk without giving the operator
+            your name or other personal information
+            unless you want to.
 
         </div>
 
 
         <div class="option-grid">
 
-
             <button
                 class="big-button primary"
+                type="button"
                 onclick="startCall()">
 
                 📞
@@ -842,6 +793,7 @@ button:disabled {
 
             <button
                 class="big-button primary"
+                type="button"
                 onclick="openText()">
 
                 💬
@@ -849,7 +801,6 @@ button:disabled {
                 Text
 
             </button>
-
 
         </div>
 
@@ -860,16 +811,15 @@ button:disabled {
             id="teenTextPanel"
             class="panel hidden">
 
-
             <div class="chat-header">
 
                 <strong>
                     TeenTalk Operator
                 </strong>
 
-
                 <button
                     class="danger"
+                    type="button"
                     onclick="blockOperator()">
 
                     Block
@@ -887,25 +837,22 @@ button:disabled {
 
             <div class="message-row">
 
-
                 <input
                     id="teenMessageInput"
+                    type="text"
                     placeholder="Type a message..."
-                    onkeydown="teenEnter(event)"
-                >
-
+                    onkeydown="teenEnter(event)">
 
                 <button
                     class="primary"
+                    type="button"
                     onclick="sendTeenMessage()">
 
                     Send
 
                 </button>
 
-
             </div>
-
 
         </div>
 
@@ -916,66 +863,57 @@ button:disabled {
             id="teenCallPanel"
             class="panel call-panel hidden">
 
-
             <div class="call-icon">
                 📞
             </div>
 
-
-            <h2
-                id="teenCallStatus">
-
-                Calling...
-
+            <h2 id="teenCallStatus">
+                Calling the operator...
             </h2>
-
 
             <button
                 class="danger"
+                type="button"
                 onclick="endCall()">
 
                 End Call
 
             </button>
 
-
         </div>
 
 
         <button
             class="secondary full"
+            type="button"
             onclick="logout()">
 
             Log Out
 
         </button>
 
-
     </div>
-
 
 </section>
 
 
-<!-- ==================================================
+<!-- =====================================================
      OPERATOR DASHBOARD
-================================================== -->
+===================================================== -->
 
 <section
     id="operatorDashboard"
     class="hidden">
 
-
     <div class="operator-layout">
 
 
-        <!-- LEFT -->
+        <!-- LEFT SIDE -->
 
         <div class="card">
 
-
             <h2>
-                Operator
+                Operator Dashboard
             </h2>
 
 
@@ -996,8 +934,7 @@ button:disabled {
             </h3>
 
 
-            <div
-                id="pendingAccounts">
+            <div id="pendingAccounts">
             </div>
 
 
@@ -1009,32 +946,26 @@ button:disabled {
             </h3>
 
 
-            <div
-                id="conversationList">
+            <div id="conversationList">
             </div>
-
 
         </div>
 
 
-        <!-- RIGHT -->
+        <!-- RIGHT SIDE -->
 
         <div class="card">
 
 
-            <div
-                id="operatorEmpty">
+            <div id="operatorEmpty">
 
                 <h2>
                     No conversation selected
                 </h2>
 
-
                 <p class="subtitle">
-
                     Select a teen's conversation
                     from the left.
-
                 </p>
 
             </div>
@@ -1046,23 +977,19 @@ button:disabled {
                 id="operatorChatPanel"
                 class="hidden">
 
-
                 <div class="chat-header">
 
-
-                    <strong
-                        id="operatorChatName">
+                    <strong id="operatorChatName">
                     </strong>
-
 
                     <button
                         class="danger"
+                        type="button"
                         onclick="operatorBlockTeen()">
 
                         Block
 
                     </button>
-
 
                 </div>
 
@@ -1075,52 +1002,46 @@ button:disabled {
 
                 <div class="message-row">
 
-
                     <input
                         id="operatorMessageInput"
+                        type="text"
                         placeholder="Reply..."
-                        onkeydown="operatorEnter(event)"
-                    >
-
+                        onkeydown="operatorEnter(event)">
 
                     <button
                         class="primary"
+                        type="button"
                         onclick="sendOperatorMessage()">
 
                         Send
 
                     </button>
 
-
                 </div>
 
 
-                <!-- NOTES -->
+                <!-- PRIVATE NOTES -->
 
                 <div class="section">
-
 
                     <h3>
                         Private Notes
                     </h3>
 
-
                     <p class="small">
-
-                        These notes are saved
-                        separately for this teen.
-
+                        These notes are stored separately
+                        for this teen.
                     </p>
-
 
                     <textarea
                         id="privateNotes"
-                        placeholder="Private notes..."
-                    ></textarea>
+                        placeholder="Private notes...">
+                    </textarea>
 
 
                     <button
                         class="secondary"
+                        type="button"
                         onclick="saveNotes()">
 
                         Save Notes
@@ -1133,7 +1054,6 @@ button:disabled {
                         class="note-saved">
                     </div>
 
-
                 </div>
 
 
@@ -1141,29 +1061,25 @@ button:disabled {
 
                 <div class="section">
 
-
                     <h3>
                         Reports
                     </h3>
 
-
                     <p class="small">
-
-                        Reports are created
-                        manually. Nothing is
-                        automatically reported.
-
+                        Reports are manually created.
+                        Nothing is automatically reported.
                     </p>
 
 
                     <textarea
                         id="reportInput"
-                        placeholder="Write a report..."
-                    ></textarea>
+                        placeholder="Write a report...">
+                    </textarea>
 
 
                     <button
                         class="danger"
+                        type="button"
                         onclick="saveReport()">
 
                         Save Report
@@ -1171,13 +1087,10 @@ button:disabled {
                     </button>
 
 
-                    <div
-                        id="reportsList">
+                    <div id="reportsList">
                     </div>
 
-
                 </div>
-
 
             </div>
 
@@ -1188,16 +1101,13 @@ button:disabled {
                 id="incomingCall"
                 class="call-panel hidden">
 
-
                 <div class="call-icon">
                     📞
                 </div>
 
-
                 <h2>
                     Incoming TeenTalk Call
                 </h2>
-
 
                 <p>
                     A teen is calling the line.
@@ -1206,6 +1116,7 @@ button:disabled {
 
                 <button
                     class="primary"
+                    type="button"
                     onclick="answerCall()">
 
                     Answer
@@ -1215,30 +1126,28 @@ button:disabled {
 
                 <button
                     class="danger"
+                    type="button"
                     onclick="declineCall()">
 
                     Decline
 
                 </button>
 
-
             </div>
 
-
         </div>
-
 
     </div>
 
 
     <button
         class="secondary full"
+        type="button"
         onclick="logout()">
 
         Log Out
 
     </button>
-
 
 </section>
 
@@ -1248,13 +1157,11 @@ button:disabled {
 
 <script>
 
-/* =========================================================
+/* =====================================================
    DATABASE
-========================================================= */
+===================================================== */
 
-const DB_KEY =
-    "TeenTalkDatabase_Final";
-
+const DB_KEY = "TeenTalkDatabase";
 
 let db =
     JSON.parse(
@@ -1284,129 +1191,27 @@ function saveDB() {
 }
 
 
-/* =========================================================
+/* =====================================================
    SESSION
-========================================================= */
+===================================================== */
 
 let currentUser = null;
 
 let currentTeenId = null;
 
 
-/* =========================================================
-   PASSWORD REVEAL
-========================================================= */
+/* =====================================================
+   OPERATOR CREDENTIALS
+===================================================== */
 
-function setupPasswordReveal(
-    inputId,
-    buttonId
-) {
+const OPERATOR_USERNAME = "NisaAdmin";
 
-    const input =
-        document.getElementById(
-            inputId
-        );
-
-    const button =
-        document.getElementById(
-            buttonId
-        );
+const OPERATOR_PASSWORD = "C@p!t@l!zed";
 
 
-    input.addEventListener(
-        "input",
-        function() {
-
-            if (
-                this.value.length > 0
-            ) {
-
-                button.disabled =
-                    false;
-
-            } else {
-
-                button.disabled =
-                    true;
-
-            }
-
-        }
-    );
-
-}
-
-
-setupPasswordReveal(
-    "loginPassword",
-    "loginReveal"
-);
-
-setupPasswordReveal(
-    "signupPassword",
-    "signupReveal"
-);
-
-setupPasswordReveal(
-    "operatorPassword",
-    "operatorReveal"
-);
-
-
-function togglePassword(
-    inputId,
-    buttonId
-) {
-
-    const input =
-        document.getElementById(
-            inputId
-        );
-
-    const button =
-        document.getElementById(
-            buttonId
-        );
-
-
-    if (
-        input.value.length === 0
-    ) {
-
-        button.disabled =
-            true;
-
-        return;
-
-    }
-
-
-    if (
-        input.type === "password"
-    ) {
-
-        input.type =
-            "text";
-
-        button.textContent =
-            "Hide";
-
-    } else {
-
-        input.type =
-            "password";
-
-        button.textContent =
-            "Reveal";
-
-    }
-
-}
-
-
-/* =========================================================
-   SCREEN SWITCHING
-========================================================= */
+/* =====================================================
+   SCREEN CONTROL
+===================================================== */
 
 function hideEverything() {
 
@@ -1514,59 +1319,137 @@ function showOperatorLogin() {
 }
 
 
-/* =========================================================
-   SIGN UP
-========================================================= */
+/* =====================================================
+   PASSWORD REVEAL
+===================================================== */
+
+function setupPasswordReveal(
+    inputId,
+    buttonId
+) {
+
+    const input =
+        document.getElementById(inputId);
+
+    const button =
+        document.getElementById(buttonId);
+
+
+    input.addEventListener(
+        "input",
+        function () {
+
+            button.disabled =
+                this.value.length === 0;
+
+        }
+    );
+
+}
+
+
+setupPasswordReveal(
+    "loginPassword",
+    "loginReveal"
+);
+
+setupPasswordReveal(
+    "signupPassword",
+    "signupReveal"
+);
+
+setupPasswordReveal(
+    "operatorPassword",
+    "operatorReveal"
+);
+
+
+function togglePassword(
+    inputId,
+    buttonId
+) {
+
+    const input =
+        document.getElementById(inputId);
+
+    const button =
+        document.getElementById(buttonId);
+
+
+    if (input.value.length === 0) {
+
+        button.disabled = true;
+
+        return;
+
+    }
+
+
+    if (
+        input.type === "password"
+    ) {
+
+        input.type = "text";
+
+        button.textContent = "Hide";
+
+    } else {
+
+        input.type = "password";
+
+        button.textContent = "Reveal";
+
+    }
+
+}
+
+
+function toggleOperatorPassword() {
+
+    togglePassword(
+        "operatorPassword",
+        "operatorReveal"
+    );
+
+}
+
+
+/* =====================================================
+   TEEN SIGN UP
+===================================================== */
 
 function signupTeen() {
 
     const username =
         document
-            .getElementById(
-                "signupUsername"
-            )
+            .getElementById("signupUsername")
             .value
             .trim();
-
 
     const password =
         document
-            .getElementById(
-                "signupPassword"
-            )
+            .getElementById("signupPassword")
             .value;
-
 
     const birthday =
         document
-            .getElementById(
-                "signupBirthday"
-            )
+            .getElementById("signupBirthday")
             .value;
-
 
     const graduation =
         document
-            .getElementById(
-                "signupGraduation"
-            )
+            .getElementById("signupGraduation")
             .value;
-
 
     const about =
         document
-            .getElementById(
-                "signupAbout"
-            )
+            .getElementById("signupAbout")
             .value
             .trim();
 
-
     const message =
         document
-            .getElementById(
-                "signupMessage"
-            );
+            .getElementById("signupMessage");
 
 
     if (
@@ -1576,11 +1459,10 @@ function signupTeen() {
         !graduation
     ) {
 
-        message.className =
-            "error";
+        message.className = "error";
 
         message.textContent =
-            "Birthday and graduation year are required.";
+            "Please complete all required fields.";
 
         return;
 
@@ -1591,12 +1473,9 @@ function signupTeen() {
         username.toLowerCase();
 
 
-    if (
-        db.users[normalized]
-    ) {
+    if (db.users[normalized]) {
 
-        message.className =
-            "error";
+        message.className = "error";
 
         message.textContent =
             "That username is already being used.";
@@ -1607,8 +1486,7 @@ function signupTeen() {
 
 
     const id =
-        "teen_" +
-        Date.now();
+        "teen_" + Date.now();
 
 
     db.users[normalized] = {
@@ -1656,49 +1534,38 @@ function signupTeen() {
     saveDB();
 
 
-    message.className =
-        "success";
+    message.className = "success";
 
     message.textContent =
-        "Account created. It is waiting for operator approval.";
+        "Account created. Please wait for the operator to approve your account.";
 
 }
 
 
-/* =========================================================
+/* =====================================================
    TEEN LOGIN
-========================================================= */
+===================================================== */
 
 function loginTeen() {
 
     const username =
         document
-            .getElementById(
-                "loginUsername"
-            )
+            .getElementById("loginUsername")
             .value
             .trim()
             .toLowerCase();
 
-
     const password =
         document
-            .getElementById(
-                "loginPassword"
-            )
+            .getElementById("loginPassword")
             .value;
-
 
     const error =
         document
-            .getElementById(
-                "loginError"
-            );
+            .getElementById("loginError");
 
 
-    error.classList.add(
-        "hidden"
-    );
+    error.classList.add("hidden");
 
 
     const user =
@@ -1713,120 +1580,95 @@ function loginTeen() {
         error.textContent =
             "Incorrect username or password.";
 
-        error.classList.remove(
-            "hidden"
-        );
+        error.classList.remove("hidden");
 
         return;
 
     }
 
 
-    if (
-        !user.approved
-    ) {
+    if (!user.approved) {
 
         error.textContent =
             "Your account has not been approved yet.";
 
-        error.classList.remove(
-            "hidden"
-        );
+        error.classList.remove("hidden");
 
         return;
 
     }
 
 
-    currentUser =
-        user;
-
+    currentUser = user;
 
     showTeenDashboard();
 
 }
 
 
-/* =========================================================
+/* =====================================================
    OPERATOR LOGIN
-========================================================= */
+===================================================== */
 
 function loginOperator() {
 
     const username =
         document
-            .getElementById(
-                "operatorUsername"
-            )
+            .getElementById("operatorUsername")
             .value
             .trim();
 
-
     const password =
         document
-            .getElementById(
-                "operatorPassword"
-            )
+            .getElementById("operatorPassword")
             .value;
-
 
     const error =
         document
-            .getElementById(
-                "operatorError"
-            );
+            .getElementById("operatorError");
 
 
-    error.classList.add(
-        "hidden"
-    );
+    error.classList.add("hidden");
 
 
-    const OPERATOR_USERNAME =
-        "NisaAdmin";
-
-
-    const OPERATOR_PASSWORD =
-        "C@p!t@l!zed";
-
+    /*
+       Exact operator credentials.
+    */
 
     if (
-        username === OPERATOR_USERNAME &&
-        password === OPERATOR_PASSWORD
+        username !== OPERATOR_USERNAME ||
+        password !== OPERATOR_PASSWORD
     ) {
 
-        currentUser = {
+        error.textContent =
+            "Incorrect operator username or password.";
 
-            id: "operator",
-
-            username:
-                OPERATOR_USERNAME,
-
-            role: "operator"
-
-        };
-
-
-        showOperatorDashboard();
+        error.classList.remove("hidden");
 
         return;
 
     }
 
 
-    error.textContent =
-        "Incorrect operator username or password.";
+    currentUser = {
 
-    error.classList.remove(
-        "hidden"
-    );
+        id: "operator",
+
+        username: OPERATOR_USERNAME,
+
+        role: "operator"
+
+    };
+
+
+    showOperatorDashboard();
 
 }
 
 
-/* =========================================================
+/* =====================================================
    TEEN DASHBOARD
-========================================================= */
+===================================================== */
 
 function showTeenDashboard() {
 
@@ -1834,34 +1676,26 @@ function showTeenDashboard() {
 
 
     document
-        .getElementById(
-            "teenDashboard"
-        )
-        .classList
-        .remove("hidden");
+        .getElementById("teenDashboard")
+        .classList.remove("hidden");
 
 
     document
-        .getElementById(
-            "userBadge"
-        )
-        .classList
-        .remove("hidden");
+        .getElementById("userBadge")
+        .classList.remove("hidden");
 
 
     document
-        .getElementById(
-            "userBadge"
-        )
+        .getElementById("userBadge")
         .textContent =
         currentUser.username;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    OPERATOR DASHBOARD
-========================================================= */
+===================================================== */
 
 function showOperatorDashboard() {
 
@@ -1869,25 +1703,17 @@ function showOperatorDashboard() {
 
 
     document
-        .getElementById(
-            "operatorDashboard"
-        )
-        .classList
-        .remove("hidden");
+        .getElementById("operatorDashboard")
+        .classList.remove("hidden");
 
 
     document
-        .getElementById(
-            "userBadge"
-        )
-        .classList
-        .remove("hidden");
+        .getElementById("userBadge")
+        .classList.remove("hidden");
 
 
     document
-        .getElementById(
-            "userBadge"
-        )
+        .getElementById("userBadge")
         .textContent =
         "Operator";
 
@@ -1899,52 +1725,40 @@ function showOperatorDashboard() {
 }
 
 
-/* =========================================================
-   PENDING ACCOUNTS
-========================================================= */
+/* =====================================================
+   ACCOUNT APPROVAL
+===================================================== */
 
 function renderPendingAccounts() {
 
     const container =
-        document
-            .getElementById(
-                "pendingAccounts"
-            );
+        document.getElementById(
+            "pendingAccounts"
+        );
 
 
     container.innerHTML = "";
 
 
-    Object.values(
-        db.users
-    ).forEach(
+    Object.values(db.users).forEach(
         user => {
 
-            if (
-                user.approved
-            ) {
-
+            if (user.approved) {
                 return;
-
             }
 
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
-            div.className =
-                "account";
+            div.className = "account";
 
 
             div.innerHTML = `
 
                 <strong>
-                    ${escapeHTML(
-                        user.username
-                    )}
+                    ${escapeHTML(user.username)}
                 </strong>
 
                 <p class="small">
@@ -1956,6 +1770,7 @@ function renderPendingAccounts() {
 
                 <button
                     class="primary"
+                    type="button"
                     onclick="approveUser(
                         '${user.id}'
                     )">
@@ -1967,17 +1782,13 @@ function renderPendingAccounts() {
             `;
 
 
-            container.appendChild(
-                div
-            );
+            container.appendChild(div);
 
         }
     );
 
 
-    if (
-        !container.children.length
-    ) {
+    if (!container.children.length) {
 
         container.innerHTML =
             "<p class='small'>No pending accounts.</p>";
@@ -1990,23 +1801,19 @@ function renderPendingAccounts() {
 function approveUser(id) {
 
     const user =
-        Object.values(
-            db.users
-        ).find(
-            item =>
-                item.id === id
-        );
+        Object.values(db.users)
+            .find(
+                item =>
+                    item.id === id
+            );
 
 
     if (!user) {
-
         return;
-
     }
 
 
-    user.approved =
-        true;
+    user.approved = true;
 
 
     user.approvedAt =
@@ -2027,23 +1834,14 @@ function approveUser(id) {
 }
 
 
-/* =========================================================
-   TEXT CHAT
-========================================================= */
+/* =====================================================
+   TEXTING
+===================================================== */
 
 function openText() {
 
-    if (
-        !currentUser ||
-        !currentUser.approved
-    ) {
-
-        alert(
-            "Your account must be approved first."
-        );
-
+    if (!currentUser) {
         return;
-
     }
 
 
@@ -2053,9 +1851,7 @@ function openText() {
         ];
 
 
-    if (
-        conversation.blocked
-    ) {
+    if (conversation.blocked) {
 
         alert(
             "This conversation has been blocked."
@@ -2067,21 +1863,20 @@ function openText() {
 
 
     document
-        .getElementById(
-            "teenTextPanel"
-        )
+        .getElementById("teenTextPanel")
         .classList
         .remove("hidden");
 
 
-    if (
-        !conversation.greetingSent
-    ) {
+    /*
+       Automated message is sent ONLY ONCE.
+    */
+
+    if (!conversation.greetingSent) {
 
         conversation.messages.push({
 
-            sender:
-                "system",
+            sender: "system",
 
             text:
                 "Hi! I'm here to listen. What's on your mind?",
@@ -2092,9 +1887,7 @@ function openText() {
         });
 
 
-        conversation.greetingSent =
-            true;
-
+        conversation.greetingSent = true;
 
         saveDB();
 
@@ -2109,10 +1902,9 @@ function openText() {
 function renderTeenMessages() {
 
     const container =
-        document
-            .getElementById(
-                "teenMessages"
-            );
+        document.getElementById(
+            "teenMessages"
+        );
 
 
     container.innerHTML = "";
@@ -2128,35 +1920,26 @@ function renderTeenMessages() {
         message => {
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
-            div.className =
-                "message";
+            div.className = "message";
 
 
             if (
-                message.sender ===
-                "teen"
+                message.sender === "teen"
             ) {
 
-                div.classList.add(
-                    "me"
-                );
+                div.classList.add("me");
 
             }
 
 
             if (
-                message.sender ===
-                "system"
+                message.sender === "system"
             ) {
 
-                div.classList.add(
-                    "system"
-                );
+                div.classList.add("system");
 
             }
 
@@ -2165,9 +1948,7 @@ function renderTeenMessages() {
                 message.text;
 
 
-            container.appendChild(
-                div
-            );
+            container.appendChild(div);
 
         }
     );
@@ -2182,17 +1963,14 @@ function renderTeenMessages() {
 function sendTeenMessage() {
 
     if (!currentUser) {
-
         return;
-
     }
 
 
     const input =
-        document
-            .getElementById(
-                "teenMessageInput"
-            );
+        document.getElementById(
+            "teenMessageInput"
+        );
 
 
     const text =
@@ -2200,25 +1978,17 @@ function sendTeenMessage() {
 
 
     if (!text) {
-
         return;
-
     }
 
 
-    const conversation =
-        db.conversations[
-            currentUser.id
-        ];
+    db.conversations[
+        currentUser.id
+    ].messages.push({
 
+        sender: "teen",
 
-    conversation.messages.push({
-
-        sender:
-            "teen",
-
-        text:
-            text,
+        text: text,
 
         time:
             new Date().toISOString()
@@ -2241,9 +2011,7 @@ function sendTeenMessage() {
 
 function teenEnter(event) {
 
-    if (
-        event.key === "Enter"
-    ) {
+    if (event.key === "Enter") {
 
         sendTeenMessage();
 
@@ -2252,17 +2020,16 @@ function teenEnter(event) {
 }
 
 
-/* =========================================================
+/* =====================================================
    OPERATOR CONVERSATIONS
-========================================================= */
+===================================================== */
 
 function renderConversations() {
 
     const container =
-        document
-            .getElementById(
-                "conversationList"
-            );
+        document.getElementById(
+            "conversationList"
+        );
 
 
     container.innerHTML = "";
@@ -2276,16 +2043,12 @@ function renderConversations() {
             if (
                 conversation.blocked
             ) {
-
                 return;
-
             }
 
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
             div.className =
@@ -2307,6 +2070,7 @@ function renderConversations() {
                     ${
                         conversation.messages.length
                     }
+
                     message(s)
 
                 </span>
@@ -2314,27 +2078,22 @@ function renderConversations() {
             `;
 
 
-            div.onclick =
-                function() {
+            div.onclick = function () {
 
-                    openOperatorConversation(
-                        conversation.teenId
-                    );
+                openOperatorConversation(
+                    conversation.teenId
+                );
 
-                };
+            };
 
 
-            container.appendChild(
-                div
-            );
+            container.appendChild(div);
 
         }
     );
 
 
-    if (
-        !container.children.length
-    ) {
+    if (!container.children.length) {
 
         container.innerHTML =
             "<p class='small'>No active conversations.</p>";
@@ -2348,43 +2107,32 @@ function openOperatorConversation(
     teenId
 ) {
 
-    currentTeenId =
-        teenId;
+    currentTeenId = teenId;
 
 
     const conversation =
-        db.conversations[
-            teenId
-        ];
+        db.conversations[teenId];
 
 
     if (!conversation) {
-
         return;
-
     }
 
 
     document
-        .getElementById(
-            "operatorEmpty"
-        )
+        .getElementById("operatorEmpty")
         .classList
         .add("hidden");
 
 
     document
-        .getElementById(
-            "operatorChatPanel"
-        )
+        .getElementById("operatorChatPanel")
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById(
-            "operatorChatName"
-        )
+        .getElementById("operatorChatName")
         .textContent =
         conversation.username;
 
@@ -2401,17 +2149,14 @@ function openOperatorConversation(
 function renderOperatorMessages() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
     const container =
-        document
-            .getElementById(
-                "operatorMessages"
-            );
+        document.getElementById(
+            "operatorMessages"
+        );
 
 
     container.innerHTML = "";
@@ -2427,9 +2172,7 @@ function renderOperatorMessages() {
         message => {
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
             div.className =
@@ -2437,25 +2180,19 @@ function renderOperatorMessages() {
 
 
             if (
-                message.sender ===
-                "operator"
+                message.sender === "operator"
             ) {
 
-                div.classList.add(
-                    "me"
-                );
+                div.classList.add("me");
 
             }
 
 
             if (
-                message.sender ===
-                "system"
+                message.sender === "system"
             ) {
 
-                div.classList.add(
-                    "system"
-                );
+                div.classList.add("system");
 
             }
 
@@ -2464,9 +2201,7 @@ function renderOperatorMessages() {
                 message.text;
 
 
-            container.appendChild(
-                div
-            );
+            container.appendChild(div);
 
         }
     );
@@ -2481,17 +2216,14 @@ function renderOperatorMessages() {
 function sendOperatorMessage() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
     const input =
-        document
-            .getElementById(
-                "operatorMessageInput"
-            );
+        document.getElementById(
+            "operatorMessageInput"
+        );
 
 
     const text =
@@ -2499,9 +2231,7 @@ function sendOperatorMessage() {
 
 
     if (!text) {
-
         return;
-
     }
 
 
@@ -2509,11 +2239,9 @@ function sendOperatorMessage() {
         currentTeenId
     ].messages.push({
 
-        sender:
-            "operator",
+        sender: "operator",
 
-        text:
-            text,
+        text: text,
 
         time:
             new Date().toISOString()
@@ -2536,9 +2264,7 @@ function sendOperatorMessage() {
 
 function operatorEnter(event) {
 
-    if (
-        event.key === "Enter"
-    ) {
+    if (event.key === "Enter") {
 
         sendOperatorMessage();
 
@@ -2547,35 +2273,26 @@ function operatorEnter(event) {
 }
 
 
-/* =========================================================
+/* =====================================================
    PRIVATE NOTES
-========================================================= */
+===================================================== */
 
 function loadNotes() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
     document
-        .getElementById(
-            "privateNotes"
-        )
+        .getElementById("privateNotes")
         .value =
-        db.notes[
-            currentTeenId
-        ] || "";
+        db.notes[currentTeenId] || "";
 
 
     document
-        .getElementById(
-            "notesSaved"
-        )
-        .textContent =
-        "";
+        .getElementById("notesSaved")
+        .textContent = "";
 
 }
 
@@ -2583,15 +2300,11 @@ function loadNotes() {
 function saveNotes() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
-    db.notes[
-        currentTeenId
-    ] =
+    db.notes[currentTeenId] =
         document
             .getElementById(
                 "privateNotes"
@@ -2603,51 +2316,42 @@ function saveNotes() {
 
 
     document
-        .getElementById(
-            "notesSaved"
-        )
+        .getElementById("notesSaved")
         .textContent =
         "Private notes saved to this teen's individual record.";
 
 }
 
 
-/* =========================================================
+/* =====================================================
    REPORTS
-========================================================= */
+===================================================== */
 
 function loadReports() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
     const container =
-        document
-            .getElementById(
-                "reportsList"
-            );
+        document.getElementById(
+            "reportsList"
+        );
 
 
     container.innerHTML = "";
 
 
     const reports =
-        db.reports[
-            currentTeenId
-        ] || [];
+        db.reports[currentTeenId] || [];
 
 
     reports.forEach(
         report => {
 
             const div =
-                document.createElement(
-                    "div"
-                );
+                document.createElement("div");
 
 
             div.className =
@@ -2658,9 +2362,7 @@ function loadReports() {
                 report.text;
 
 
-            container.appendChild(
-                div
-            );
+            container.appendChild(div);
 
         }
     );
@@ -2671,17 +2373,14 @@ function loadReports() {
 function saveReport() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
     const input =
-        document
-            .getElementById(
-                "reportInput"
-            );
+        document.getElementById(
+            "reportInput"
+        );
 
 
     const text =
@@ -2689,31 +2388,22 @@ function saveReport() {
 
 
     if (!text) {
-
         return;
-
     }
 
 
     if (
-        !db.reports[
-            currentTeenId
-        ]
+        !db.reports[currentTeenId]
     ) {
 
-        db.reports[
-            currentTeenId
-        ] = [];
+        db.reports[currentTeenId] = [];
 
     }
 
 
-    db.reports[
-        currentTeenId
-    ].push({
+    db.reports[currentTeenId].push({
 
-        text:
-            text,
+        text: text,
 
         createdAt:
             new Date().toISOString()
@@ -2732,38 +2422,33 @@ function saveReport() {
 }
 
 
-/* =========================================================
+/* =====================================================
    BLOCKING
-========================================================= */
+===================================================== */
 
 function blockOperator() {
 
     if (!currentUser) {
-
         return;
-
     }
 
 
     db.conversations[
         currentUser.id
-    ].blocked =
-        true;
+    ].blocked = true;
 
 
     saveDB();
 
 
     document
-        .getElementById(
-            "teenTextPanel"
-        )
+        .getElementById("teenTextPanel")
         .classList
         .add("hidden");
 
 
     alert(
-        "The conversation has been blocked."
+        "This conversation has been blocked."
     );
 
 }
@@ -2772,31 +2457,25 @@ function blockOperator() {
 function operatorBlockTeen() {
 
     if (!currentTeenId) {
-
         return;
-
     }
 
 
     db.conversations[
         currentTeenId
-    ].blocked =
-        true;
+    ].blocked = true;
 
 
     saveDB();
 
 
     document
-        .getElementById(
-            "operatorChatPanel"
-        )
+        .getElementById("operatorChatPanel")
         .classList
         .add("hidden");
 
 
-    currentTeenId =
-        null;
+    currentTeenId = null;
 
 
     renderConversations();
@@ -2804,29 +2483,18 @@ function operatorBlockTeen() {
 }
 
 
-/* =========================================================
-   CALL
-========================================================= */
+/* =====================================================
+   CALL SYSTEM
+===================================================== */
 
 function startCall() {
 
-    if (
-        !currentUser ||
-        !currentUser.approved
-    ) {
-
-        alert(
-            "Your account must be approved first."
-        );
-
+    if (!currentUser) {
         return;
-
     }
 
 
-    if (
-        db.currentCall
-    ) {
+    if (db.currentCall) {
 
         alert(
             "The operator is currently handling another call."
@@ -2855,107 +2523,23 @@ function startCall() {
 
 
     document
-        .getElementById(
-            "teenCallPanel"
-        )
+        .getElementById("teenCallPanel")
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById(
-            "teenCallStatus"
-        )
+        .getElementById("teenCallStatus")
         .textContent =
         "Calling the operator...";
-
-
-    monitorTeenCall();
-
-}
-
-
-function monitorTeenCall() {
-
-    const interval =
-        setInterval(
-            function() {
-
-                if (
-                    !db.currentCall
-                ) {
-
-                    clearInterval(
-                        interval
-                    );
-
-                    return;
-
-                }
-
-
-                if (
-                    db.currentCall.teenId !==
-                    currentUser.id
-                ) {
-
-                    return;
-
-                }
-
-
-                if (
-                    db.currentCall.status ===
-                    "answered"
-                ) {
-
-                    document
-                        .getElementById(
-                            "teenCallStatus"
-                        )
-                        .textContent =
-                        "Connected to the operator.";
-
-                    clearInterval(
-                        interval
-                    );
-
-                }
-
-
-                if (
-                    db.currentCall.status ===
-                    "declined"
-                ) {
-
-                    document
-                        .getElementById(
-                            "teenCallStatus"
-                        )
-                        .textContent =
-                        "The operator could not answer.";
-
-                    clearInterval(
-                        interval
-                    );
-
-                }
-
-            },
-            500
-        );
 
 }
 
 
 function answerCall() {
 
-    if (
-        !db.currentCall
-    ) {
-
+    if (!db.currentCall) {
         return;
-
     }
 
 
@@ -2963,9 +2547,7 @@ function answerCall() {
         db.currentCall.status !==
         "ringing"
     ) {
-
         return;
-
     }
 
 
@@ -2977,9 +2559,7 @@ function answerCall() {
 
 
     document
-        .getElementById(
-            "incomingCall"
-        )
+        .getElementById("incomingCall")
         .classList
         .add("hidden");
 
@@ -2993,12 +2573,8 @@ function answerCall() {
 
 function declineCall() {
 
-    if (
-        !db.currentCall
-    ) {
-
+    if (!db.currentCall) {
         return;
-
     }
 
 
@@ -3010,9 +2586,7 @@ function declineCall() {
 
 
     document
-        .getElementById(
-            "incomingCall"
-        )
+        .getElementById("incomingCall")
         .classList
         .add("hidden");
 
@@ -3021,40 +2595,34 @@ function declineCall() {
 
 function endCall() {
 
-    db.currentCall =
-        null;
-
+    db.currentCall = null;
 
     saveDB();
 
 
     document
-        .getElementById(
-            "teenCallPanel"
-        )
+        .getElementById("teenCallPanel")
         .classList
         .add("hidden");
 
 }
 
 
-/* =========================================================
-   OPERATOR CALL MONITOR
-========================================================= */
+/* =====================================================
+   CHECK FOR INCOMING CALL
+===================================================== */
 
 setInterval(
-    function() {
+    function () {
 
         if (
             currentUser &&
-            currentUser.role ===
-            "operator"
+            currentUser.role === "operator"
         ) {
 
             if (
                 db.currentCall &&
-                db.currentCall.status ===
-                "ringing"
+                db.currentCall.status === "ringing"
             ) {
 
                 document
@@ -3082,35 +2650,28 @@ setInterval(
 );
 
 
-/* =========================================================
+/* =====================================================
    LOGOUT
-========================================================= */
+===================================================== */
 
 function logout() {
 
-    currentUser =
-        null;
+    currentUser = null;
 
-
-    currentTeenId =
-        null;
+    currentTeenId = null;
 
 
     hideEverything();
 
 
     document
-        .getElementById(
-            "authScreen"
-        )
+        .getElementById("authScreen")
         .classList
         .remove("hidden");
 
 
     document
-        .getElementById(
-            "userBadge"
-        )
+        .getElementById("userBadge")
         .classList
         .add("hidden");
 
@@ -3120,49 +2681,35 @@ function logout() {
 }
 
 
-/* =========================================================
-   HTML SECURITY
-========================================================= */
+/* =====================================================
+   HTML ESCAPING
+===================================================== */
 
 function escapeHTML(value) {
 
     return String(value)
 
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
+        .replaceAll("&", "&amp;")
 
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
+        .replaceAll("<", "&lt;")
 
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
+        .replaceAll(">", "&gt;")
 
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
+        .replaceAll('"', "&quot;")
 
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
+        .replaceAll("'", "&#039;");
 
 }
 
 
-/* =========================================================
-   START
-========================================================= */
+/* =====================================================
+   START APPLICATION
+===================================================== */
 
 showLogin();
 
 </script>
 
 </body>
+
 </html>
